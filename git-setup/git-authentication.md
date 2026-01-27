@@ -4,12 +4,15 @@
 ```
 # Generate SSH Key
 ssh-keygen -t ed25519 -C "dhartjes.work@gmail.com"
+
+# At prompt:
 #   - enter filename id_git-dhartjes-work
 #   - enter passphrase from secure notes
 
 # Retrieve public key
 cat id_git-dhartjes-work.pub
 > ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILezi7mWCTfgVBJekzn5lsBw9XsgRu0LoJdAkpAnX6tI dhartjes.work@gmail.com
+
 # Copy to clipboard and add to GitHub
 ```
 
