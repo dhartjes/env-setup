@@ -9,7 +9,6 @@ A developer workstation with my favorite tools enabled. Preference for keyboard 
 ## Get the repo
 1. Install WSL2/Ubuntu
 1. [Git Setup](/git-setup/git-installation.md)
-1. Clone env-setup
 1. Install NVIM
 1. Install Volta
 1. Install Moltbot
