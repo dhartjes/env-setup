@@ -14,6 +14,11 @@ cat id_git-dhartjes-work.pub
 > ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILezi7mWCTfgVBJekzn5lsBw9XsgRu0LoJdAkpAnX6tI dhartjes.work@gmail.com
 
 # Copy to clipboard and add to GitHub
+
+# To avoid using the passphrase with each operation, add the private key to your ssh-agent
+eval "$(ssh-agent -s)"
+> Agent pid xxxx
+ssh-add ~/.ssh/id_git-dhartjes-work
 ```
 
 ### Sources
