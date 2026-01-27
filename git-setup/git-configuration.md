@@ -7,6 +7,6 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_git-dhartjes-work
 `
 
-<-- Prev: [Git Installation](/git-installation.md)
---> Next: [Git Authentication](/git-authentication.md)
+<-- Prev: [Git Installation](./git-installation.md)
+--> Next: [Git Authentication](./git-authentication.md)
 

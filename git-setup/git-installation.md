@@ -5,5 +5,5 @@ sudo apt install curl git -y
 `
 
 <-- Start: [README.md](../README.md)
---> Next: [Git Configuration](/git-configuration.md)
+--> Next: [Git Configuration](./git-configuration.md)
 
