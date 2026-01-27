@@ -20,6 +20,6 @@ cat id_git-dhartjes-work.pub
 - https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=linux
 - https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
 
-<-- Prev: [Git Configuration](./git-configuration.md) - 
+<-- Prev: [Git Configuration](./git-configuration.md)
 --> Next: [Git Clone Repos](./git-clone-repos.md)
 
