@@ -17,6 +17,7 @@ cat id_git-dhartjes-work.pub
 
 # To avoid using the passphrase with each operation, add the private key to your ssh-agent
 eval "$(ssh-agent -s)"
+> Agent pid xxxx
 ssh-add ~/.ssh/id_git-dhartjes-work
 ```
 
