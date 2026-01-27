@@ -8,11 +8,17 @@ A developer workstation with my favorite tools enabled. Preference for keyboard 
 
 ## Get the repo
 1. Install WSL2/Ubuntu
-1. Install and authorize git
-1. Get env-setup
-1. Get started
-
-## Get setup-ed
+1. [Git Setup](/git-setup/git-installation.md)
+1. Clone env-setup
 1. Install NVIM
 1. Install Volta
 1. Install Moltbot
+
+
+## Misfiled
+`
+curl -fsSL https://claude.ai/install.sh | bash
+curl https://get.volta.sh | bash
+sudo apt install neovim
+
+`
