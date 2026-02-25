@@ -1,5 +1,6 @@
 # Git Configuration
-```
+
+```bash
 # Replace 'master' moniker with 'main' on default branch
 git config --global init.defaultBranch main
 
@@ -10,4 +11,3 @@ git config --global user.name "Dominic Hartjes"
 
 <-- Prev: [Git Installation](./git-installation.md)
 --> Next: [Git Authentication](./git-authentication.md)
-
