@@ -24,6 +24,20 @@ ssh-add ~/.ssh/id_git-dhartjes-work
 
 ## Using SSH with Visual Studio Code
 
+If you want to use VSCode's periodic commit to git feature or simply want to avoid entering your ssh passcode each time you lauch terminal -> vscode, the steps at <https://stackoverflow.com/questions/34634364/to-use-git-push-on-visual-studio-code-but-show-could-not-read-from-remote-re> were able to help me.
+
+1. In Linux, create a ~/.ssh/config file to make loading of your ssh key automatic
+
+    ```text
+
+        Host *
+        IgnoreUnknown UseKeychain
+        UseKeychain yes
+        AddKeysToAgent yes
+        IdentityFile ~/.ssh/id_git-dhartjes-work
+    ```
+
+1. Ensure the TODO: finish
 Not sure I'm doing this right at the moment, but if I run my git-auth alias before opening the project in vs code with `code .` I am able to commit to github.
 
 ### Sources
