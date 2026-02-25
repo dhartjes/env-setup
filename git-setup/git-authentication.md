@@ -22,6 +22,10 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_git-dhartjes-work
 ```
 
+## Using SSH with Visual Studio Code
+
+Not sure I'm doing this right at the moment, but if I run my git-auth alias before opening the project in vs code with `code .` I am able to commit to github.
+
 ### Sources
 
 - <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=linux>
