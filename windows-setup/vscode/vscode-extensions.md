@@ -17,6 +17,7 @@ Get-Content extensions.txt | ForEach-Object { code --install-extension $_ }
 
 ## Current Extensions (last-update: 20260225)
 
+charliermarsh.ruff
 davidanson.vscode-markdownlint
 github.copilot-chat
 ms-azure-load-testing.microsoft-testing
@@ -37,12 +38,15 @@ ms-dotnettools.csdevkit
 ms-dotnettools.csharp
 ms-dotnettools.vscode-dotnet-runtime
 ms-kubernetes-tools.vscode-kubernetes-tools
+ms-python.black-formatter
 ms-python.debugpy
+ms-python.pylint
 ms-python.python
 ms-python.vscode-pylance
 ms-python.vscode-python-envs
 ms-vscode.vscode-node-azure-pack
 ms-windows-ai-studio.windows-ai-studio
+njpwerner.autodocstring
 redhat.vscode-yaml
 teamsdevapp.vscode-ai-foundry
 visualstudiotoolsforunity.vstuc
