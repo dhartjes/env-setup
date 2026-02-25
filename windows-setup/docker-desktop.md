@@ -138,6 +138,7 @@ Let's use Docker to create a development container for an existing app project.
     ```bash
     cd helloworld-django
     ```
+
 3. Open the project in VS Code running on the local WSL extension server by entering:
 
     ```bash

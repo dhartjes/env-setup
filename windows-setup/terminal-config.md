@@ -1,11 +1,12 @@
 # Configure Terminal
 
 ## Path to settings file
+
 Currently found at %LocalAppData%/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json
 
 ## To Backup
-In PowerShell:
-`
+
+```pwsh
 $settingsPath = Join-Path $env:LOCALAPPDATA "Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\"
 $backupPath = "\\wsl$\Ubuntu\home\dhartjes\projects\env-setup\windows-setup\windows-terminal\"
 
@@ -21,11 +22,11 @@ if (-not (Test-Path $backupPath)) {
 }
 
 copy-item $settingsPath\settings.json $backupPath\settings.json
-`
+```
 
 ## To Restore
-In PowerShell:
-`
+
+```pwsh
 $settingsPath = Join-Path $env:LOCALAPPDATA "Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\"
 $backupPath = "\\wsl$\Ubuntu\home\dhartjes\projects\env-setup\windows-setup\windows-terminal\"
 
@@ -40,8 +41,9 @@ if (-not (Test-Path $backupPath)) {
     New-Item -Path $backupPath -ItemType Directory -Force | Out-Null
 }
 
-copy-item $backupPath\settings.json $settingsPath\settings.json 
-`
+copy-item $backupPath\settings.json $settingsPath\settings.json
+```
 
 ## Links
-https://pureinfotech.com/backup-restore-settings-windows-terminal/
+
+<https://pureinfotech.com/backup-restore-settings-windows-terminal/>

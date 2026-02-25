@@ -1,16 +1,18 @@
 # Mouse Setup
 
 ## Overview
+
 It is always such a pain getting the Magic Trackpad 2 USB-C edition working with Windows. This is what I always have do to get it right.
 
 ## Pre-reqs
-Download latest from: https://github.com/lc700x/MagicTrackPad2_Windows_Precision_Drivers/releases
 
+Download latest from: <https://github.com/lc700x/MagicTrackPad2_Windows_Precision_Drivers/releases>
 
 1. Need the ApplePrecisionTrackpadBluetooth/ApplePrecisionTrackpadBluetooth.inf file from the [lc700x/MagicTrackPad2_Windows_Precision_Drivers repo](https://github.com/lc700x/MagicTrackPad2_Windows_Precision_Drivers) which is saved in this repo for convenience.
 1. Magic Trackpad 2 USB-C edition device.
 
 ## Initial Setup
+
 1. Ensure you've never connected via USB.
 1. Turn on trackpad via switch.
 1. Pair using Windows Bluetooth Pairing.
@@ -32,10 +34,11 @@ Download latest from: https://github.com/lc700x/MagicTrackPad2_Windows_Precision
 1. Now your Trackpad should work with Precision menu option in Windows Settings.
 
 ## Troubleshooting
+
 If you ever have to disconnect and reconnect, you'll likely encounter an issue. To resolve, see [this issue](https://github.com/lc700x/MagicTrackPad2_Windows_Precision_Drivers/issues/1)
 
-
 ## Links
-https://github.com/vitoplantamura/MagicTrackpad2ForWindows/issues/20
-https://github.com/vitoplantamura/MagicTrackpad2ForWindows/issues/20#issuecomment-3094498046
-https://github.com/lc700x/MagicTrackPad2_Windows_Precision_Drivers
+
+<https://github.com/vitoplantamura/MagicTrackpad2ForWindows/issues/20>
+<https://github.com/vitoplantamura/MagicTrackpad2ForWindows/issues/20#issuecomment-3094498046>
+<https://github.com/lc700x/MagicTrackPad2_Windows_Precision_Drivers>
