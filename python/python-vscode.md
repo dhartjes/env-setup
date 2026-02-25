@@ -9,6 +9,7 @@ To get your python tools working in your vscode instance through wsl:
 1. If you don't yet have it, VSCode will recommend the Python Extension.
 1. Once installed, right click within your open *.py file and select Format (or run format with Shift+Alt+F)
 1. Choose a Python formatter. I'm going with black.
+1. Additionally, if import sorting is desired install ruff. It can be configured specifically for only the import sorting on save.
 
 ## Configuration
 
@@ -30,9 +31,20 @@ python3 -m pip install black
 black <name-of-file.py>
 ```
 
+1. Configuration for ruff to organize imports
+
+```text
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports.ruff": "explicit"
+        }
+    }
+```
+
 1. More configuration examples can be seen at [Usage and Configuration](https://black.readthedocs.io/en/stable/usage_and_configuration/index.html)
 
 ## Sources
 
 - [VSCode Python Formatter](https://coderivers.org/blog/vscode-python-formatter/)
+- [Choose a Formatter](https://code.visualstudio.com/docs/python/formatting#_choose-a-formatter)
 - [Black - PyPI](https://pypi.org/project/black/)
