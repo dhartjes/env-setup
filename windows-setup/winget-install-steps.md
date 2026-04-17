@@ -21,10 +21,12 @@ In CMD or PS:
 
 ## Configuration
 
+The default sources are recommended for most use cases, but they may need updating.
+
+```winget source update```
+
 To retrieve list of winget applications from a former machine:
-```winget export```
+```winget export -o winget-apps.txt```
 
 To install list of winget applications:
 ```winget import```
-
-## 
