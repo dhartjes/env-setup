@@ -30,10 +30,10 @@ The default sources are recommended for most use cases, but they may need updati
 winget search x
 winget install x
 winget upgrade --all
+
+# To retrieve list of winget applications from a former machine:
+winget export -o apps.json
+
+# To install list of winget applications:
+winget import -o apps.json
 ```
-
-To retrieve list of winget applications from a former machine:
-```winget export -o winget-apps.txt```
-
-To install list of winget applications:
-```winget import```
