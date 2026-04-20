@@ -15,6 +15,7 @@ Be sure to check [Best Practices for Setup](https://learn.microsoft.com/en-us/wi
    sudo apt-get install wget ca-certificates
    ```  
 1. Install oh-my-posh following these instructions: https://ohmyposh.dev/docs/installation/linux
+1. Install (or update) git for linux with ```sudo apt-get install git```
 1. Use nano to update your ~/.bashrc file to load your desired prompt configuration.
    ```
    # Last line of ~/.bashrc file
