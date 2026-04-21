@@ -1,6 +1,58 @@
 # Git Authentication
 
-## SSH Keygen
+## Using Git Credential Manager and Microsoft Entra ID
+
+### Requirements
+- Dotnet SDK 8.0. To test: ```dotnet --list-sdks``` To install: ```sudo apt install dotnet-sdk-8.0```
+- WSL2 with systemd enabled. To verify: ```cat /etc/wsl.conf``` should contain ```systemd=true``` under ```[boot]```. If not, add it and restart WSL2 with ```wsl --shutdown``` from PowerShell.
+
+### Steps
+1. Install GCM with dotnet from terminal: ```dotnet tool install -g git-credential-manager```
+1. Add to path in ```~/.bashrc```:
+   ```
+   cat << \EOF >> ~/.bashrc
+   # Add .NET Core SDK tools
+   export PATH="$PATH:$HOME/.dotnet/tools"
+
+   # Required for GPG passphrase prompting
+   export GPG_TTY=$(tty)
+   
+   # Required for browser-based auth prompts in WSL2
+   export BROWSER=wslview
+   EOF
+   source ~/.bashrc
+   ```
+1. Install required dependencies: ```sudo apt install gpg pass pinentry-curses libsecret-1-0 libsecret-tools gnome-keyring wslu```
+1. Set up GPG key:
+   ```
+   gpg --gen-key
+   # Note the fingerprint shown below the pub line, e.g:
+   # E54EFA45F8D5F8ECA38DB84521DC54A53F0E5F89
+   ```
+   Ensure you save this credential in a password manager.
+1. Initialize ```pass``` with your GPG key fingerprint: ```pass init <your-gpg-key-fingerprint>```
+1. Configure pinentry-curses for GPG:
+   ```
+   echo "pinentry-program /usr/bin/pinentry-curses" >> ~/.gnupg/gpg-agent.conf
+   gpg-connect-agent reloadagent /bye
+   ```
+1. Enable and start gnome-keyring via systemd for MSAL token persistence:
+   ```
+   systemctl --user enable gnome-keyring-daemon.service
+   systemctl --user start gnome-keyring-daemon.service
+   ```
+   When prompted to set a keyring password, leave it blank so the keyring unlocks automatically in non-interactive git operations.
+1. Configure CGM:
+   ```
+   git-credential-manager configure
+   git config --global credential.credentialstore gpg
+   ```
+
+### Source
+- https://learn.microsoft.com/en-us/dotnet/core/install/linux
+- https://learn.microsoft.com/en-us/azure/devops/repos/git/set-up-credential-managers?view=azure-devops
+- https://github.com/git-ecosystem/git-credential-manager
+## SSH Keygen (Deprecated)
 
 ```bash
 # Generate SSH Key
