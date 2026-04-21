@@ -2,7 +2,7 @@
 
 ```bash
 cd ~/projects
-git clone git@github.com:dhartjes/env-setup.git
+git clone https://github.com/dhartjes/env-setup.git
 git clone git@github.com:dhartjes/dhartjes.github.io.git
 ```
 
