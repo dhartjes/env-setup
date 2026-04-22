@@ -15,5 +15,5 @@ sudo apt install git
 ## For Windows
 [Install instructions](https://git-scm.com/install/windows)
 
-<-- Start: [README.md](../README.md)
+<-- Prev: [WSL Config](../windows/wsl/wsl-config.md)
 --> Next: [Git Configuration](./git-configuration.md)

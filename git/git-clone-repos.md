@@ -7,4 +7,4 @@ git clone git@github.com:dhartjes/dhartjes.github.io.git
 ```
 
 <-- Prev: [Git Authentication](./git-authentication.md)
---> Top: [Git Clone Repos](../README.md)
+--> Next: [Neovim](../nvim-install.md)

@@ -15,3 +15,6 @@ Launch a "Windows PowerShell" administrator prompt by right clicking on "Windows
 
 ## Troubleshooting
 It's possible installing this via winget in a non-administrator session is preferred based on group policy.
+
+<-- Prev: [WinGet](winget/winget-install.md)
+--> Next: [WSL Setup](wsl/wsl-setup.md)
