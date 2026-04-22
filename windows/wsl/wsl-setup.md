@@ -186,3 +186,6 @@ wsl.exe --update --pre-release
 ```
 
 For more information check the [WSL Releases page on GitHub](https://github.com/microsoft/WSL/releases).
+
+<-- Prev: [PowerShell](../powershell-setup.md)
+--> Next: [WSL Config](./wsl-config.md)

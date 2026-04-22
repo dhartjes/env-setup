@@ -24,3 +24,6 @@ Be sure to check [Best Practices for Setup](https://learn.microsoft.com/en-us/wi
 
 ## Tips
 Update the packages regularly with ```sudo apt update && sudo apt upgrade```
+
+<-- Prev: [WSL Setup](./wsl-setup.md)
+--> Next: [Git Install](../../git/git-installation.md)

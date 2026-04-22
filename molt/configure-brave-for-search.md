@@ -27,3 +27,6 @@ moltbot configure --section web
 
 - <https://docs.molt.bot/start/getting-started>
 - <https://docs.molt.bot/brave-search>
+
+<-- Prev: [Install Molt](./install-molt.md)
+--> Top: [README](../README.md)

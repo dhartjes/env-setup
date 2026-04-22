@@ -15,3 +15,6 @@ See [VSCode Extensions](./vscode-extensions.md) for more info
 ## Source
 
 - [StackOverflow](https://stackoverflow.com/questions/71103966/wsl-vscode-command-returning-error-not-found/73439567#73439567)
+
+<-- Prev: [Volta / Node.js](../../volta-install.md)
+--> Next: [VS Code Extensions](./vscode-extensions.md)

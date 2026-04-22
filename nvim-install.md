@@ -18,3 +18,6 @@ bob complete bash >> ~/.local/share/bash-completion/completions/bob
 1. ```bob use stable```
 1. ```bob pin stable``` Pins it to a specific folder
 1. ```nvim``` to launch nvim!
+
+<-- Prev: [Clone Repos](git/git-clone-repos.md)
+--> Next: [Volta / Node.js](volta-install.md)

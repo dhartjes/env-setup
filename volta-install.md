@@ -9,4 +9,5 @@ volta install node
 
 - <https://docs.volta.sh/guide/getting-started>
 
-<-- Top: [Back to Readme](../README.md)
+<-- Prev: [Neovim](nvim-install.md)
+--> Next: [VS Code Install](windows/vscode/vscode-install.md)
