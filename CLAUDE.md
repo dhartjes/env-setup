@@ -20,7 +20,7 @@ The intended order matters when following this guide on a fresh machine:
 8. **Claude Code** (`claude-install.md`) — AI coding assistant in VS Code + WSL
 9. **Molt** (`molt/`) — Gemini-based general assistant via WhatsApp
 
-Other setups (`python/`, `windows/docker-desktop.md`, `windows/ditto/`, etc.) are independent of this sequence.
+Other setups (`python/`, `windows/docker.md`, `windows/ditto/`, etc.) are independent of this sequence.
 
 ## Workspace Layout
 
