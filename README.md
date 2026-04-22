@@ -53,7 +53,7 @@ A developer workstation with my favorite tools enabled. Preference for keyboard 
 | Tool | Guide |
 |---|---|
 | Python | [python/python-setup.md](python/python-setup.md) |
-| Docker | [windows/docker-desktop.md](windows/docker-desktop.md) |
+| Docker | [windows/docker.md](windows/docker.md) |
 | Windows Terminal | [windows/terminal/tips.md](windows/terminal/tips.md) |
 | Terminal config backup | [windows/terminal-config.md](windows/terminal-config.md) |
 | Windows settings | [windows/windows-settings.md](windows/windows-settings.md) |
