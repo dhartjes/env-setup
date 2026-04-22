@@ -1,3 +1,14 @@
+# tl;dr Docker Setup
+
+## Installation
+1. Navigate to https://docs.docker.com/desktop/setup/install/windows-install/ via browser and install DockerDesktop for windows.
+1. 
+
+!! Blocked
+
+Error message: For security reasons C:\ProgramData\DockerDesktop must be owned by an elevated account
+
+
 ---
 layout: Conceptual
 title: Get started with Docker containers on WSL | Microsoft Learn
