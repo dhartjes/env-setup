@@ -1,6 +1,11 @@
 # Git Authentication
 
-## Using Git Credential Manager and Microsoft Entra ID
+- [Option 1: Linux setup](#linux-setup-using-git-credential-manager-and-microsoft-entra-id)
+- [Option 2: Windows setup](#windows-setup-using-git-credential-manager-and-microsoft-entra-id)
+- [Option 3: (deprecated) SSH Keygen](#ssh-keygen-deprecated)
+- [Option 4: (deprecated) Using SSH with Visual Studio Code](#using-ssh-with-visual-studio-code)
+
+## Linux setup using Git Credential Manager and Microsoft Entra ID
 
 ### Requirements
 - Dotnet SDK 8.0. To test: ```dotnet --list-sdks``` To install: ```sudo apt install dotnet-sdk-8.0```
@@ -52,6 +57,10 @@
 - https://learn.microsoft.com/en-us/dotnet/core/install/linux
 - https://learn.microsoft.com/en-us/azure/devops/repos/git/set-up-credential-managers?view=azure-devops
 - https://github.com/git-ecosystem/git-credential-manager
+
+## Windows setup using Git Credential Manager and Microsoft Entra ID
+
+
 ## SSH Keygen (Deprecated)
 
 ```bash
@@ -96,3 +105,4 @@ IdentityFile ~/.ssh/id_git-dhartjes-work
 
 <-- Prev: [Git Configuration](./git-configuration.md)
 --> Next: [Git Clone Repos](./git-clone-repos.md)
+
