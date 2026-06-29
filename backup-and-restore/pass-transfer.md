@@ -1,5 +1,7 @@
 # Transfer pass to a New Machine
 
+<-- [Back to README](../README.md)
+
 Since you're keeping the same GPG key, transferring `pass` is straightforward: restore your GPG key on the new machine (see [gnupg.md](gnupg.md)), then copy the password store.
 
 ## Prerequisites
@@ -40,4 +42,5 @@ pass ls
 pass show <any-entry>
 ```
 
-<-- Top: [Back to Readme](../README.md)
+<-- Prev: [GnuPG](gnupg.md)
+--> Next: [Neovim](neovim.md)

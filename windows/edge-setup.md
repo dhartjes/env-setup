@@ -1,4 +1,7 @@
 # Edge Setup
+
+<-- [Back to README](README.md)
+
 ## Browser extensions
 ### Password Manager
 Determine the password manager of choice. Set up browser extension.
@@ -13,3 +16,5 @@ Add key addresses.
 
 ### Vertical Tabs
 Enabled from the tab dropdown.
+
+<-- [Back to README](README.md)

@@ -1,4 +1,7 @@
 # Powershell Setup
+
+<-- [Back to README](../README.md)
+
 PowerShell 7 is vastly preferred over Windows PowerShell. It can be downloaded via WinGet.
 
 ## Check

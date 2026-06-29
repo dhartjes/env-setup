@@ -1,5 +1,7 @@
 # Neovim Backup and Restore
 
+<-- [Back to README](../README.md)
+
 Neovim configuration lives in `~/.config/nvim/`. If your config is already tracked in a git repository, that repo is your backup — just clone it on the new machine.
 
 If your config is **not** in version control, use the steps below.
@@ -35,4 +37,4 @@ git clone <your-nvim-config-repo> ~/.config/nvim
 
 Then open Neovim and let the plugin manager run.
 
-<-- Top: [Back to Readme](../README.md)
+<-- Prev: [Transfer pass](pass-transfer.md)

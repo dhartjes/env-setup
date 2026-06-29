@@ -1,5 +1,7 @@
 # Install Volta
 
+<-- [Back to README](../README.md)
+
 ```bash
 curl https://get.volta.sh | bash
 volta install node
@@ -10,4 +12,4 @@ volta install node
 - <https://docs.volta.sh/guide/getting-started>
 
 <-- Prev: [Neovim](nvim-install.md)
---> Next: [VS Code Install](windows/vscode/vscode-install.md)
+--> Next: [VS Code Install](../windows/vscode/vscode-install.md)

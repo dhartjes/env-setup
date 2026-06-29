@@ -1,11 +1,13 @@
 # Setting Up Claude Code in VS Code with WSL
 
+<-- [Back to README](../README.md)
+
 ## Prerequisites
 
 - A Claude Pro or Max subscription (or Anthropic API credits)
-- VS Code installed on Windows (covered in [VS Code Install](windows/vscode/vscode-install.md))
-- VS Code's WSL extension (covered in [VS Code Extensions](windows/vscode/vscode-extensions.md))
-- WSL2 set up with a Linux distro (e.g. Ubuntu) (covered in [WSL Setup](windows/wsl/wsl-setup.md))
+- VS Code installed on Windows (covered in [VS Code Install](../windows/vscode/vscode-install.md))
+- VS Code's WSL extension (covered in [VS Code Extensions](../windows/vscode/vscode-extensions.md))
+- WSL2 set up with a Linux distro (e.g. Ubuntu) (covered in [WSL Setup](../windows/wsl/wsl-setup.md))
 - Node.js 18+ installed inside WSL (not Windows) (covered in [Volta Install](volta-install.md))
 - wslview so WSL2 can perform authentication using your windows browser. (covered in [Git Authentication](git/git-authentication.md))
 
@@ -22,4 +24,4 @@
 1. In the Side bar next to "Chat", click the ... and select Claude Code. This uses your secondary sidebar rather than a code window for your chat session.
 1. Open keyboard shortcuts with Ctrl+K, Ctrl+S and search for "Ctrl+Esc". This shows all the shortcuts related to claude code. However, Ctrl+Esc is used in Windows to open the start menu. Change these shortcuts in VS Code by replacing Ctrl with Win in each desired shortcut.
 
-<-- Prev: [VS Code Extensions](windows/vscode/vscode-extensions.md)
+<-- Prev: [VS Code Extensions](../windows/vscode/vscode-extensions.md)

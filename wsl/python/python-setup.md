@@ -1,5 +1,7 @@
 # Python setup
 
+<-- [Back to README](../../README.md)
+
 ## Normal setup
 
 ### Standard Installation
@@ -70,3 +72,5 @@ python --version
 ## Source
 
 - [Python installation](https://www.geeksforgeeks.org/python/how-to-install-python-on-linux/)
+
+--> Next: [Python VS Code](python-vscode.md)

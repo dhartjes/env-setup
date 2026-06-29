@@ -1,6 +1,8 @@
-# Switching from Docker Desktop to Rancher Desktop for Configured Commerce Local Dev
+# Docker Desktop 
 
-A practical migration guide based on the [Optimizely CC .NET 8 local dev docs](https://docs.developers.optimizely.com/configured-commerce/docs/net8-local-development-environment) and [Rancher Desktop docs](https://docs.rancherdesktop.io).
+<-- [Back to README](../README.md)
+
+Actually using Rancher Desktop for free license. A practical migration guide based on the [Optimizely CC .NET 8 local dev docs](https://docs.developers.optimizely.com/configured-commerce/docs/net8-local-development-environment) and [Rancher Desktop docs](https://docs.rancherdesktop.io).
 
 ---
 
@@ -259,3 +261,5 @@ Volumes from Docker Desktop's moby instance are stored in a different WSL distro
 | CC compose / `.env` | No changes required |
 | `.NET` projects | No changes required |
 | `docker compose` commands | No changes required |
+
+<-- [Back to README](../README.md)

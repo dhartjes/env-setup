@@ -1,5 +1,7 @@
 # WSL Configuration
 
+<-- [Back to README](../../README.md)
+
 Be sure to check [Best Practices for Setup](https://learn.microsoft.com/en-us/windows/wsl/setup/environment) for updates. On 4/20/2026, these were the pertinent steps.
 
 ## Steps
@@ -34,4 +36,4 @@ Be sure to check [Best Practices for Setup](https://learn.microsoft.com/en-us/wi
 Update the packages regularly with ```sudo apt update && sudo apt upgrade```
 
 <-- Prev: [WSL Setup](./wsl-setup.md)
---> Next: [Git Install](../../git/git-installation.md)
+--> Next: [Git Install](../../wsl/git/git-installation.md)

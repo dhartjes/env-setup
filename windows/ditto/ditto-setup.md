@@ -1,4 +1,7 @@
 # Ditto
+
+<-- [Back to README](../../README.md)
+
 Copy and paste tool with multiple buffers and the ability to save commonly used pastes with a global keybinding. I've configured a second copy/paste buffer for with [ctrl]+[-] to copy and [ctrl]+[=] to paste.
 
 ## Steps
@@ -10,3 +13,5 @@ Copy and paste tool with multiple buffers and the ability to save commonly used 
 
 ## To Export settings
 In PS, ```reg export HKEY_CURRENT_USER\Software\Ditto DittoConf.reg```
+
+<-- [Back to README](../../README.md)

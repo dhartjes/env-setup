@@ -1,5 +1,7 @@
 # Windows Terminal Tips
 
+<-- [Back to README](../../README.md)
+
 ## Hotkeys
 |Hotkey|Command|
 |------|-------|
@@ -19,3 +21,5 @@
 https://learn.microsoft.com/en-us/windows/terminal/tutorials/custom-prompt-setup
 
 Font is still a rather manual process as far as I can tell. Not seeing a good winget option for installing fonts.
+
+<-- [Back to README](../../README.md)

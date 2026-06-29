@@ -1,5 +1,7 @@
 # Git Installation
 
+<-- [Back to README](../../README.md)
+
 ## For WSL2:Ubuntu
 The latest stable version of git may not be available in your default Ubuntu repository. You can add Git's personal package archive to your list of repositories in apt.
 
@@ -15,5 +17,5 @@ sudo apt install git
 ## For Windows
 [Install instructions](https://git-scm.com/install/windows)
 
-<-- Prev: [WSL Config](../windows/wsl/wsl-config.md)
+<-- Prev: [WSL Config](../../windows/wsl/wsl-config.md)
 --> Next: [Git Configuration](./git-configuration.md)

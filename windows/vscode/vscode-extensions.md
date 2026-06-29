@@ -1,5 +1,7 @@
 # VS Code Extensions
 
+<-- [Back to README](../../README.md)
+
 ## Save Extensions to file
 
 ```bash
@@ -17,39 +19,7 @@ Get-Content extensions.txt | ForEach-Object { code --install-extension $_ }
 
 ## Current Extensions (last-update: 20260225)
 
-charliermarsh.ruff
-davidanson.vscode-markdownlint
-github.copilot-chat
-ms-azure-load-testing.microsoft-testing
-ms-azuretools.azure-dev
-ms-azuretools.vscode-azure-github-copilot
-ms-azuretools.vscode-azure-mcp-server
-ms-azuretools.vscode-azureappservice
-ms-azuretools.vscode-azurecontainerapps
-ms-azuretools.vscode-azurefunctions
-ms-azuretools.vscode-azureresourcegroups
-ms-azuretools.vscode-azurestaticwebapps
-ms-azuretools.vscode-azurestorage
-ms-azuretools.vscode-azurevirtualmachines
-ms-azuretools.vscode-containers
-ms-azuretools.vscode-cosmosdb
-ms-azuretools.vscode-docker
-ms-dotnettools.csdevkit
-ms-dotnettools.csharp
-ms-dotnettools.vscode-dotnet-runtime
-ms-kubernetes-tools.vscode-kubernetes-tools
-ms-python.black-formatter
-ms-python.debugpy
-ms-python.pylint
-ms-python.python
-ms-python.vscode-pylance
-ms-python.vscode-python-envs
-ms-vscode.vscode-node-azure-pack
-ms-windows-ai-studio.windows-ai-studio
-njpwerner.autodocstring
-redhat.vscode-yaml
-teamsdevapp.vscode-ai-foundry
-visualstudiotoolsforunity.vstuc
+[Current Extensions List](extensions.txt)
 
 ## Sources
 
@@ -58,4 +28,4 @@ visualstudiotoolsforunity.vstuc
 - [Docker | Makes it easy to build, manage, and deploy containerized applications](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
 
 <-- Prev: [VS Code Install](./vscode-install.md)
---> Next: [Claude Code](../../claude-install.md)
+--> Next: [Claude Code](../../wsl/claude-install.md)

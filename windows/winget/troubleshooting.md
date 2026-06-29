@@ -1,5 +1,7 @@
 # Troubleshooting Winget Installation
 
+<-- [Back to README](../../README.md)
+
 ## Possible Issues
 A number of symptoms can indicate that winget is not installed correctly, and these symptoms can differ depending on whether you are running winget in CMD, PowerShell, or Windows PowerShell.
 
@@ -63,3 +65,5 @@ Repair-WinGetPackageManager -Force -Latest
 
 ### 7. If all else fails...
 Give up and run winget in a non-administrator session. Wait to see if issues arise in the use of the tools.
+
+<-- [Back to README](../../README.md)
