@@ -33,4 +33,4 @@ gpg --list-secret-keys
 ```
 
 <-- Top: [Back to Readme](../README.md)
---> Next: [Pass to Bitwarden](pass-to-bitwarden.md)
+--> Next: [Transfer pass](pass-transfer.md)
