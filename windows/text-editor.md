@@ -1,5 +1,7 @@
 # Default text editor: Microsoft Edit
 
+<-- [Back to README](../README.md)
+
 ## Installation
 
 winget install Microsoft.Edit
@@ -14,3 +16,5 @@ winget install Microsoft.Edit
 ## Links
 
 - [Replace notepad with MS Edit](https://codinglap.com/how-to-replace-notepad-with-microsoft-edit-on-windows-11/#google_vignette)
+
+<-- [Back to README](../README.md)

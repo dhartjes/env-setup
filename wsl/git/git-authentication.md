@@ -1,5 +1,7 @@
 # Git Authentication
 
+<-- [Back to README](../../README.md)
+
 - [Option 1: Linux setup](#linux-setup-using-git-credential-manager-and-microsoft-entra-id)
 - [Option 2: Windows setup](#windows-setup-using-git-credential-manager-and-microsoft-entra-id)
 - [Option 3: (deprecated) SSH Keygen](#ssh-keygen-deprecated)

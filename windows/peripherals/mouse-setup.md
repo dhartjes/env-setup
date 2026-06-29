@@ -1,5 +1,7 @@
 # Trackpad Setup
 
+<-- [Back to README](../../README.md)
+
 ## Overview
 
 It is always such a pain getting the Magic Trackpad 2 USB-C edition working with Windows. This is what I always have do to get it right.
@@ -36,4 +38,4 @@ It is always such a pain getting the Magic Trackpad 2 USB-C edition working with
 ## Source
 https://www.reddit.com/r/bootcamp/comments/ygv1mh/comment/kr8mwze/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
 
-
+<-- [Back to README](../../README.md)

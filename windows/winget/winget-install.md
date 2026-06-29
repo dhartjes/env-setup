@@ -1,4 +1,7 @@
 # Winget Install Steps
+
+<-- [Back to README](../../README.md)
+
 This is the first step in PC setup. Winget is a single package manager for windows that covers almost all of the software needs I have on a Windows PC.
 
 ## Prereqs
@@ -38,5 +41,4 @@ winget export -o apps.json
 winget import -o apps.json
 ```
 
-<-- Start: [README](../../README.md)
 --> Next: [PowerShell](../powershell-setup.md)

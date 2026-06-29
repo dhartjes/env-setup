@@ -1,5 +1,7 @@
 # WSL Instance Backup and Restore
 
+<-- [Back to README](../README.md)
+
 ## Backup
 
 Run from PowerShell on Windows. First stop the distro to ensure a consistent export:
@@ -39,5 +41,4 @@ ubuntu config --default-user <your-username>
 - The export includes your entire Linux filesystem — home directory, installed packages, configuration, and the `pass` password store.
 - Back up your GnuPG keys separately (see [GnuPG](gnupg.md)) — the export captures the encrypted files but you still need the keys to decrypt them on a new machine.
 
-<-- Top: [Back to Readme](../README.md)
 --> Next: [GnuPG](gnupg.md)

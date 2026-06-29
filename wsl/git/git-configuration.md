@@ -1,5 +1,7 @@
 # Git Configuration
 
+<-- [Back to README](../../README.md)
+
 ```bash
 # Replace 'master' moniker with 'main' on default branch
 git config --global init.defaultBranch main

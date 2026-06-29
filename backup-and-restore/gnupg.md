@@ -1,5 +1,7 @@
 # GnuPG Backup and Restore
 
+<-- [Back to README](../README.md)
+
 GnuPG keys are required to decrypt your `pass` password store. Back these up before migrating machines.
 
 ## Backup
@@ -32,5 +34,5 @@ After restoring, verify the key is available:
 gpg --list-secret-keys
 ```
 
-<-- Top: [Back to Readme](../README.md)
+<-- Prev: [WSL](wsl.md)
 --> Next: [Transfer pass](pass-transfer.md)

@@ -1,5 +1,7 @@
 # Configure Terminal
 
+<-- [Back to README](../README.md)
+
 ## Path to settings file
 
 Currently found at %LocalAppData%/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json
@@ -47,3 +49,5 @@ copy-item $backupPath\settings.json $settingsPath\settings.json
 ## Links
 
 <https://pureinfotech.com/backup-restore-settings-windows-terminal/>
+
+<-- [Back to README](../README.md)

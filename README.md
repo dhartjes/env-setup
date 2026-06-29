@@ -27,18 +27,18 @@ A developer workstation with my favorite tools enabled. Preference for keyboard 
 
 ### Developer tools (in WSL)
 
-5. [Git Install](git/git-installation.md)
-1. [Git Configuration](git/git-configuration.md)
-1. [Git Authentication](git/git-authentication.md) — GCM with Microsoft Entra ID
-1. [Clone Repos](git/git-clone-repos.md)
-1. [Neovim](nvim-install.md) — via Bob version manager
-1. [Volta / Node.js](volta-install.md)
+5. [Git Install](wsl/git/git-installation.md)
+1. [Git Configuration](wsl/git/git-configuration.md)
+1. [Git Authentication](wsl/git/git-authentication.md) — GCM with Microsoft Entra ID
+1. [Clone Repos](wsl/git/git-clone-repos.md)
+1. [Neovim](wsl/nvim-install.md) — via Bob version manager
+1. [Volta / Node.js](wsl/volta-install.md)
 
 ### Editor and AI
 
 11. [VS Code Install](windows/vscode/vscode-install.md)
 1. [VS Code Extensions](windows/vscode/vscode-extensions.md)
-1. [Claude Code](claude-install.md) — AI coding assistant in VS Code + WSL
+1. [Claude Code](wsl/claude-install.md) — AI coding assistant in VS Code + WSL
 
 ---
 
@@ -56,14 +56,14 @@ A developer workstation with my favorite tools enabled. Preference for keyboard 
 
 | Tool | Guide |
 |---|---|
-| Python | [python/python-setup.md](python/python-setup.md) |
-| Docker | [windows/docker.md](windows/docker.md) |
+| Python | [wsl/python/python-setup.md](wsl/python/python-setup.md) |
+| Rancher Desktop | [windows/docker.md](windows/docker.md) |
 | Windows Terminal | [windows/terminal/tips.md](windows/terminal/tips.md) |
 | Terminal config backup | [windows/terminal-config.md](windows/terminal-config.md) |
 | Windows settings | [windows/windows-settings.md](windows/windows-settings.md) |
 | Ditto clipboard manager | [windows/ditto/ditto-setup.md](windows/ditto/ditto-setup.md) |
-| Keyboard (Anne Pro 2) | [windows/keyboard-setup.md](windows/keyboard-setup.md) |
-| Mouse (Magic Trackpad 2) | [windows/mouse/mouse-setup.md](windows/mouse/mouse-setup.md) |
-| Microsoft Edge | [edge-setup.md](edge-setup.md) |
+| Keyboard (Anne Pro 2) | [windows/peripherals/keyboard-setup.md](windows/keyboard-setup.md) |
+| Mouse (Magic Trackpad 2) | [windows/peripherals/mouse-setup.md](windows/mouse/mouse-setup.md) |
+| Microsoft Edge | [windows/edge-setup.md](edge-setup.md) |
 | Default text editor | [windows/text-editor.md](windows/text-editor.md) |
 | Google Antigravity (personal PC) | [google-antigravity.md](google-antigravity.md) |

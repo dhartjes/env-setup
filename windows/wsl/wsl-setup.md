@@ -45,6 +45,8 @@ platformId: be29a304-5e0d-f710-845d-404c0feacfec
 
 # Install WSL | Microsoft Learn
 
+<-- [Back to README](../../README.md)
+
 Developers can access the power of both Windows and Linux at the same time on a Windows machine. The Windows Subsystem for Linux (WSL) lets developers install a Linux distribution (such as Ubuntu, OpenSUSE, Kali, Debian, Arch Linux, etc) and use Linux applications, utilities, and Bash command-line tools directly on Windows, unmodified, without the overhead of a traditional virtual machine or dualboot setup.
 
 ## Prerequisites

@@ -1,5 +1,7 @@
 # Keyboard Setup
 
+<-- [Back to README](../README.md)
+
 ## Overview
 
 My Anne Pro 2 keyboard requires Obinskit to connect via bluetooth. Settings can be a bit of a pain. Perhaps storing the settings info in this repo will help with keeping the settings synced over time. The application is highly unpredictable on windows; I can't seem to find the configuration file where my preferences are saved.
@@ -56,3 +58,5 @@ winget install ObinsKit.ObinsKit
   - enabled: true
 
 <https://manuals.plus/obins/obins-anne-pro-2-manual>
+
+<-- [Back to README](../README.md)

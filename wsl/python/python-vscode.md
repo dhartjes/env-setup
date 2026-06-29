@@ -1,5 +1,7 @@
 # Python VS Code Setup
 
+<-- [Back to README](../../README.md)
+
 ## Installation
 
 To get your python tools working in your vscode instance through wsl:
@@ -48,3 +50,5 @@ black <name-of-file.py>
 - [VSCode Python Formatter](https://coderivers.org/blog/vscode-python-formatter/)
 - [Choose a Formatter](https://code.visualstudio.com/docs/python/formatting#_choose-a-formatter)
 - [Black - PyPI](https://pypi.org/project/black/)
+
+<-- Prev: [Python Setup](python-setup.md)
