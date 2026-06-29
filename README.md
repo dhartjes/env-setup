@@ -48,7 +48,7 @@ A developer workstation with my favorite tools enabled. Preference for keyboard 
 |---|---|
 | WSL instance backup/restore | [backup-and-restore/wsl.md](backup-and-restore/wsl.md) |
 | GnuPG backup/restore | [backup-and-restore/gnupg.md](backup-and-restore/gnupg.md) |
-| pass → Bitwarden export | [backup-and-restore/pass-to-bitwarden.md](backup-and-restore/pass-to-bitwarden.md) |
+| pass backup/restore | [backup-and-restore/pass-transfer.md](backup-and-restore/pass-transfer.md) |
 | Neovim backup/restore | [backup-and-restore/neovim.md](backup-and-restore/neovim.md) |
 
 ---
