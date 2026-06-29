@@ -11,6 +11,7 @@ A developer workstation with my favorite tools enabled. Preference for keyboard 
 ## Contents
 
 - [Setup sequence](#setup-sequence)
+- [Backup and Restore](#backup-and-restore)
 - [Optional setup](#optional-setup)
 
 ---
@@ -39,15 +40,18 @@ A developer workstation with my favorite tools enabled. Preference for keyboard 
 1. [VS Code Extensions](windows/vscode/vscode-extensions.md)
 1. [Claude Code](claude-install.md) — AI coding assistant in VS Code + WSL
 
-### AI assistant
-
-14. [Molt: Choose a model](molt/which-model.md)
-1. [Molt: Choose a channel](molt/which-channel.md)
-1. [Molt: Install](molt/install-molt.md)
-1. [Molt: Brave Search](molt/configure-brave-for-search.md)
-
 ---
 
+## Backup and Restore
+
+| Tool | Guide |
+|---|---|
+| WSL instance backup/restore | [backup-and-restore/wsl.md](backup-and-restore/wsl.md) |
+| GnuPG backup/restore | [backup-and-restore/gnupg.md](backup-and-restore/gnupg.md) |
+| pass → Bitwarden export | [backup-and-restore/pass-to-bitwarden.md](backup-and-restore/pass-to-bitwarden.md) |
+| Neovim backup/restore | [backup-and-restore/neovim.md](backup-and-restore/neovim.md) |
+
+---
 ## Optional setup
 
 | Tool | Guide |
@@ -62,3 +66,4 @@ A developer workstation with my favorite tools enabled. Preference for keyboard 
 | Mouse (Magic Trackpad 2) | [windows/mouse/mouse-setup.md](windows/mouse/mouse-setup.md) |
 | Microsoft Edge | [edge-setup.md](edge-setup.md) |
 | Default text editor | [windows/text-editor.md](windows/text-editor.md) |
+| Google Antigravity (personal PC) | [google-antigravity.md](google-antigravity.md) |

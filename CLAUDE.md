@@ -18,7 +18,6 @@ The intended order matters when following this guide on a fresh machine:
 6. **Node.js** (`volta-install.md`) — via Volta version manager
 7. **VS Code** (`windows/vscode/`) — editor with WSL integration
 8. **Claude Code** (`claude-install.md`) — AI coding assistant in VS Code + WSL
-9. **Molt** (`molt/`) — Gemini-based general assistant via WhatsApp
 
 Other setups (`python/`, `windows/docker.md`, `windows/ditto/`, etc.) are independent of this sequence.
 
@@ -35,8 +34,7 @@ The live Windows Terminal settings live at `windows/terminal/settings.json`, whi
 - **Git authentication**: Uses Git Credential Manager (GCM) with Microsoft Entra ID (MSAL), not SSH keys. Requires .NET SDK 8.0, systemd in WSL2, and gnome-keyring-daemon for token persistence. The deprecated SSH approach is kept in `git/git-authentication.md` for reference.
 - **Node version management**: Volta (not nvm or asdf).
 - **Neovim version management**: Bob (not manually installed).
-- **AI models**: Claude Code for coding; Molt (Gemini Flash-Lite) for general tasks via WhatsApp — chosen for efficiency and environmental impact.
-- **Brave Search API**: Used by Molt with a 1 req/sec limit and $5 usage cap configured in `molt/configure-brave-for-search.md`.
+- **AI models**: Claude Code for coding.
 
 ## Navigation Pattern
 

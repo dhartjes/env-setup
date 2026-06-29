@@ -16,11 +16,19 @@ Be sure to check [Best Practices for Setup](https://learn.microsoft.com/en-us/wi
    ```  
 1. Install oh-my-posh following these instructions: https://ohmyposh.dev/docs/installation/linux
 1. Install (or update) git for linux with ```sudo apt-get install git```
-1. Use nano to update your ~/.bashrc file to load your desired prompt configuration.
+1. Use nano (or the heredoc below) to append oh-my-posh initialization to `~/.bashrc`:
    ```
-   # Last line of ~/.bashrc file
+   cat << \EOF >> ~/.bashrc
+
+   # Add oh-my-posh to path
+   export PATH="$PATH:$HOME/.local/bin"
+
+   # Invoke oh-my-posh
    eval "$(oh-my-posh init bash --config https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/blue-owl.omp.json)"
+   EOF
+   source ~/.bashrc
    ```
+   The `blue-owl` theme is used here. Browse alternatives at https://ohmyposh.dev/docs/themes.
 
 ## Tips
 Update the packages regularly with ```sudo apt update && sudo apt upgrade```
