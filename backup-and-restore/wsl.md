@@ -2,7 +2,13 @@
 
 ## Backup
 
-Run from PowerShell on Windows. This exports your WSL distribution to a `.tar` file:
+Run from PowerShell on Windows. First stop the distro to ensure a consistent export:
+
+```powershell
+wsl --terminate Ubuntu
+```
+
+Then export it to a `.tar` file:
 
 ```powershell
 wsl --export Ubuntu C:\Backups\ubuntu-backup.tar
