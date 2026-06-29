@@ -23,4 +23,3 @@
 1. Open keyboard shortcuts with Ctrl+K, Ctrl+S and search for "Ctrl+Esc". This shows all the shortcuts related to claude code. However, Ctrl+Esc is used in Windows to open the start menu. Change these shortcuts in VS Code by replacing Ctrl with Win in each desired shortcut.
 
 <-- Prev: [VS Code Extensions](windows/vscode/vscode-extensions.md)
---> Next: [Molt: Choose a model](molt/which-model.md)
