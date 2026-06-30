@@ -55,7 +55,7 @@ Run `:LazyExtras` inside Neovim for an interactive list of available extras.
 ### Current Extras
 
 |Extra/Plugin Name|How to use|Description|Adoption Status|More Info|
-|-|-|-|-|
+|-|-|-|-|-|
 |coding.blink|||LazyVim default|https://github.com/Saghen/blink.cmp|
 |editor.snacks||A collection of QoL improvements for Nvim|LazyVim default|https://github.com/folke/snacks.nvim|
 |editor.snacks_explorer|Open a directory in nvim or launch nvim with a directory argument|Snacks File Explorer|LazyVim default|https://github.com/folke/snacks.nvim/blob/main/doc/snacks.nvim-explorer.txt|
