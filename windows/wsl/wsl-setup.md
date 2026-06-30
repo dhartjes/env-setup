@@ -1,4 +1,4 @@
----
+```---
 title: Install WSL | Microsoft Learn
 canonicalUrl: https://learn.microsoft.com/en-us/windows/wsl/install
 breadcrumb_path: /windows/wsl/breadcrumb/toc.json
@@ -42,6 +42,7 @@ spProducts:
 - https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8
 platformId: be29a304-5e0d-f710-845d-404c0feacfec
 ---
+```
 
 # Install WSL | Microsoft Learn
 
