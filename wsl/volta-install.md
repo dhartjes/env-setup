@@ -11,5 +11,5 @@ volta install node
 
 - <https://docs.volta.sh/guide/getting-started>
 
-<-- Prev: [Neovim](nvim-install.md)
+<-- Prev: [Neovim](nvim/nvim-lazyvim-config.md)
 --> Next: [VS Code Install](../windows/vscode/vscode-install.md)
