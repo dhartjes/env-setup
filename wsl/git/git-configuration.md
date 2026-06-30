@@ -3,6 +3,9 @@
 <-- [Back to README](../../README.md)
 
 ```bash
+# Review your current git settings
+git config --global list
+
 # Replace 'master' moniker with 'main' on default branch
 git config --global init.defaultBranch main
 
@@ -11,5 +14,5 @@ git config --global user.email "dhartjes.work@gmail.com"
 git config --global user.name "Dominic Hartjes"
 ```
 
-<-- Prev: [Git Installation](./git-installation.md)
+<-- Prev: [Git Installation (Windows)](./git-installation-windows.md)
 --> Next: [Git Authentication](./git-authentication.md)
