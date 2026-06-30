@@ -22,7 +22,7 @@ A developer workstation with my favorite tools enabled. Preference for keyboard 
 
 1. [WinGet](windows/winget/winget-install.md) — package manager; comes pre-installed on Windows 11, verify it works first
 1. [PowerShell 7](windows/powershell-setup.md) — install via WinGet; required for WSL and most Windows setup steps
-1. [Windows Terminal](windows/terminal/tips.md) — set default profile and startup behavior
+1. [Windows Terminal](windows/terminal/terminal-setup.md) — set default profile and startup behavior
 1. [WSL2](windows/wsl/wsl-setup.md) — Ubuntu on Windows; run via PowerShell as administrator
 1. [WSL Config](windows/wsl/wsl-config.md) — enable systemd and configure the WSL environment
 
