@@ -22,6 +22,7 @@ A developer workstation with my favorite tools enabled. Preference for keyboard 
 
 1. [WinGet](windows/winget/winget-install.md) — package manager; comes pre-installed on Windows 11, verify it works first
 1. [PowerShell 7](windows/powershell-setup.md) — install via WinGet; required for WSL and most Windows setup steps
+1. [Windows Terminal](windows/terminal/tips.md) — set default profile and startup behavior
 1. [WSL2](windows/wsl/wsl-setup.md) — Ubuntu on Windows; run via PowerShell as administrator
 1. [WSL Config](windows/wsl/wsl-config.md) — enable systemd and configure the WSL environment
 
@@ -50,6 +51,7 @@ A developer workstation with my favorite tools enabled. Preference for keyboard 
 | GnuPG backup/restore | [backup-and-restore/gnupg.md](backup-and-restore/gnupg.md) |
 | pass backup/restore | [backup-and-restore/pass-transfer.md](backup-and-restore/pass-transfer.md) |
 | Neovim backup/restore | [backup-and-restore/neovim.md](backup-and-restore/neovim.md) |
+| Windows Terminal backup/restore | [backup-and-restore/windows-terminal.md](backup-and-restore/windows-terminal.md) |
 
 ---
 ## Optional setup
@@ -58,8 +60,6 @@ A developer workstation with my favorite tools enabled. Preference for keyboard 
 |---|---|
 | Python | [wsl/python/python-setup.md](wsl/python/python-setup.md) |
 | Rancher Desktop | [windows/docker.md](windows/docker.md) |
-| Windows Terminal | [windows/terminal/tips.md](windows/terminal/tips.md) |
-| Terminal config backup | [windows/terminal-config.md](windows/terminal-config.md) |
 | Windows settings | [windows/windows-settings.md](windows/windows-settings.md) |
 | Ditto clipboard manager | [windows/ditto/ditto-setup.md](windows/ditto/ditto-setup.md) |
 | Keyboard (Anne Pro 2) | [windows/peripherals/keyboard-setup.md](windows/keyboard-setup.md) |
