@@ -14,10 +14,11 @@ The intended order matters when following this guide on a fresh machine:
 2. **PowerShell 7** (`windows/powershell-setup.md`) — required before WSL and most Windows steps
 3. **WSL2** (`windows/wsl/`) — foundation for all Linux-side tooling
 4. **Git** (`wsl/git/`) — source control and authentication
-5. **Neovim** (`wsl/nvim-install.md`) — terminal editor via Bob version manager
-6. **Node.js** (`wsl/volta-install.md`) — via Volta version manager
-7. **VS Code** (`windows/vscode/`) — editor with WSL integration
-8. **Claude Code** (`wsl/claude-install.md`) — AI coding assistant in VS Code + WSL
+5. **Homebrew** (`wsl/homebrew/`) — required for tree-sitter-cli (LazyVim Treesitter)
+6. **Neovim** (`wsl/nvim/`) — terminal editor via Bob version manager
+7. **Node.js** (`wsl/volta-install.md`) — via Volta version manager
+8. **VS Code** (`windows/vscode/`) — editor with WSL integration
+9. **Claude Code** (`wsl/claude-install.md`) — AI coding assistant in VS Code + WSL
 
 Other setups (`wsl/python/`, `windows/docker.md`, `windows/ditto/`, etc.) are independent of this sequence.
 

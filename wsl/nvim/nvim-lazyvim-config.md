@@ -59,7 +59,7 @@ Run `:LazyExtras` inside Neovim for an interactive list of available extras.
 |coding.blink|||LazyVim default|https://github.com/Saghen/blink.cmp|
 |editor.snacks||A collection of QoL improvements for Nvim|LazyVim default|https://github.com/folke/snacks.nvim|
 |editor.snacks_explorer|Open a directory in nvim or launch nvim with a directory argument|Snacks File Explorer|LazyVim default|https://github.com/folke/snacks.nvim/blob/main/doc/snacks.nvim-explorer.txt|
-|editor.snacks_picker|Anytime a filepicker is shown. <space>ff|Fast and modern file picker|LazyVim default|https://github.com/folke/snacks.nvim/blob/main/doc/snacks.nvim-picker.txt|
+|editor.snacks_picker|Anytime a filepicker is shown. space-ff|Fast and modern file picker|LazyVim default|https://github.com/folke/snacks.nvim/blob/main/doc/snacks.nvim-picker.txt|
 |editor.dial|<c-a> to increment <c-x> to decrement|Add or minus one to the number/word under cursor|Testing|https://www.lazyvim.org/extras/editor/dial|
 |
 
