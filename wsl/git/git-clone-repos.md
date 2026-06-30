@@ -9,4 +9,4 @@ git clone git@github.com:dhartjes/dhartjes.github.io.git
 ```
 
 <-- Prev: [Git Authentication](./git-authentication.md)
---> Next: [Neovim](../nvim-install.md)
+--> Next: [Neovim](../nvim/nvim-install.md)
