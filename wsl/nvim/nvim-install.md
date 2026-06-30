@@ -22,5 +22,5 @@ bob complete bash >> ~/.local/share/bash-completion/completions/bob
 1. ```bob pin stable``` Pins it to a specific folder
 1. ```nvim``` to launch nvim!
 
-<-- Prev: [Clone Repos](../git/git-clone-repos.md)
+<-- Prev: [Homebrew](../homebrew/homebrew-installation.md)
 --> Next: [Neovim Configuration with LazyVim](nvim-lazyvim-config.md)

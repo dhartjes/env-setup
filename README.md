@@ -32,6 +32,7 @@ A developer workstation with my favorite tools enabled. Preference for keyboard 
 1. [Git Configuration](wsl/git/git-configuration.md)
 1. [Git Authentication](wsl/git/git-authentication.md) — GCM with Microsoft Entra ID
 1. [Clone Repos](wsl/git/git-clone-repos.md)
+1. [Homebrew](wsl/homebrew/homebrew-installation.md) — required for tree-sitter-cli (LazyVim Treesitter)
 1. [Neovim](wsl/nvim/nvim-install.md) — via Bob version manager
 1. [Volta / Node.js](wsl/volta-install.md)
 
