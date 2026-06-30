@@ -26,7 +26,7 @@ A developer workstation with my favorite tools enabled. Preference for keyboard 
 1. [WSL2](windows/wsl/wsl-setup.md) — Ubuntu on Windows; run via PowerShell as administrator
 1. [WSL Config](windows/wsl/wsl-config.md) — enable systemd and configure the WSL environment
 
-### Developer tools (in WSL)
+### Developer tools
 
 5. [Git Install](wsl/git/git-installation.md)
 1. [Git Configuration](wsl/git/git-configuration.md)
