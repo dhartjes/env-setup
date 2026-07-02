@@ -2,7 +2,9 @@
 
 ## Goal
 
-A developer workstation with my favorite tools enabled. Preference for keyboard over mouse, Terminal over Windows, Node before Python before .NET, careful organization over controlled chaos, documentation, context, caching, reuse, and AI as a last resort.
+A developer workstation with my favorite tools enabled. Preference for keyboard
+over mouse, Terminal over Windows, Node before Python before .NET, careful
+organization over controlled chaos, documentation, context, caching, reuse, and AI as a last resort.
 
 ## Requisites
 
@@ -28,7 +30,7 @@ A developer workstation with my favorite tools enabled. Preference for keyboard 
 
 ### Developer tools
 
-5. [Git Install](wsl/git/git-installation.md)
+1. [Git Install](wsl/git/git-installation.md)
 1. [Git Configuration](wsl/git/git-configuration.md)
 1. [Git Authentication](wsl/git/git-authentication.md) — GCM with Microsoft Entra ID
 1. [Clone Repos](wsl/git/git-clone-repos.md)
@@ -38,7 +40,7 @@ A developer workstation with my favorite tools enabled. Preference for keyboard 
 
 ### Editor and AI
 
-11. [VS Code Install](windows/vscode/vscode-install.md)
+1. [VS Code Install](windows/vscode/vscode-install.md)
 1. [VS Code Extensions](windows/vscode/vscode-extensions.md)
 1. [Claude Code](wsl/claude-install.md) — AI coding assistant in VS Code + WSL
 
@@ -47,7 +49,7 @@ A developer workstation with my favorite tools enabled. Preference for keyboard 
 ## Backup and Restore
 
 | Tool | Guide |
-|---|---|
+| --- | --- |
 | WSL instance backup/restore | [backup-and-restore/wsl.md](backup-and-restore/wsl.md) |
 | GnuPG backup/restore | [backup-and-restore/gnupg.md](backup-and-restore/gnupg.md) |
 | pass backup/restore | [backup-and-restore/pass-transfer.md](backup-and-restore/pass-transfer.md) |
@@ -55,16 +57,17 @@ A developer workstation with my favorite tools enabled. Preference for keyboard 
 | Windows Terminal backup/restore | [backup-and-restore/windows-terminal.md](backup-and-restore/windows-terminal.md) |
 
 ---
+
 ## Optional setup
 
 | Tool | Guide |
-|---|---|
+| --- | --- |
 | Python | [wsl/python/python-setup.md](wsl/python/python-setup.md) |
 | Rancher Desktop | [windows/docker.md](windows/docker.md) |
 | Windows settings | [windows/windows-settings.md](windows/windows-settings.md) |
 | Ditto clipboard manager | [windows/ditto/ditto-setup.md](windows/ditto/ditto-setup.md) |
-| Keyboard (Anne Pro 2) | [windows/peripherals/keyboard-setup.md](windows/keyboard-setup.md) |
-| Mouse (Magic Trackpad 2) | [windows/peripherals/mouse-setup.md](windows/mouse/mouse-setup.md) |
+| Keyboard (Anne Pro 2) | [windows/peripherals/keyboard-setup.md](windows/peripherals/keyboard-setup.md) |
+| Mouse (Magic Trackpad 2) | [windows/peripherals/mouse-setup.md](windows/peripherals/mouse-setup.md) |
 | Microsoft Edge | [windows/edge-setup.md](edge-setup.md) |
 | Default text editor | [windows/text-editor.md](windows/text-editor.md) |
 | Google Antigravity (personal PC) | [google-antigravity.md](google-antigravity.md) |
