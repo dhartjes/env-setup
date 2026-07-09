@@ -14,7 +14,7 @@ These must be in place before starting CC-specific setup:
 
 ## Prerequisites
 
-- [Rancher Desktop](rancher-desktop.md) — Docker daemon required by the CC container stack. Covered in the main setup sequence.
+- [Rancher Desktop](../../windows/rancher-desktop.md) — Docker daemon required by the CC container stack. Covered in the main setup sequence.
 
 ## Setup Sequence
 
