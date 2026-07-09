@@ -5,21 +5,32 @@
 Be sure to check [Best Practices for Setup](https://learn.microsoft.com/en-us/windows/wsl/setup/environment) for updates. On 4/20/2026, these were the pertinent steps.
 
 ## Steps
-1. Update the packages with ```sudo apt update && sudo apt upgrade```
+
+1. Update the packages with `sudo apt update && sudo apt upgrade`
 1. Installation script requirements for Oh-My-Posh:
+
+   ```bash
+   sudo apt update && sudo apt upgrade
+   sudo apt install curl unzip
    ```
-   sudo apt install curl
-   sudo apt install unzip
-   ```
+
 1. Installation requirements for VS Code Remote Development extension:
-   ```
-   sudo apt-get update
+
+   ```bash
+   sudo apt-get update && sudo apt-get upgrade
    sudo apt-get install wget ca-certificates
    ```  
+
 1. Install oh-my-posh following these instructions: https://ohmyposh.dev/docs/installation/linux
-1. Install (or update) git for linux with ```sudo apt-get install git```
-1. Use nano (or the heredoc below) to append oh-my-posh initialization to `~/.bashrc`:
+1. Install (or update) git for linux with:
+
+   ```bash
+   sudo apt-get update && sudo apt-get upgrade
+   sudo apt-get install git
    ```
+1. Use nano (or the heredoc below) to append oh-my-posh initialization to `~/.bashrc`:
+
+   ```bash
    cat << \EOF >> ~/.bashrc
 
    # Add oh-my-posh to path
@@ -30,10 +41,12 @@ Be sure to check [Best Practices for Setup](https://learn.microsoft.com/en-us/wi
    EOF
    source ~/.bashrc
    ```
+
    The `blue-owl` theme is used here. Browse alternatives at https://ohmyposh.dev/docs/themes.
 
 ## Tips
-Update the packages regularly with ```sudo apt update && sudo apt upgrade```
+
+Update the packages regularly with `sudo apt update && sudo apt upgrade`
 
 <-- Prev: [WSL Installation](wsl-install.md)
 --> Next: [WSL Config](wsl-config.md)

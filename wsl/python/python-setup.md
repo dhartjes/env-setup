@@ -7,8 +7,7 @@
 ### Standard Installation
 
 ```bash
-sudo apt update
-sudo apt upgrade
+sudo apt update && sudo apt upgrade
 sudo apt install python3
 sudo apt install python3-pip
 sudo apt install python3-dev python3-venv build-essential
@@ -24,6 +23,7 @@ sudo rm /var/cache/apt/archives/lock
 ### Pyenv Installation
 
 ```bash
+sudo apt update && sudo apt upgrade
 sudo apt install -y build-essential libssl-dev zlib1g-dev libsqlite3-dev libffi-dev
 curl https://pyenv.run/ | bash
 ```
@@ -60,6 +60,7 @@ pyenv install -v 3.13.1
 CFLAGS="-02" pyenv install 3.12.1
 
 # SSL related errors?
+sudo apt update && sudo apt upgrade
 sudo apt install libssl-dev
 ```
 

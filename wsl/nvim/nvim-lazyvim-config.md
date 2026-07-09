@@ -11,6 +11,7 @@ LazyVim requires a [Nerd Font](https://www.nerdfonts.com/) for icons to render c
 It also requires a few tools available in your WSL path:
 
 ```bash
+sudo apt update && sudo apt upgrade
 sudo apt install ripgrep fd-find
 ```
 

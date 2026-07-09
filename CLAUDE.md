@@ -49,4 +49,5 @@ All content is Markdown. When updating setup instructions:
 - Single-file topics belong directly in the parent directory, not inside their own subfolder. Only create a subdirectory when it contains multiple related files (e.g. `winget/` holds both `winget-install.md` and `troubleshooting.md`).
 - Commands should be copy-pasteable as-is (no placeholders like `<your-value>` unless unavoidable).
 - Preserve the setup sequence rationale — note prerequisites explicitly.
+- Every time `sudo apt` or `sudo apt-get` is used in setup instructions, ensure that package updates are run first (e.g., `sudo apt update && sudo apt upgrade` or `sudo apt-get update` before installation).
 - The `.planning/` directory holds future planned sections (Dev Containers, Remote SSH) that are not yet implemented — do not treat these as current documentation.
