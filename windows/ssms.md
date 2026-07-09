@@ -2,19 +2,42 @@
 
 <-- [Back to README](../README.md)
 
-I installed ssms with winget.
+## Installation
+```pwsh
+wignet install Microsoft.SQLServerManagementStudio
+```
 
-I am hosting my sql server in rancher desktop using the dockerd (moby) container engine.
+There's a circular dependency here with .net8, the client repository being installed locally, and rancher-desktop. To put a database on your rancher-desktop instance, you need to have the client repository local so you can run `docker compose up -d`. Then, a SQL Server instance will exist that you can backup the database to.
+
+I am hosting my sql server in rancher desktop using the dockerd (moby) container engine
 
 I have modified my docker related files in the project to only load certain dependencies. This allows me to use the docker approach with a .net framework 4.8 project.
 
+## Connecting to the Rancher Desktop SQL Server
+
+| Field | Value |
+|---|---|
+| Server name | `localhost` |
+| Authentication | SQL Server Authentication |
+| Login | `sa` |
+| Password | See `connectionStrings.default.config` in the CC repo |
+
+The SA password is in:
+```
+C:\Users\Dominic.Hartjes\projects\wausausupply\src\InsiteCommerce.Web\config\connectionStrings.default.config
+```
+
 Importing bacpacs is causing issues so I am attempting to install sqlpackage with ```dotnet tool install -g microsoft.sqlpackage```
+
+> **Note:** The `dotnet` CLI is not included with .NET Framework 4.8. Install .NET 8 or 10 SDK first — see [.NET Framework 4.8 Setup](../optimizely/cfg/cfg-dotnet-framework-setup.md).
 
 Import following instructions from this support ticket: 
 
 ```
-SqlPackage /a:Import /tsn:"localhost" /tdn:"Insite.Commerce" /tu:"sa" /tp:"Password1" /sf:"C:\Users\Dominic.Hartjes\Downloads\wausausupply_database-backup-bacpac-wausausupply-dkvnb.bacpac" /ttsc:True /p:DisableIndexesForDataPhase=False /p:PreserveIdentityLastValues=True
+SqlPackage /a:Import /tsn:"localhost" /tdn:"Insite.Commerce" /tu:"sa" /tp:"<password-from-InsiteCommerce.Web>" /sf:"C:\Users\<YourUserName>\Downloads\<database-export>.bacpac" /ttsc:True /p:DisableIndexesForDataPhase=False /p:PreserveIdentityLastValues=True
 ```
+
+A database backup can be retrieved from Mission Control.
 
 ### Troubleshooting:
 
