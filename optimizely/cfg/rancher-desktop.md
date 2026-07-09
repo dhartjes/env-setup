@@ -1,6 +1,6 @@
 # Docker Desktop
 
-<-- [Back to CFG Setup](README.md)
+<-- [Back to README](../../README.md)
 
 Actually using Rancher Desktop for free license.
 A practical migration guide based on the [Optimizely CC .NET 8 local dev docs](https://docs.developers.optimizely.com/configured-commerce/docs/net8-local-development-environment) and [Rancher Desktop docs](https://docs.rancherdesktop.io).
@@ -269,4 +269,6 @@ Volumes from Docker Desktop's moby instance are stored in a different WSL distro
 | `.NET` projects | No changes required |
 | `docker compose` commands | No changes required |
 
-<-- [Back to CFG Setup](README.md)
+
+<-- Prev: [VS Code Extensions](../../windows/vscode/vscode-extensions.md)
+--> Next: [SSMS](../../windows/ssms.md)

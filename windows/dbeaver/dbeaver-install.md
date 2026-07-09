@@ -1,6 +1,6 @@
 # DBeaver Setup
 
-<-- Top: [Back to Readme](../../README.md)
+<-- [Back to README](../../README.md)
 
 DBeaver Community Edition is a SQL query tool used here to connect to Infor Data Fabric via JDBC.
 
@@ -94,3 +94,5 @@ Adds a quick "open in Excel" button to query results.
    https://dbeaver.io/update/office/latest/
    ```
 3. Check the items to install, click **Next → Finish**, and restart DBeaver.
+
+<-- Prev: [SSMS](../ssms.md)
