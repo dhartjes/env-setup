@@ -12,8 +12,11 @@ These must be in place before starting CC-specific setup:
 - Git configured with access to the Wausau CC repositories
 - Visual Studio (for .NET projects)
 
+## Prerequisites
+
+- [Rancher Desktop](rancher-desktop.md) — Docker daemon required by the CC container stack. Covered in the main setup sequence.
+
 ## Setup Sequence
 
-1. [Rancher Desktop](rancher-desktop.md) — Docker daemon required by the CC container stack; use Rancher Desktop instead of Docker Desktop (free license)
-2. [.NET Framework 4.8 Setup](cfg-dotnet-framework-setup.md) — Windows-side setup for legacy Framework solutions
-3. [Branch Setup for Multiple Repositories](branch-setup-for-multiple-repositories.md) — Wausau's two CC repos and their branch structure
+1. [.NET Framework 4.8 Setup](cfg-dotnet-framework-setup.md) — Windows-side setup for legacy Framework solutions
+2. [Branch Setup for Multiple Repositories](branch-setup-for-multiple-repositories.md) — Wausau's two CC repos and their branch structure
