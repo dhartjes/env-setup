@@ -80,9 +80,9 @@
 
 ### Source
 
-- https://learn.microsoft.com/en-us/dotnet/core/install/linux
-- https://learn.microsoft.com/en-us/azure/devops/repos/git/set-up-credential-managers?view=azure-devops
-- https://github.com/git-ecosystem/git-credential-manager
+- <https://learn.microsoft.com/en-us/dotnet/core/install/linux>
+- <https://learn.microsoft.com/en-us/azure/devops/repos/git/set-up-credential-managers?view=azure-devops>
+- <https://github.com/git-ecosystem/git-credential-manager>
 
 ## SSH Keygen (Deprecated)
 
