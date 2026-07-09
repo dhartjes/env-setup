@@ -3,7 +3,6 @@
 <-- [Back to README](../../README.md)
 
 - [Option 1: Linux setup](#linux-setup-using-git-credential-manager-and-microsoft-entra-id)
-- [Option 2: Windows setup](#windows-setup-using-git-credential-manager-and-microsoft-entra-id)
 - [Option 3: (deprecated) SSH Keygen](#ssh-keygen-deprecated)
 - [Option 4: (deprecated) Using SSH with Visual Studio Code](#using-ssh-with-visual-studio-code)
 
