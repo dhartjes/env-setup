@@ -28,6 +28,7 @@ Be sure to check [Best Practices for Setup](https://learn.microsoft.com/en-us/wi
    sudo apt-get update && sudo apt-get upgrade
    sudo apt-get install git
    ```
+
 1. Use nano (or the heredoc below) to append oh-my-posh initialization to `~/.bashrc`:
 
    ```bash
