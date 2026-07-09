@@ -1,6 +1,6 @@
 # Configured Commerce Setup on DotNet Framework 4.8
 
-<-- [Back to README](../../README.md)
+<-- [Back to CFG Setup](README.md)
 
 Setup of DotNet Framework 4.8 solutions must be done on Windows machine.
 
@@ -11,5 +11,5 @@ Setup of DotNet Framework 4.8 solutions must be done on Windows machine.
     1. Windows Process Activation Service
     1. .NET Framework 4.8
 
-<-- [Back to README](../../README.md)
+<-- [Back to CFG Setup](README.md)
 
