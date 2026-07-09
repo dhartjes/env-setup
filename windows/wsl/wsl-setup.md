@@ -7,13 +7,6 @@ Be sure to check [Best Practices for Setup](https://learn.microsoft.com/en-us/wi
 ## Steps
 
 1. Update the packages with `sudo apt update && sudo apt upgrade`
-1. Installation script requirements for Oh-My-Posh:
-
-   ```bash
-   sudo apt update && sudo apt upgrade
-   sudo apt install curl unzip
-   ```
-
 1. Installation requirements for VS Code Remote Development extension:
 
    ```bash
@@ -21,7 +14,6 @@ Be sure to check [Best Practices for Setup](https://learn.microsoft.com/en-us/wi
    sudo apt-get install wget ca-certificates
    ```  
 
-1. Install oh-my-posh following these instructions: https://ohmyposh.dev/docs/installation/linux
 1. Install (or update) git for linux with:
 
    ```bash
@@ -29,21 +21,8 @@ Be sure to check [Best Practices for Setup](https://learn.microsoft.com/en-us/wi
    sudo apt-get install git
    ```
 
-1. Use nano (or the heredoc below) to append oh-my-posh initialization to `~/.bashrc`:
+1. Install and configure **Oh My Posh** for WSL by following the central [Oh My Posh Setup Guide](../terminal/oh-my-posh.md). It details font dependencies, package requirements, and configuring a high-performance, locally-cached `.omp.json` theme.
 
-   ```bash
-   cat << \EOF >> ~/.bashrc
-
-   # Add oh-my-posh to path
-   export PATH="$PATH:$HOME/.local/bin"
-
-   # Invoke oh-my-posh
-   eval "$(oh-my-posh init bash --config https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/blue-owl.omp.json)"
-   EOF
-   source ~/.bashrc
-   ```
-
-   The `blue-owl` theme is used here. Browse alternatives at https://ohmyposh.dev/docs/themes.
 
 ## Tips
 
