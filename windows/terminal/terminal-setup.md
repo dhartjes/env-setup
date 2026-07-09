@@ -15,17 +15,12 @@ Settings are backed up in this repo — see [Backup and Restore](../../backup-an
 
 ## Customize Prompt
 
-Install Oh My Posh for a custom prompt: <https://learn.microsoft.com/en-us/windows/terminal/tutorials/custom-prompt-setup>
+To set up a custom, professional prompt themed with colors and git status indicators, see the central [Oh My Posh Setup Guide](oh-my-posh.md). It covers:
+- Prerequisite Nerd Font installation and configurations
+- Windows Terminal / PowerShell 7 setup
+- WSL / Ubuntu Bash shell setup
+- Using local cached theme `.omp.json` files for optimal performance (no external URL dependencies)
 
-### Font configuration:
-
-> Note: Font installation is still a manual process — no reliable WinGet option for Nerd Fonts.
-
-| App | Font | Additional Appearance Setting Changes |
-|-|-|-|
-|VS Code|FiraCode Nerd Font|Ligatures enabled, Ligatures in Terminal enabled|
-|Ubuntu|UbuntuSansMono Nerd Font Mono|Size 12|
-|PowerShell|CaskaydiaMono Nerd Font Mono||
 
 ## Hotkeys
 
