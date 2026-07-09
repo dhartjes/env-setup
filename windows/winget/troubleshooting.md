@@ -76,5 +76,5 @@ Repair-WinGetPackageManager -Force -Latest
 
 Give up and run winget in a non-administrator session. Wait to see if issues arise in the use of the tools.
 
-<-- Prev: [Winget Installation](./winget-install.md)
+<-- Prev: [Winget Installation](winget-install.md)
 --> Next: [PowerShell](../powershell-setup.md)

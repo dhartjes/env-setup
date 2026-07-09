@@ -41,9 +41,12 @@ The live Windows Terminal settings live at `windows/terminal/settings.json`, whi
 
 Sequential files in a section use `<-- Prev` / `--> Next` links at the bottom. Files not in the main sequence use `<-- Top: [Back to Readme](README.md)`. Files with 3+ H2 sections include a table of contents.
 
+Relative links in markdown must never use a `./` prefix — use `file.md` not `./file.md`, and `../dir/file.md` not `./../dir/file.md`. The `./` form can fail when GitHub renders files outside the standard tree view (e.g. blame, raw).
+
 ## Editing Guidelines
 
 All content is Markdown. When updating setup instructions:
+- Single-file topics belong directly in the parent directory, not inside their own subfolder. Only create a subdirectory when it contains multiple related files (e.g. `winget/` holds both `winget-install.md` and `troubleshooting.md`).
 - Commands should be copy-pasteable as-is (no placeholders like `<your-value>` unless unavoidable).
 - Preserve the setup sequence rationale — note prerequisites explicitly.
 - The `.planning/` directory holds future planned sections (Dev Containers, Remote SSH) that are not yet implemented — do not treat these as current documentation.

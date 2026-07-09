@@ -15,4 +15,4 @@ git config --global user.name "Dominic Hartjes"
 ```
 
 <-- Prev: [Git Installation (Windows)](../../windows/git-windows-install.md)
---> Next: [Git Authentication](./git-auth.md)
+--> Next: [Git Authentication](git-auth.md)

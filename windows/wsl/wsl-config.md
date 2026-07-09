@@ -123,5 +123,5 @@ Verify with from bash inside WSL to confirm the memory limit. `free -h`
 - [How to configure memory limits in WSL2 - Willem's Fizzy Logic](https://fizzylogic.nl/2023/01/05/how-to-configure-memory-limits-in-wsl2)
 
 
-<-- Prev: [WSL Setup](./wsl-setup.md)
+<-- Prev: [WSL Setup](wsl-setup.md)
 --> Next: [Git Install](../../wsl/git/git-install.md)

@@ -12,11 +12,11 @@ I've saved my settings in my GitHub account. Sign in to Visual Studio Code from 
 
 ## Extensions
 
-See [VSCode Extensions](./vscode-extensions.md) for more info
+See [VSCode Extensions](vscode-extensions.md) for more info
 
 ## Source
 
 - [StackOverflow](https://stackoverflow.com/questions/71103966/wsl-vscode-command-returning-error-not-found/73439567#73439567)
 
 <-- Prev: [Claude Code](../../wsl/claude-install.md)
---> Next: [VS Code Extensions](./vscode-extensions.md)
+--> Next: [VS Code Extensions](vscode-extensions.md)

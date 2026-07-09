@@ -27,5 +27,5 @@ Get-Content extensions.txt | ForEach-Object { code --install-extension $_ }
 - [Dev Containers | Lets you use a Docker Container as a full-featured development environment](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 - [Docker | Makes it easy to build, manage, and deploy containerized applications](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
 
-<-- Prev: [VS Code Install](./vscode-install.md)
+<-- Prev: [VS Code Install](vscode-install.md)
 --> Next: [Rancher Desktop](../rancher-desktop.md)
