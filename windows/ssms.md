@@ -57,5 +57,5 @@ SqlPackage /a:Import /tsn:"localhost" /tdn:"Insite.Commerce" /tu:"sa" /tp:"Passw
 ### Source:
 - https://learn.microsoft.com/en-us/sql/tools/sqlpackage/sqlpackage-download?view=sql-server-ver16#windows-net-6
 
-<-- Prev: [Rancher Desktop](../optimizely/cfg/rancher-desktop.md)
---> Next: [DBeaver](dbeaver/dbeaver-install.md)
+<-- Prev: [Rancher Desktop](rancher-desktop.md)
+--> Next: [DBeaver](dbeaver-install.md)
