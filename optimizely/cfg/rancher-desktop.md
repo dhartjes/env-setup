@@ -1,8 +1,9 @@
-# Docker Desktop 
+# Docker Desktop
 
-<-- [Back to README](../README.md)
+<-- [Back to CFG Setup](README.md)
 
-Actually using Rancher Desktop for free license. A practical migration guide based on the [Optimizely CC .NET 8 local dev docs](https://docs.developers.optimizely.com/configured-commerce/docs/net8-local-development-environment) and [Rancher Desktop docs](https://docs.rancherdesktop.io).
+Actually using Rancher Desktop for free license.
+A practical migration guide based on the [Optimizely CC .NET 8 local dev docs](https://docs.developers.optimizely.com/configured-commerce/docs/net8-local-development-environment) and [Rancher Desktop docs](https://docs.rancherdesktop.io).
 
 ---
 
@@ -45,7 +46,9 @@ The `.NET` projects (`Admin.Api`, `Storefront.Api`, `Integration.Api`) run nativ
 
 ## Step 1 — Install Rancher Desktop
 
-Download from [rancherdesktop.io](https://rancherdesktop.io) or the [GitHub releases page](https://github.com/rancher-sandbox/rancher-desktop/releases).
+```pwsh
+winget install SUSE.rancherdesktop
+```
 
 **Windows prerequisites:**
 
@@ -262,4 +265,4 @@ Volumes from Docker Desktop's moby instance are stored in a different WSL distro
 | `.NET` projects | No changes required |
 | `docker compose` commands | No changes required |
 
-<-- [Back to README](../README.md)
+<-- [Back to CFG Setup](README.md)

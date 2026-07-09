@@ -44,6 +44,10 @@ organization over controlled chaos, documentation, context, caching, reuse, and 
 1. [VS Code Extensions](windows/vscode/vscode-extensions.md)
 1. [Claude Code](wsl/claude-install.md) — AI coding assistant in VS Code + WSL
 
+### Optimizely Configured Commerce
+
+[Configured Commerce local dev setup](optimizely/cfg/README.md) — container stack, .NET projects, and branch structure for Wausau's CC repositories.
+
 ---
 
 ## Backup and Restore
@@ -63,7 +67,7 @@ organization over controlled chaos, documentation, context, caching, reuse, and 
 | Tool | Guide |
 | --- | --- |
 | Python | [wsl/python/python-setup.md](wsl/python/python-setup.md) |
-| Rancher Desktop | [windows/docker.md](windows/docker.md) |
+| Rancher Desktop | [optimizely/cfg/rancher-desktop.md](optimizely/cfg/rancher-desktop.md) |
 | Windows settings | [windows/windows-settings.md](windows/windows-settings.md) |
 | Ditto clipboard manager | [windows/ditto/ditto-setup.md](windows/ditto/ditto-setup.md) |
 | Keyboard (Anne Pro 2) | [windows/peripherals/keyboard-setup.md](windows/peripherals/keyboard-setup.md) |
