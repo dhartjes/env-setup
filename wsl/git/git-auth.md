@@ -10,13 +10,29 @@
 ## Linux setup using Git Credential Manager and Microsoft Entra ID
 
 ### Requirements
-- Dotnet SDK 8.0. To test: ```dotnet --list-sdks``` To install: ```sudo apt install dotnet-sdk-8.0```
-- WSL2 with systemd enabled. To verify: ```cat /etc/wsl.conf``` should contain ```systemd=true``` under ```[boot]```. If not, add it and restart WSL2 with ```wsl --shutdown``` from PowerShell.
+
+- Dotnet SDK 8.0. To test: `dotnet --list-sdks` To install: `sudo apt update && sudo apt upgrade && sudo apt install dotnet-sdk-8.0`
+- WSL2 with systemd enabled. To verify: `cat /etc/wsl.conf` should contain `systemd=true` under `[boot]`. If not, add it and restart WSL2 with `wsl --shutdown` from PowerShell.
 
 ### Steps
+
 1. Install GCM with dotnet from terminal: ```dotnet tool install -g git-credential-manager```
-1. Add to path in ```~/.bashrc```:
+   1. (Option 2) dotnet did not successfully retrieve git-credential-manager for me. Instead:
+
+   ```bash
+   <!-- Download .deb from official GitHub Releases page -->
+   wget https://github.com/GitCredentialManager/git-credential-manager/releases/download/v2.0.935/gcm-linux_amd64.2.0.935.deb
+
+   <!-- Unpack -->
+   sudo apt update && sudo apt upgrade
+
+   <!-- Fix any broken dependencies -->
+   sudo apt --fix-broken install
    ```
+
+1. Add to path in ```~/.bashrc```:
+
+   ```bash
    cat << \EOF >> ~/.bashrc
    # Add .NET Core SDK tools
    export PATH="$PATH:$HOME/.dotnet/tools"
@@ -29,39 +45,45 @@
    EOF
    source ~/.bashrc
    ```
-1. Install required dependencies: ```sudo apt install gpg pass pinentry-curses libsecret-1-0 libsecret-tools gnome-keyring wslu```
-1. Set up GPG key:
-   ```
+
+1. Install required dependencies: ```sudo apt update && sudo apt upgrade && sudo apt install gpg pass pinentry-curses libsecret-1-0 libsecret-tools gnome-keyring wslu```
+1. Set up GPG key: (Choose no password)
+
+   ```bash
    gpg --gen-key
    # Note the fingerprint shown below the pub line, e.g:
    # E54EFA45F8D5F8ECA38DB84521DC54A53F0E5F89
    ```
+
    Ensure you save this credential in a password manager.
 1. Initialize ```pass``` with your GPG key fingerprint: ```pass init <your-gpg-key-fingerprint>```
 1. Configure pinentry-curses for GPG:
-   ```
+
+   ```bash
    echo "pinentry-program /usr/bin/pinentry-curses" >> ~/.gnupg/gpg-agent.conf
    gpg-connect-agent reloadagent /bye
    ```
+
 1. Enable and start gnome-keyring via systemd for MSAL token persistence:
-   ```
+
+   ```bash
    systemctl --user enable gnome-keyring-daemon.service
    systemctl --user start gnome-keyring-daemon.service
    ```
+
    When prompted to set a keyring password, leave it blank so the keyring unlocks automatically in non-interactive git operations.
 1. Configure CGM:
-   ```
+
+   ```bash
    git-credential-manager configure
    git config --global credential.credentialstore gpg
    ```
 
 ### Source
+
 - https://learn.microsoft.com/en-us/dotnet/core/install/linux
 - https://learn.microsoft.com/en-us/azure/devops/repos/git/set-up-credential-managers?view=azure-devops
 - https://github.com/git-ecosystem/git-credential-manager
-
-## Windows setup using Git Credential Manager and Microsoft Entra ID
-
 
 ## SSH Keygen (Deprecated)
 
