@@ -1,6 +1,6 @@
 # LazyVim Setup
 
-<-- [Back to README](../README.md)
+<-- [Back to README](../../README.md)
 
 [LazyVim](https://www.lazyvim.org/) is a Neovim configuration distribution that provides a full IDE experience out of the box — LSP, completion, fuzzy find, formatting, and Git integration — with a large community and good documentation.
 

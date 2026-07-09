@@ -59,4 +59,4 @@ winget install ObinsKit.ObinsKit
 
 <https://manuals.plus/obins/obins-anne-pro-2-manual>
 
-<-- [Back to README](../README.md)
+<-- [Back to README](../../README.md)

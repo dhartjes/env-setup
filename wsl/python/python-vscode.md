@@ -7,7 +7,7 @@
 To get your python tools working in your vscode instance through wsl:
 
 1. launch this project (or any project with python files) from the wsl terminal with `code .`
-1. Open the a .py file like [does-vscode-have-linter-and-formatter.py](./does-vscode-have-linter-and-formatter.py)
+1. Open the a .py file like [does-vscode-have-linter-and-formatter.py](does_vscode_have_linter_and_formatter.py)
 1. If you don't yet have it, VSCode will recommend the Python Extension.
 1. Once installed, right click within your open *.py file and select Format (or run format with Shift+Alt+F)
 1. Choose a Python formatter. I'm going with black.

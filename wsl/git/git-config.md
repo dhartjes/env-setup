@@ -14,5 +14,5 @@ git config --global user.email "dhartjes.work@gmail.com"
 git config --global user.name "Dominic Hartjes"
 ```
 
-<-- Prev: [Git Installation (Windows)](./git-installation-windows.md)
---> Next: [Git Authentication](./git-authentication.md)
+<-- Prev: [Git Installation (Windows)](../../windows/git-windows-install.md)
+--> Next: [Git Authentication](./git-auth.md)

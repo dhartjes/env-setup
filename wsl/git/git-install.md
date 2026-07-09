@@ -14,4 +14,4 @@ sudo apt install git
 - https://linuxvox.com/blog/update-git-ubuntu/#method-2-installing-from-the-git-core-ppa
 
 <-- Prev: [WSL Config](../../windows/wsl/wsl-config.md)
---> Next: [Git Installation (Windows)](./git-installation-windows.md)
+--> Next: [Git Installation (Windows)](../../windows/git-windows-install.md)

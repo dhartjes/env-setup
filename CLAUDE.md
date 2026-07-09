@@ -32,7 +32,7 @@ The live Windows Terminal settings live at `windows/terminal/settings.json`, whi
 
 ## Key Architectural Decisions Documented Here
 
-- **Git authentication**: Uses Git Credential Manager (GCM) with Microsoft Entra ID (MSAL), not SSH keys. Requires .NET SDK 8.0, systemd in WSL2, and gnome-keyring-daemon for token persistence. The deprecated SSH approach is kept in `wsl/git/git-authentication.md` for reference.
+- **Git authentication**: Uses Git Credential Manager (GCM) with Microsoft Entra ID (MSAL), not SSH keys. Requires .NET SDK 8.0, systemd in WSL2, and gnome-keyring-daemon for token persistence. The deprecated SSH approach is kept in `wsl/git/git-auth.md` for reference.
 - **Node version management**: Volta (not nvm or asdf).
 - **Neovim version management**: Bob (not manually installed).
 - **AI models**: Claude Code for coding.

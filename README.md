@@ -25,16 +25,15 @@ organization over controlled chaos, documentation, context, caching, reuse, and 
 1. [WinGet](windows/winget/winget-install.md) — package manager; comes pre-installed on Windows 11, verify it works first
 1. [PowerShell 7](windows/powershell-setup.md) — install via WinGet; required for WSL and most Windows setup steps
 1. [Windows Terminal](windows/terminal/terminal-setup.md) — set default profile and startup behavior
-1. [WSL2](windows/wsl/wsl-setup.md) — Ubuntu on Windows; run via PowerShell as administrator
-1. [WSL Config](windows/wsl/wsl-config.md) — enable systemd and configure the WSL environment
+1. [WSL2 Installation](windows/wsl/wsl-install.md) - Ubuntu on Windows; run via PowerShell as administrator
 
 ### Developer tools
 
-1. [Git Install](wsl/git/git-installation.md)
-1. [Git Configuration](wsl/git/git-configuration.md)
-1. [Git Authentication](wsl/git/git-authentication.md) — GCM with Microsoft Entra ID
+1. [Git Install](wsl/git/git-install.md)
+1. [Git Configuration](wsl/git/git-config.md)
+1. [Git Authentication](wsl/git/git-auth.md) — GCM with Microsoft Entra ID
 1. [Clone Repos](wsl/git/git-clone-repos.md)
-1. [Homebrew](wsl/homebrew/homebrew-installation.md) — required for tree-sitter-cli (LazyVim Treesitter)
+1. [Homebrew](wsl/homebrew-install.md) — required for tree-sitter-cli (LazyVim Treesitter)
 1. [Neovim](wsl/nvim/nvim-install.md) — via Bob version manager
 1. [Volta / Node.js](wsl/volta-install.md)
 
@@ -72,6 +71,6 @@ organization over controlled chaos, documentation, context, caching, reuse, and 
 | Ditto clipboard manager | [windows/ditto/ditto-setup.md](windows/ditto/ditto-setup.md) |
 | Keyboard (Anne Pro 2) | [windows/peripherals/keyboard-setup.md](windows/peripherals/keyboard-setup.md) |
 | Mouse (Magic Trackpad 2) | [windows/peripherals/mouse-setup.md](windows/peripherals/mouse-setup.md) |
-| Microsoft Edge | [windows/edge-setup.md](edge-setup.md) |
+| Microsoft Edge | [windows/edge-setup.md](windows/edge-setup.md) |
 | Default text editor | [windows/text-editor.md](windows/text-editor.md) |
 | Google Antigravity (personal PC) | [google-antigravity.md](google-antigravity.md) |

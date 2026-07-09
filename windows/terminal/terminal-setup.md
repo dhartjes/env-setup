@@ -37,4 +37,5 @@ Install Oh My Posh for a custom prompt: <https://learn.microsoft.com/en-us/windo
 | Ctrl+Shift+T | New tab with default profile |
 | Ctrl+Shift+C | Copy from the command line |
 
-<-- [Back to README](../../README.md)
+<-- Prev: [PowerShell Setup](../powershell-setup.md)
+--> Next: [WSL2 Installation](../wsl/wsl-install.md)

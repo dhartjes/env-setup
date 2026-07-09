@@ -41,4 +41,5 @@ winget export -o apps.json
 winget import -o apps.json
 ```
 
---> Next: [PowerShell](../powershell-setup.md)
+<-- [Back to README](../../README.md)
+--> Next: [Troubleshooting](./troubleshooting.md)
