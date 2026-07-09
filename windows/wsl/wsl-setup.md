@@ -35,5 +35,5 @@ Be sure to check [Best Practices for Setup](https://learn.microsoft.com/en-us/wi
 ## Tips
 Update the packages regularly with ```sudo apt update && sudo apt upgrade```
 
-<-- Prev: [WSL Installation](./wsl-install.md)
---> Next: [WSL Config](./wsl-config.md)
+<-- Prev: [WSL Installation](wsl-install.md)
+--> Next: [WSL Config](wsl-config.md)

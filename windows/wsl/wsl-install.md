@@ -76,4 +76,4 @@ wsl.exe --distribution <DistroName>
 Replacing `<DistroName>` with the name of the distribution you want to use.
 
 <-- Prev: [Terminal Setup](../terminal/terminal-setup.md)
---> Next: [WSL Setup](./wsl-setup.md)
+--> Next: [WSL Setup](wsl-setup.md)
