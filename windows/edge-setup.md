@@ -1,6 +1,6 @@
 # Edge Setup
 
-<-- [Back to README](README.md)
+<-- [Back to README](../README.md)
 
 ## Browser extensions
 ### Password Manager
@@ -17,4 +17,4 @@ Add key addresses.
 ### Vertical Tabs
 Enabled from the tab dropdown.
 
-<-- [Back to README](README.md)
+<-- [Back to README](../README.md)

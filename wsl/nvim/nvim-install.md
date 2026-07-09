@@ -1,6 +1,6 @@
 # Getting/Updating NVIM
 
-<-- [Back to README](../README.md)
+<-- [Back to README](../../README.md)
 
 Your OS package manager may have very outdated releases of NVIM. The Bob Neovim repo is a Neovim Package Manager meant to make it easy to get neovim and keep it up-to-date.
 
@@ -22,5 +22,5 @@ bob complete bash >> ~/.local/share/bash-completion/completions/bob
 1. ```bob pin stable``` Pins it to a specific folder
 1. ```nvim``` to launch nvim!
 
-<-- Prev: [Homebrew](../homebrew/homebrew-installation.md)
+<-- Prev: [Homebrew](../homebrew-install.md)
 --> Next: [Neovim Configuration with LazyVim](nvim-lazyvim-config.md)

@@ -105,6 +105,5 @@ IdentityFile ~/.ssh/id_git-dhartjes-work
 - <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account>
 - <https://stackoverflow.com/questions/34634364/to-use-git-push-on-visual-studio-code-but-show-could-not-read-from-remote-re>
 
-<-- Prev: [Git Configuration](./git-configuration.md)
+<-- Prev: [Git Configuration](./git-config.md)
 --> Next: [Git Clone Repos](./git-clone-repos.md)
-

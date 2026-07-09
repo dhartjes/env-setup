@@ -147,6 +147,10 @@ docker ps
 
 Both should work if WSL integration is enabled.
 
+### Troubleshooting
+
+If you see the message, "Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?" when running the above commands, you can restart the docker daemon by exiting and restarting Rancher Desktop in windows.
+
 ---
 
 ## Step 6 — Run the CC Stack

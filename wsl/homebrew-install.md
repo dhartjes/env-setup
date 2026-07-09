@@ -1,8 +1,8 @@
 # Homebrew Installation
 
-Homebrew is used to install `tree-sitter-cli`, which is required for LazyVim's Treesitter integration.
+<-- [Back to README](../README.md)
 
-<-- [Back to README](../../README.md)
+Homebrew is used to install `tree-sitter-cli`, which is required for LazyVim's Treesitter integration.
 
 ## Install Homebrew
 
@@ -26,5 +26,5 @@ Verify with:
 tree-sitter --version
 ```
 
-<-- Prev: [Clone Repos](../git/git-clone-repos.md)
---> Next: [Neovim](../nvim/nvim-install.md)
+<-- Prev: [Clone Repos](git/git-clone-repos.md)
+--> Next: [Neovim](nvim/nvim-install.md)
