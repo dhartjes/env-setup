@@ -93,4 +93,4 @@ Uncheck **Dev > Containers: Mount Wayland Socket** in VS Code settings — Ranch
 ---
 
 <-- Prev: [VS Code Extensions](vscode/vscode-extensions.md)
---> Next: [SSMS](ssms.md)
+--> Next: [SSMS](ssms-install.md)

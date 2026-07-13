@@ -46,7 +46,7 @@ organization over controlled chaos, documentation, context, caching, reuse, and 
 ### Database tools
 
 1. [Rancher Desktop](windows/rancher-desktop.md) — Docker daemon for running SQL Server and other services in containers; free alternative to Docker Desktop
-1. [SSMS](windows/ssms.md) — SQL Server Management Studio, for CC database import and management
+1. [SSMS](windows/ssms-install.md) — SQL Server Management Studio; connection and database import covered later in the CC section
 1. [DBeaver](windows/dbeaver-install.md) — SQL query tool for Infor Data Fabric via JDBC
 
 ### Optimizely Configured Commerce

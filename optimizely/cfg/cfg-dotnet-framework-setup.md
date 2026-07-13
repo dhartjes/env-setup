@@ -1,7 +1,5 @@
 # Configured Commerce Setup on DotNet Framework 4.8
 
-<-- [Back to CFG Setup](README.md)
-
 Setup of DotNet Framework 4.8 solutions must be done on Windows machine.
 
 ## Steps
@@ -22,5 +20,6 @@ winget install Microsoft.DotNet.SDK.10
 
 .NET 8 is the current LTS release and provides the `dotnet` command. .NET 10 is installed for future-proofing.
 
-<-- [Back to CFG Setup](README.md)
+<-- Prev: [CFG Setup](README.md)
+--> Next: [Branch Setup](branch-setup-for-multiple-repositories.md)
 
