@@ -8,16 +8,29 @@ Setup guide for running the Configured Commerce (CC) stack locally on a Windows 
 
 These must be in place before starting CC-specific setup:
 
-- Windows 11 with WSL2 enabled
+- Windows 11
 - Git configured with access to the Wausau CC repositories
-- Visual Studio (for .NET projects)
+- Visual Studio Code
 
-## Prerequisites
+## Setup Paths
 
-- [Rancher Desktop](../../windows/rancher-desktop.md) — Docker daemon required by the CC container stack. Covered in the main setup sequence.
+### Existing customer site (most common)
 
-## Setup Sequence
+Use this path when cloning and running a customer's existing CC repo for the first time.
 
-1. [.NET Framework 4.8 Setup](cfg-dotnet-framework-setup.md) — Windows-side setup for legacy Framework solutions; also installs .NET 8/10 to get the `dotnet` CLI
-2. [Branch Setup for Multiple Repositories](branch-setup-for-multiple-repositories.md) — clone Wausau's CC repos and understand the branch structure
-3. [SSMS Setup](ssms-setup.md) — connect to the Rancher Desktop SQL Server and import the CC database
+1. [.NET Framework 4.8 Setup](cfg-dotnet-framework-setup.md) — installs Framework 4.8 and the `dotnet` CLI
+2. [Clone and Branch Setup](branch-setup-for-multiple-repositories.md) — clone the customer repo and understand the sandbox/production/ADE branch structure
+3. [IIS Setup](iis-setup.md) — enable IIS on Windows 11 and configure the site binding and identity certificate
+4. [SSMS Setup](ssms-setup.md) — connect to SQL Server and import a `.bacpac` from Mission Control
+5. [Admin Console](admin-console.md) — restore NuGet packages, build the solution, and confirm the admin login
+6. [Spire Setup](spire-setup.md) — install Node via Volta, run `npm install`, configure the API URL, and start the frontend
+
+### New project from scratch
+
+Use this path only when Optimizely has provisioned a new environment and you are starting from the base `insite-commerce-cloud` repo. Steps 1–5 above are the same; the difference is in step 4 (use `StartingDatabase.sql` instead of a `.bacpac`).
+
+See [Optimizely: Environment Setup for Developers](https://docs.developers.optimizely.com/configured-commerce/docs/b2b-commerce-cloud-environment-setup-for-developers) for the new-project walkthrough.
+
+### .NET 8+ setup (future)
+
+The .NET 8+ stack replaces IIS with a Docker/nginx proxy and changes how APIs and Spire are run. See [.NET 8 Setup](net8/README.md) for a stub of that path.
