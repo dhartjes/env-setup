@@ -18,5 +18,6 @@ These must be in place before starting CC-specific setup:
 
 ## Setup Sequence
 
-1. [.NET Framework 4.8 Setup](cfg-dotnet-framework-setup.md) — Windows-side setup for legacy Framework solutions
-2. [Branch Setup for Multiple Repositories](branch-setup-for-multiple-repositories.md) — Wausau's two CC repos and their branch structure
+1. [.NET Framework 4.8 Setup](cfg-dotnet-framework-setup.md) — Windows-side setup for legacy Framework solutions; also installs .NET 8/10 to get the `dotnet` CLI
+2. [Branch Setup for Multiple Repositories](branch-setup-for-multiple-repositories.md) — clone Wausau's CC repos and understand the branch structure
+3. [SSMS Setup](ssms-setup.md) — connect to the Rancher Desktop SQL Server and import the CC database

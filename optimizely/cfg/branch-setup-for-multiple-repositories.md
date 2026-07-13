@@ -1,5 +1,7 @@
 # Branch Setup for Multiple Repositories
 
+<-- [Back to CFG Setup](README.md)
+
 Wausau has two repositories for Configured Commerce source code. Listed beneath each are the branches involved in building/deploying the application.
 
 |Repository URL|Branch|Use|
@@ -135,3 +137,5 @@ git fetch ade sandbox
 git checkout -b ade-sandbox ade/sandbox
 ```
  
+<-- Prev: [.NET Framework 4.8 Setup](cfg-dotnet-framework-setup.md)
+--> Next: [SSMS Setup](ssms-setup.md)
