@@ -2,29 +2,9 @@
 
 <-- [Back to CFG README](README.md)
 
-## Install Node.js via Volta
+## Prerequisites
 
-Volta manages Node versions per-project, pinning the correct version via a `volta` key in `package.json`. This mirrors the approach used for Neovim versions on Linux (Bob) and Node versions in WSL (Volta) — one tool handles versioning so you never need to manually match versions between projects.
-
-Install Volta once on Windows:
-
-```powershell
-winget install Volta.Volta
-```
-
-Restart your terminal. Verify:
-
-```powershell
-volta --version
-```
-
-Volta will automatically download and activate the correct Node version the first time you run `npm install` or `npm run` inside a project that has a `volta` pin in `package.json`. No manual `node install` is needed in that case.
-
-If the project's `package.json` does not have a `volta` pin, install Node 22 explicitly:
-
-```powershell
-volta install node@22
-```
+- Node.js and Grunt CLI installed — see [Frontend Tools Setup](frontend-tools-setup.md)
 
 ## Install frontend dependencies
 

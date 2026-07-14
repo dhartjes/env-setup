@@ -2,41 +2,9 @@
 
 <-- [Back to CFG README](README.md)
 
-## Enable IIS on Windows 11
+## Prerequisites
 
-### Option A — Windows Features UI
-
-1. Open **Start** → search **"Turn Windows features on or off"**.
-2. Enable the following:
-   - **Internet Information Services**
-     - Web Management Tools → **IIS Management Console**
-     - World Wide Web Services → Application Development Features:
-       - **ASP.NET 4.8**
-       - **.NET Extensibility 4.8**
-       - **ISAPI Extensions**
-       - **ISAPI Filters**
-     - World Wide Web Services → Common HTTP Features:
-       - **Default Document**
-       - **HTTP Errors**
-       - **Static Content**
-   - **Windows Process Activation Service**
-   - **.NET Framework 4.8 Advanced Services** → **ASP.NET 4.8**
-3. Click **OK**. Windows will install the features — a restart may be required.
-
-### Option B — PowerShell (if Option A fails or is inaccessible)
-
-Run in an elevated PowerShell session:
-
-```powershell
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebServerRole -All
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-ManagementConsole -All
-```
-
-The `-All` flag automatically enables all dependencies for each feature.
-
-### Verify
-
-Open a browser and navigate to `http://localhost`. The IIS welcome page should appear.
+- Windows Features enabled — see [Windows Features](../../windows/windows-features.md) (IIS and all required .NET features are enabled there in a single admin session)
 
 ## Add the CC site to IIS
 

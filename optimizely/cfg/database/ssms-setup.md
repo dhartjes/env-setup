@@ -9,6 +9,8 @@
 - CC repo cloned locally — see [Branch Setup](../branch-setup-for-multiple-repositories.md)
 - Rancher Desktop running with `docker compose up -d` executed from the CC repo root
 
+> **Memory:** The SQL Server container struggles during `.bacpac` import with the default memory allocation. If the import hangs or the container restarts, increase the memory limit to `16g` in `docker-compose.yml` (the `mem_limit` or `deploy.resources.limits.memory` field on the SQL Server service).
+
 ## Connecting to the Rancher Desktop SQL Server
 
 | Field | Value |
