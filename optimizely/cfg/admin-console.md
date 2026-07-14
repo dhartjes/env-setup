@@ -47,5 +47,14 @@ The Spire content admin is at a separate path from the back-office admin console
 http://localhost:8080/contentadmin
 ```
 
+## Troubleshooting
+
+### Gigantic Opti logo
+
+Site appears to be missing CSS and Javascript or as if it is missing an angular build.
+
+1. In IIS, click on wausau.local.com, double click on Authentication. Right click on Anonymous Authentication and select Edit. Change from Specific user: IUSR to Application pool identity.
+1. 
+
 <-- Prev: [SSMS Setup](database/ssms-setup.md)
 --> Next: [Spire Setup](spire-setup.md)
