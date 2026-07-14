@@ -11,6 +11,7 @@ These must be in place before starting CC-specific setup:
 - Windows 11
 - Git configured with access to the Wausau CC repositories
 - Visual Studio Code
+- [Windows Features](../../windows/windows-features.md) enabled — IIS, .NET Framework 4.8, and Windows Process Activation Service; do this once before steps 1 and 3 below (requires admin access)
 
 ## Setup Paths
 
@@ -20,14 +21,15 @@ Use this path when cloning and running a customer's existing CC repo for the fir
 
 1. [.NET Framework 4.8 Setup](dotnet-framework-setup.md) — installs Framework 4.8 and the `dotnet` CLI
 2. [Clone and Branch Setup](branch-setup-for-multiple-repositories.md) — clone the customer repo and understand the sandbox/production/ADE branch structure
-3. [IIS Setup](iis-setup.md) — enable IIS on Windows 11 and configure the site binding and identity certificate
+3. [IIS Setup](iis-setup.md) — configure the site binding and identity certificate
 4. [SSMS Setup](database/ssms-setup.md) — connect to SQL Server and import a `.bacpac` from Mission Control
-5. [Admin Console](admin-console.md) — restore NuGet packages, build the solution, and confirm the admin login
-6. [Spire Setup](spire-setup.md) — install Node via Volta, run `npm install`, configure the API URL, and start the frontend
+5. [Frontend Tools Setup](frontend-tools-setup.md) — install Node.js and Grunt CLI (required for Admin Console and Spire)
+6. [Admin Console](admin-console.md) — restore NuGet packages, build the solution, and confirm the admin login
+7. [Spire Setup](spire-setup.md) — run `npm install`, configure the API URL, and start the frontend
 
 ### New project from scratch
 
-Use this path only when Optimizely has provisioned a new environment and you are starting from the base `insite-commerce-cloud` repo. Steps 1–5 above are the same; the difference is in step 4 (use `StartingDatabase.sql` instead of a `.bacpac`).
+Use this path only when Optimizely has provisioned a new environment and you are starting from the base `insite-commerce-cloud` repo. Steps 1–6 above are the same; the difference is in step 4 (use `StartingDatabase.sql` instead of a `.bacpac`).
 
 See [Optimizely: Environment Setup for Developers](https://docs.developers.optimizely.com/configured-commerce/docs/b2b-commerce-cloud-environment-setup-for-developers) for the new-project walkthrough.
 

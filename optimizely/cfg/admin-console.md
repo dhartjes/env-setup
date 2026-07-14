@@ -56,5 +56,5 @@ Site appears to be missing CSS and Javascript or as if it is missing an angular 
 1. In IIS, click on wausau.local.com, double click on Authentication. Right click on Anonymous Authentication and select Edit. Change from Specific user: IUSR to Application pool identity.
 1. 
 
-<-- Prev: [SSMS Setup](database/ssms-setup.md)
+<-- Prev: [Frontend Tools Setup](frontend-tools-setup.md)
 --> Next: [Spire Setup](spire-setup.md)
