@@ -43,16 +43,19 @@ Open a browser and navigate to `http://localhost`. The IIS welcome page should a
 1. Open **IIS Manager** (search "IIS" in Start).
 2. In the left pane, expand the server node → right-click **Sites** → **Add Website**.
 3. Configure:
-   - **Site name:** `wausausupply` (or any identifier)
+   - **Site name:** `wausau.local.com` (or any identifier)
    - **Physical path:** `C:\Users\Dominic.Hartjes\projects\wausausupply\src\InsiteCommerce.Web`
    - **Binding type:** `http`
    - **Port:** `8080`
+   - **Permissions:** 
+      - Edit Permissions, Security Tab, Edit, Add, "iis apppool\wausau.local.com", Check Names, OK.
+      - Permissions for wausau.local.com: Modify, Full control, click Apply.
 
    For multiple active projects, use named hostnames on port 80 instead. Add entries to `C:\Windows\System32\drivers\etc\hosts` (requires an elevated editor):
    ```
-   127.0.0.1  wausausupply.local.com
+   127.0.0.1  wausau.local.com
    ```
-   Then set the IIS binding hostname to `wausausupply.local.com` on port 80.
+   Then set the IIS binding hostname to `wausau.local.com` on port 80.
 
 4. Click **OK**.
 

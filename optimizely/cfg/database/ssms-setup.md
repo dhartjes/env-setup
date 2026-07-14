@@ -4,9 +4,9 @@
 
 ## Prerequisites
 
-- SSMS installed — see [SSMS Install](../../windows/ssms-install.md)
-- .NET 8 SDK installed — see [.NET Framework 4.8 Setup](cfg-dotnet-framework-setup.md)
-- CC repo cloned locally — see [Branch Setup](branch-setup-for-multiple-repositories.md)
+- SSMS installed — see [SSMS Install](../../../windows/ssms-install.md)
+- .NET 8 SDK installed — see [.NET Framework 4.8 Setup](../dotnet-framework-setup.md)
+- CC repo cloned locally — see [Branch Setup](../branch-setup-for-multiple-repositories.md)
 - Rancher Desktop running with `docker compose up -d` executed from the CC repo root
 
 ## Connecting to the Rancher Desktop SQL Server
@@ -36,7 +36,17 @@ dotnet tool install -g microsoft.sqlpackage
 Then import:
 
 ```pwsh
-SqlPackage /a:Import /tsn:"localhost" /tdn:"Insite.Commerce" /tu:"sa" /tp:"<password-from-connectionStrings.default.config>" /sf:"C:\Users\<YourUserName>\Downloads\<database-export>.bacpac" /ttsc:True /p:DisableIndexesForDataPhase=False /p:PreserveIdentityLastValues=True
+SqlPackage /a:Import /tsn:"localhost" /tdn:"wausau.local.com" /tu:"sa" /tp:"<password-from-connectionStrings.default.config>" /sf:"C:\Users\<YourUserName>\Downloads\<database-export>.bacpac" /ttsc:True /p:DisableIndexesForDataPhase=False /p:PreserveIdentityLastValues=True
+```
+
+## Update the Website table DomainName field
+
+After restoring the database from a live environment, it most likely needs an update to the main website in the Website table to align the DomainName field with the url being used in the local environment.
+
+```sql
+UPDATE WebSite
+   SET DomainName = 'wausau.local.com,' + DomainName
+ WHERE Name = 'main'
 ```
 
 ## Troubleshooting
