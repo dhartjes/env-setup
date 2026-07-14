@@ -79,4 +79,4 @@ This produces two files in the same directory: `insiteidentity.pfx` and `InsiteI
    ```
 
 <-- Prev: [Clone and Branch Setup](branch-setup-for-multiple-repositories.md)
---> Next: [SSMS Setup](ssms-setup.md)
+--> Next: [SSMS Setup](database/ssms-setup.md)

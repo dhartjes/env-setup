@@ -58,6 +58,14 @@ GO
 Error SQL72014: ... An error occurred during Service Master Key decryption
 ```
 
+More recent fix (2025ish):
+
+Run the [RemoveMasterKey](RemoveMasterKey.ps1) script provided by Microsoft on the bacpac encoutnering the error.
+
+```pwsh
+.\RemoveMasterKey.ps1 -bacpacPath "C:\Users\<YourUserName>\Downloads\<database-export>.bacpac"
+```
+
 Fix with:
 
 ```sql
@@ -65,8 +73,17 @@ DROP MASTER KEY
 ALTER SERVICE MASTER KEY FORCE REGENERATE
 ```
 
+This provided the following errors but still seemed to have the desired effect:
+
+```text
+Msg 15151, Level 16, State 1, Line 1
+Cannot find the symmetric key 'master key', because it does not exist or you do not have permission.
+The current master key cannot be decrypted. The error was ignored because the FORCE option was specified.
+```
+
 ## Source
 
 - https://learn.microsoft.com/en-us/sql/tools/sqlpackage/sqlpackage-download?view=sql-server-ver16#windows-net-6
 
-<-- Prev: [Branch Setup](branch-setup-for-multiple-repositories.md)
+<-- Prev: [IIS Setup](../iis-setup.md)
+--> Next: [Admin Console](../admin-console.md)

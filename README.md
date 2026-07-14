@@ -73,7 +73,6 @@ organization over controlled chaos, documentation, context, caching, reuse, and 
 | --- | --- |
 | Python | [wsl/python/python-setup.md](wsl/python/python-setup.md) |
 | Windows settings | [windows/windows-settings.md](windows/windows-settings.md) |
-| Windows features (IIS / .NET 4.8) | [windows/windows-features.md](windows/windows-features.md) |
 | Ditto clipboard manager | [windows/ditto/ditto-setup.md](windows/ditto/ditto-setup.md) |
 | Keyboard (Anne Pro 2) | [windows/peripherals/keyboard-setup.md](windows/peripherals/keyboard-setup.md) |
 | Mouse (Magic Trackpad 2) | [windows/peripherals/mouse-setup.md](windows/peripherals/mouse-setup.md) |

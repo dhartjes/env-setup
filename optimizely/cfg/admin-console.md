@@ -47,5 +47,5 @@ The Spire content admin is at a separate path from the back-office admin console
 http://localhost:8080/contentadmin
 ```
 
-<-- Prev: [SSMS Setup](ssms-setup.md)
+<-- Prev: [SSMS Setup](database/ssms-setup.md)
 --> Next: [Spire Setup](spire-setup.md)
