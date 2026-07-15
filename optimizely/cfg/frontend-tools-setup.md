@@ -20,9 +20,19 @@ Restart your terminal. Verify:
 
 ```powershell
 mise --version
+
 ```
 
-mise will download and activate the correct Node version automatically the first time you `cd` into a project that has a `.node-version` file.
+On Windows, mise use appears to be necessary at least once globally.
+
+```pwsh
+mise use --global node@lts
+node --version
+```
+
+Then, mise will download and activate the correct Node version automatically the first time you `cd` into a project that has a `.node-version` file.
+
+### Troubleshooting
 
 ## Option B — Direct install (no version manager)
 
