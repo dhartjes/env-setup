@@ -27,7 +27,7 @@ When written, this section will cover:
 5. **Seed the database** — `docker compose up -d`, run `StartingDatabase.sql` (new project) or import `.bacpac` (existing customer)
 6. **Start backend APIs** — Mode A (host, `dotnet run`) for active development or Mode B (Docker, `docker compose --profile apps up`) for stability
 7. **Admin Console** — NuGet config, build extensions, confirm login at `http://localhost:30000/admin`
-8. **Spire Setup** — same Volta/npm approach; use `http://localhost:30000` not `http://localhost:3000`
+8. **Spire Setup** — same mise/npm approach; use `http://localhost:30000` not `http://localhost:3000`
 
 ## Reference
 
