@@ -15,6 +15,23 @@ The Optimizely NuGet feed requires no authentication. Add it to a `nuget.config`
 </configuration>
 ```
 
+## Build the frontend CSS
+
+The Admin Console uses Dart Sass (no Ruby required). From `src\InsiteCommerce.Web`:
+
+```powershell
+npm install
+npx grunt build
+```
+
+`npm install` also downloads Node 22.12.0 via mise if it isn't already cached. `npx grunt build` compiles all `.scss` files in `Themes/` and `Styles/` to `.css`. No global grunt-cli install is needed — `npx` runs the locally installed version.
+
+For watch mode during active CSS development:
+
+```powershell
+npx grunt
+```
+
 ## Restore and build
 
 In a PowerShell terminal at the repo root:
