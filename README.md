@@ -35,7 +35,7 @@ organization over controlled chaos, documentation, context, caching, reuse, and 
 1. [Clone Repos](wsl/git/git-clone-repos.md)
 1. [Homebrew](wsl/homebrew-install.md) — required for tree-sitter-cli (LazyVim Treesitter)
 1. [Neovim](wsl/nvim/nvim-install.md) — via Bob version manager
-1. [Volta / Node.js](wsl/volta-install.md)
+1. [mise / Node.js](wsl/mise-install.md)
 
 ### Editor and AI
 

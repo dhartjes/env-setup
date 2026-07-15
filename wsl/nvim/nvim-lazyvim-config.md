@@ -65,4 +65,4 @@ Run `:LazyExtras` inside Neovim for an interactive list of available extras.
 |
 
 <-- Prev: [Nvim Installation](nvim-install.md)
---> Next: [Volta / Node.js](../volta-install.md)
+--> Next: [mise / Node.js](../mise-install.md)
