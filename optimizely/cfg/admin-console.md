@@ -66,6 +66,11 @@ http://localhost:8080/contentadmin
 
 ## Troubleshooting
 
+### Exception Details: System.ComponentModel.Win32Exception: The system cannot find the file specified
+
+1. Review for SQL related errors in the stack trace.
+1. Ensure SQL is running in Rancher Desktop.
+
 ### Gigantic Opti logo
 
 Site appears to be missing CSS and Javascript or as if it is missing an angular build.
