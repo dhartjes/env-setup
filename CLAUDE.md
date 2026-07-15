@@ -16,7 +16,7 @@ The intended order matters when following this guide on a fresh machine:
 4. **Git** (`wsl/git/`) — source control and authentication
 5. **Homebrew** (`wsl/homebrew/`) — required for tree-sitter-cli (LazyVim Treesitter)
 6. **Neovim** (`wsl/nvim/`) — terminal editor via Bob version manager
-7. **Node.js** (`wsl/volta-install.md`) — via Volta version manager
+7. **Node.js** (`wsl/mise-install.md`) — via mise version manager
 8. **VS Code** (`windows/vscode/`) — editor with WSL integration
 9. **Claude Code** (`wsl/claude-install.md`) — AI coding assistant in VS Code + WSL
 
@@ -33,7 +33,7 @@ The live Windows Terminal settings live at `windows/terminal/settings.json`, whi
 ## Key Architectural Decisions Documented Here
 
 - **Git authentication**: Uses Git Credential Manager (GCM) with Microsoft Entra ID (MSAL), not SSH keys. Requires .NET SDK 8.0, systemd in WSL2, and gnome-keyring-daemon for token persistence. The deprecated SSH approach is kept in `wsl/git/git-auth.md` for reference.
-- **Node version management**: Volta (not nvm or asdf).
+- **Node version management**: mise (not Volta, nvm, or asdf).
 - **Neovim version management**: Bob (not manually installed).
 - **AI models**: Claude Code for coding.
 

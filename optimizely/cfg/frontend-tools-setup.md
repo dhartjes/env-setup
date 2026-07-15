@@ -4,48 +4,51 @@
 
 Node.js and Grunt are required before building the Admin Console or starting Spire. Install them once here; both steps reference this file as a prerequisite.
 
+## Tool versions
+
+The Admin Console frontend (classic CMS) uses **Dart Sass** via npm — no Ruby or Compass required, despite what the Optimizely Classic CMS docs say. The project pins Node 22.12.0 via `.node-version`.
+
+| Tool | Version | Notes |
+| --- | --- | --- |
+| Node.js | 22.12.0 | pinned in `.node-version` |
+| grunt-cli | latest global | task runner CLI |
+| sass | 1.82.0 | Dart Sass, installed via `npm install` |
+| grunt-sass | 3.1.0 | installed via `npm install` |
+
 ## Install Node.js
 
-Volta is the preferred version manager for this project (it reads the `volta` pin in `package.json` automatically), but it may be blocked by organization policy. Choose one option:
+[mise](https://mise.jdx.dev) is the preferred version manager. It reads `.node-version` and switches automatically when you enter the project directory.
 
-### Option A — Volta (preferred)
+### Install mise
 
 ```powershell
-winget install Volta.Volta
+winget install jdx.mise
+```
+
+Activate mise in PowerShell by adding it to your profile:
+
+```powershell
+echo '(&mise activate pwsh) | Out-String | Invoke-Expression' >> $HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
 ```
 
 Restart your terminal. Verify:
 
 ```powershell
-volta --version
+mise --version
 ```
 
-Volta will automatically download and activate the correct Node version the first time you run `npm install` or `npm run` inside a project with a `volta` pin in `package.json`.
-
-If the project's `package.json` does not have a `volta` pin, install Node 22 explicitly:
+### Install Node.js via mise
 
 ```powershell
-volta install node@22
+mise use --global node@lts
+node --version
 ```
 
-### Option B — fnm (if Volta is blocked by policy)
+When you `cd` into `InsiteCommerce.Web`, mise will switch to Node 22.12.0 automatically.
 
-[fnm](https://github.com/Schniz/fnm) (Fast Node Manager) is a cross-platform alternative with similar per-project version pinning via `.node-version` or `.nvmrc` files.
+### Option B — Direct install (no version manager)
 
-```powershell
-winget install Schniz.fnm
-```
-
-Restart your terminal. Install Node 22:
-
-```powershell
-fnm install 22
-fnm use 22
-```
-
-### Option C — Direct install (no version manager)
-
-If both Volta and fnm are blocked, install Node directly:
+If mise is blocked by policy, install Node 22 directly:
 
 ```powershell
 winget install OpenJS.NodeJS.LTS
@@ -60,16 +63,29 @@ npm --version
 
 ## Install Grunt CLI
 
-Grunt is required to build the Admin Console frontend (AngularJS):
-
 ```powershell
-npm install -g grunt-cli
+mise use --global npm:grunt-cli
 ```
 
 Verify:
 
 ```powershell
 grunt --version
+```
+
+## Build the Admin Console frontend
+
+From inside `InsiteCommerce.Web`:
+
+```powershell
+npm install
+grunt build
+```
+
+`grunt build` compiles all `.scss` files in `Themes/` and `Styles/` to `.css`. For watch mode during active development:
+
+```powershell
+grunt
 ```
 
 <-- Prev: [SSMS Setup](database/ssms-setup.md)
