@@ -8,8 +8,8 @@ It is always such a pain getting the Magic Trackpad 2 USB-C edition working with
 
 ## Prereqs
 
-- 7zip. `winget install 7zip.7zip
-- Need the ApplePrecisionTrackpadBluetooth/ApplePrecisionTrackpadBluetooth.inf file from the [lc700x/MagicTrackPad2_Windows_Precision_Drivers repo](https://github.com/lc700x/MagicTrackPad2_Windows_Precision_Drivers) which is saved in this repo for convenience.
+- 7zip. `winget install 7zip.7zip`
+- ApplePrecisionTrackpadBluetooth/ApplePrecisionTrackpadBluetooth.inf file from the [lc700x/MagicTrackPad2_Windows_Precision_Drivers repo](https://github.com/lc700x/MagicTrackPad2_Windows_Precision_Drivers) which is saved in this repo for convenience.
 - Magic Trackpad 2 USB-C edition device.
 
 ## Initial Setup
