@@ -2,34 +2,83 @@
 
 <-- [Back to README](../../README.md)
 
-- [Option 1: Linux setup](#linux-setup-using-git-credential-manager-and-microsoft-entra-id)
-- [Option 3: (deprecated) SSH Keygen](#ssh-keygen-deprecated)
-- [Option 4: (deprecated) Using SSH with Visual Studio Code](#using-ssh-with-visual-studio-code)
+Git authentication differs between personal home computers and corporate work machines. Choose the path below that matches your target environment.
 
-## Linux setup using Git Credential Manager and Microsoft Entra ID
+- **[Option A: GitHub CLI (gh) via HTTPS](#option-a-github-cli-gh-via-https-recommended-for-home--github-work)** — **RECOMMENDED** for personal home workstations and work GitHub repositories. (Zero-dependency, lightweight).
+- **[Option B: Git Credential Manager (GCM)](#option-b-git-credential-manager-gcm-optional---work--azure-devops-only)** — **OPTIONAL (Work Setup Only)** required for corporate environments using Azure DevOps and Microsoft Entra ID (MSAL).
+
+---
+
+## Option A: GitHub CLI (gh) via HTTPS (RECOMMENDED for Home & GitHub Work)
+
+This is the standard authentication method for personal development and general GitHub-hosted work repositories. It replaces SSH keys entirely, requires no external databases or runtime environments (like .NET or local credential-store daemons), and is managed natively by `mise`.
+
+### 1. Install GitHub CLI via `mise`
+
+Since `mise` is already installed, add `gh` to your global tools:
+
+```bash
+mise use --global gh@latest
+```
+
+### 2. Authenticate with GitHub
+
+Run the login wizard and follow the prompts:
+
+```bash
+gh auth login
+```
+
+Choose these options during setup:
+1. **What account do you want to log into?** `GitHub.com`
+2. **What is your preferred protocol for Git operations?** `HTTPS`
+3. **How would you like to authenticate GitHub CLI?** `Login with a web browser` (this will automatically launch your default browser on Windows via `wslview` to complete the secure OAuth handshake).
+
+### 3. Register `gh` as your Git Credential Helper
+
+Configure Git to use the GitHub CLI as your credential manager for all HTTPS operations. You will never be prompted for your username or password again:
+
+```bash
+gh auth setup-git
+```
+
+Test with:
+```bash
+git ls-remote https://github.com/dhartjes/env-setup.git
+```
+
+---
+
+## Option B: Git Credential Manager (GCM) (OPTIONAL - Work & Azure DevOps Only)
+
+> [!IMPORTANT]
+> **OPTIONAL (Work Setup Only)**: This complex configuration is only required on your work machine to access corporate Azure DevOps repositories secured by Microsoft Entra ID (MSAL) single-sign-on. It is entirely unnecessary for your personal home workstation.
+>
+> *Note for Work Setup:* For any work-related repositories hosted on **GitHub**, you are welcome to use the lightweight **Option A (GitHub CLI)** instead to simplify your workspace, though GCM remains the required default for Azure DevOps.
 
 ### Requirements
 
-- Dotnet SDK 8.0. To test: `dotnet --list-sdks` To install: `sudo apt update && sudo apt upgrade && sudo apt install dotnet-sdk-8.0`
-- WSL2 with systemd enabled. To verify: `cat /etc/wsl.conf` should contain `systemd=true` under `[boot]`. If not, add it and restart WSL2 with `wsl --shutdown` from PowerShell.
+- **Dotnet SDK 8.0**: To test: `dotnet --list-sdks` To install: `sudo apt update && sudo apt upgrade && sudo apt install dotnet-sdk-8.0`
+- **WSL2 with systemd enabled**: To verify: `cat /etc/wsl.conf` should contain `systemd=true` under `[boot]`. If not, add it and restart WSL2 with `wsl --shutdown` from PowerShell.
 
 ### Steps
 
-1. Install GCM with dotnet from terminal: ```dotnet tool install -g git-credential-manager```
-   1. (Option 2) dotnet did not successfully retrieve git-credential-manager for me. Instead:
+1. Install GCM via dotnet tool or direct package download:
+   - **Method 1 (Preferred)**:
+     ```bash
+     dotnet tool install -g git-credential-manager
+     ```
+   - **Method 2 (Fallback .deb package)**:
+     ```bash
+     # Download official release
+     wget https://github.com/GitCredentialManager/git-credential-manager/releases/download/v2.0.935/gcm-linux_amd64.2.0.935.deb
 
-   ```bash
-   <!-- Download .deb from official GitHub Releases page -->
-   wget https://github.com/GitCredentialManager/git-credential-manager/releases/download/v2.0.935/gcm-linux_amd64.2.0.935.deb
+     # Unpack and fix dependencies
+     sudo apt update && sudo apt upgrade
+     sudo apt --fix-broken install
+     ```
 
-   <!-- Unpack -->
-   sudo apt update && sudo apt upgrade
-
-   <!-- Fix any broken dependencies -->
-   sudo apt --fix-broken install
-   ```
-
-1. Add to path in ```~/.bashrc```:
+2. Add the .NET tools directory to your path in `~/.bashrc`:
 
    ```bash
    cat << \EOF >> ~/.bashrc
@@ -45,86 +94,44 @@
    source ~/.bashrc
    ```
 
-1. Install required dependencies: ```sudo apt update && sudo apt upgrade && sudo apt install gpg pass pinentry-curses libsecret-1-0 libsecret-tools gnome-keyring wslu```
-1. Set up GPG key: (Choose no password)
-
+3. Install keyring and pass dependency packages:
    ```bash
-   gpg --gen-key
-   # Note the fingerprint shown below the pub line, e.g:
-   # E54EFA45F8D5F8ECA38DB84521DC54A53F0E5F89
+   sudo apt update && sudo apt upgrade && sudo apt install -y gpg pass pinentry-curses libsecret-1-0 libsecret-tools gnome-keyring wslu
    ```
 
-   Ensure you save this credential in a password manager.
-1. Initialize ```pass``` with your GPG key fingerprint: ```pass init <your-gpg-key-fingerprint>```
-1. Configure pinentry-curses for GPG:
+4. Create and initialize your GPG key:
+   ```bash
+   # Choose no passphrase when prompted
+   gpg --gen-key
+   
+   # Note the generated fingerprint shown under the "pub" line, e.g., E54EFA45...
+   # Initialize pass with your fingerprint:
+   pass init <your-gpg-key-fingerprint>
+   ```
 
+5. Configure pinentry-curses for GPG prompting:
    ```bash
    echo "pinentry-program /usr/bin/pinentry-curses" >> ~/.gnupg/gpg-agent.conf
    gpg-connect-agent reloadagent /bye
    ```
 
-1. Enable and start gnome-keyring via systemd for MSAL token persistence:
-
+6. Enable gnome-keyring-daemon via systemd to persist tokens securely:
    ```bash
    systemctl --user enable gnome-keyring-daemon.service
    systemctl --user start gnome-keyring-daemon.service
    ```
+   *Note: If prompted to enter a password for the new keyring, leave it blank so it unlocks automatically on non-interactive Git commands.*
 
-   When prompted to set a keyring password, leave it blank so the keyring unlocks automatically in non-interactive git operations.
-1. Configure CGM:
-
+7. Bind GCM to Git:
    ```bash
    git-credential-manager configure
    git config --global credential.credentialstore gpg
    ```
 
-### Source
-
-- <https://learn.microsoft.com/en-us/dotnet/core/install/linux>
-- <https://learn.microsoft.com/en-us/azure/devops/repos/git/set-up-credential-managers?view=azure-devops>
-- <https://github.com/git-ecosystem/git-credential-manager>
-
-## SSH Keygen (Deprecated)
-
-```bash
-# Generate SSH Key
-ssh-keygen -t ed25519 -C "dhartjes.work@gmail.com"
-
-# At prompt:
-#   - enter filename id_git-dhartjes-work
-#   - enter passphrase from secure notes
-
-# Retrieve public key
-cat id_git-dhartjes-work.pub
-> ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILezi7mWCTfgVBJekzn5lsBw9XsgRu0LoJdAkpAnX6tI dhartjes.work@gmail.com
-
-# Copy to clipboard and add to GitHub
-
-# To avoid using the passphrase with each operation, add the private key to your ssh-agent
-eval "$(ssh-agent -s)"
-> Agent pid xxxx
-ssh-add ~/.ssh/id_git-dhartjes-work
-```
-
-## Using SSH with Visual Studio Code
-
-If you want to use VSCode's periodic commit to git feature or simply want to avoid entering your ssh passcode each time you lauch terminal -> vscode, this step was able to help me. 
-
-In Linux, create a ~/.ssh/config file to make loading of your ssh key automatic
-
-```text
-Host *
-IgnoreUnknown UseKeychain
-UseKeychain yes
-AddKeysToAgent yes
-IdentityFile ~/.ssh/id_git-dhartjes-work
-```
-
 ### Sources
 
-- <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent?platform=linux>
-- <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account>
-- <https://stackoverflow.com/questions/34634364/to-use-git-push-on-visual-studio-code-but-show-could-not-read-from-remote-re>
+- [GCM Linux Configuration](https://github.com/git-ecosystem/git-credential-manager)
+- [Microsoft Entra ID WSL Single-Sign-On](https://learn.microsoft.com/en-us/azure/devops/repos/git/set-up-credential-managers?view=azure-devops)
 
 <-- Prev: [Git Configuration](git-config.md)
 --> Next: [Git Clone Repos](git-clone-repos.md)

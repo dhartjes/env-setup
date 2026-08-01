@@ -2,30 +2,28 @@
 
 <-- [Back to README](../../README.md)
 
-Your OS package manager may have very outdated releases of NVIM. The Bob Neovim repo is a Neovim Package Manager meant to make it easy to get neovim and keep it up-to-date.
+Your OS package manager may have very outdated releases of NVIM. We use **mise** to easily install Neovim and keep it up-to-date, replacing the need for separate version managers like Bob.
 
 ## Installation
 
-1. Get Bob with `curl -fsSL https://raw.githubusercontent.com/MordechaiHadad/bob/master/scripts/install.sh | bash`
-1. Test with `bob --version`
+Since `mise` is already installed, adding Neovim is a single command:
+
+```bash
+mise use --global neovim@stable
+```
+
+Verify with:
+
+```bash
+nvim --version
+```
 
 ## Configuration
 
-1. Enable shell auto-complete:
+For the initial setup, we use LazyVim to configure Neovim.
 
-```bash
-mkdir -p ~/.local/share/bash-completion/completions
-bob complete bash >> ~/.local/share/bash-completion/completions/bob
-```
+> [!NOTE]
+> `mise` automatically manages the PATH and environment configuration when activated via your shell hook, so there is no need for manual PATH hacks or separate auto-completions as required by other version managers.
 
-1. Bob's add_neovim_binary_to_path option doesn't work if you don't use a .bash_profile file. I am currently only using .bashrc. When it asks if you'd like to automatically add neovim to your path, say no and it will give you the string that is needed to be added to your path in the .bashrc
-
-## Usage
-
-1. `bob install stable`
-1. `bob use stable`
-1. `bob pin stable` Pins it to a specific folder
-1. `nvim` to launch nvim!
-
-<-- Prev: [Homebrew](../homebrew-install.md)
+<-- Prev: [Tree-Sitter](../tree-sitter-install.md)
 --> Next: [Neovim Configuration with LazyVim](nvim-lazyvim-config.md)
