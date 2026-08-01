@@ -1,16 +1,18 @@
-# Install mise
+# Install mise (Polyglot Tool Manager)
 
 <-- [Back to README](../README.md)
 
-mise (pronounced "meez") is a polyglot version manager and task runner. It replaces per-language version managers like Volta, nvm, pyenv, and asdf with a single tool.
+`mise` (pronounced "meez") is a polyglot version manager and task runner. In this repository, it acts as the centralized system to manage Node.js, Python, Neovim, and the GitHub CLI. It replaces Volta, Pyenv, and Bob with a single, fast tool.
 
-## Install
+---
+
+## 1. Install mise
 
 ```bash
 curl https://mise.run | sh
 ```
 
-## Activate in shell
+## 2. Activate in shell
 
 ```bash
 echo 'eval "$(~/.local/bin/mise activate bash)"' >> ~/.bashrc
@@ -18,30 +20,63 @@ source ~/.bashrc
 ```
 
 Verify:
-
 ```bash
 mise --version
 ```
 
-## Install Node.js
+---
+
+## 3. Install Core Workspace Tools
+
+You can register and install all your global workstation tools using `mise`.
+
+### Node.js
 
 ```bash
 mise use --global node@lts
 node -v
 ```
 
-## Install Claude Code
-
-mise can manage npm global packages directly:
+### Python (Recommended fallback for Pyenv)
 
 ```bash
+mise use --global python@3.13
+python --version
+```
+
+### Neovim
+
+```bash
+mise use --global neovim@stable
+nvim --version
+```
+
+### GitHub CLI (gh)
+
+```bash
+mise use --global gh@latest
+gh --version
+```
+
+### Tree-Sitter CLI & Claude Code (npm Globals)
+
+`mise` can manage globally installed npm packages natively:
+
+```bash
+# Install Tree-Sitter (required for LazyVim)
+mise use --global npm:tree-sitter-cli
+tree-sitter --version
+
+# Install Claude Code (AI coding assistant)
 mise use --global npm:@anthropic-ai/claude-code
 claude --version
 ```
 
+---
+
 ## Source
 
-- <https://mise.jdx.dev/getting-started.html>
+- [Official mise Documentation](https://mise.jdx.dev/getting-started.html)
 
-<-- Prev: [Neovim](nvim/nvim-lazyvim-config.md)
---> Next: [Claude Code](claude-install.md)
+<-- Prev: [Clone Repos](git/git-clone-repos.md)
+--> Next: [Tree-Sitter](tree-sitter-install.md)

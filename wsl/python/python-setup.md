@@ -2,76 +2,55 @@
 
 <-- [Back to README](../../README.md)
 
-## Normal setup
+Python can be installed either via standard system packages (simple, tracks OS) or via a tool manager like **mise** (recommended for project-specific version control).
 
-### Standard Installation
+> [!NOTE]
+> **OPTIONAL (Personal / Work)**: Standard system Python (`apt`) is sufficient for basic scripting. If you need specific Python versions for different projects or want to avoid compile-from-source overhead, use **mise** (recommended).
+
+## Option 1: Version Management via `mise` (Recommended)
+
+Instead of using `pyenv` (which compiles from source and requires many build dependencies like `libssl-dev`), we use **mise** to download precompiled standalone Python binaries.
+
+### Installation & Configuration
+
+Since `mise` is already installed, you can activate the desired global version instantly:
+
+```bash
+# Install and set global Python version
+mise use --global python@3.13
+
+# Verify the version in use
+python --version
+```
+
+### local/Project Version Control
+
+If you have a project that requires a different Python version, you can pin it locally within that directory:
+
+```bash
+# Set a local python version for the current directory
+mise use --local python@3.12
+```
+
+## Option 2: Standard Installation (Simple)
+
+This installs the standard Ubuntu system package. It is appropriate for general-purpose scripting and tools that track the OS releases.
 
 ```bash
 sudo apt update && sudo apt upgrade
-sudo apt install python3
-sudo apt install python3-pip
-sudo apt install python3-dev python3-venv build-essential
-```
-
-### Troubleshooting
-
-sudo rm /var/lib/apt/lists/lock
-sudo rm /var/cache/apt/archives/lock
-
-## For more fiddliness, use a version manager to install python instead
-
-### Pyenv Installation
-
-```bash
-sudo apt update && sudo apt upgrade
-sudo apt install -y build-essential libssl-dev zlib1g-dev libsqlite3-dev libffi-dev
-curl https://pyenv.run/ | bash
-```
-
-### Configuration
-
-```bash
-# configure shell via bashrc
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
-echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
-echo 'eval "$(pyenv init -)"' >> ~/.bashrc
-
-# activates new shell configuration
-source ~/.bashrc
-
-# configure a global default
-pyenv global <version>
-
-# configure a version for a specific project
-pyenv local <version>
-```
-
-### Utilization
-
-```bash
-pyenv install --list
-pyenv install -v 3.13.1
-```
-
-### Pyenv Troubleshooting
-
-```bash
-# Build failures?
-CFLAGS="-02" pyenv install 3.12.1
-
-# SSL related errors?
-sudo apt update && sudo apt upgrade
-sudo apt install libssl-dev
+sudo apt install -y python3 python3-pip python3-dev python3-venv build-essential
 ```
 
 ## Test
 
 ```bash
 python --version
+pip --version
 ```
 
 ## Source
 
 - [Python installation](https://www.geeksforgeeks.org/python/how-to-install-python-on-linux/)
+- [mise Python backend](https://mise.jdx.dev/lang/python.html)
 
 --> Next: [Python VS Code](python-vscode.md)

@@ -17,7 +17,7 @@ sudo apt install ripgrep fd-find
 
 ## Install
 
-Back up any existing Neovim config first, then clone the LazyVim starter:
+Back up any existing Neovim config first, then clone my nvim.git repo into ~/.config/nvim:
 
 ```bash
 # Back up existing config (skip if none)
@@ -25,10 +25,8 @@ mv ~/.config/nvim ~/.config/nvim.bak
 mv ~/.local/share/nvim ~/.local/share/nvim.bak
 
 # Clone the LazyVim starter
-git clone https://github.com/LazyVim/starter ~/.config/nvim
-
-# Remove the git history so you can manage it as your own repo
-rm -rf ~/.config/nvim/.git
+cd ~/.config
+git clone https://github.com/dhartjes/nvim.git
 ```
 
 Then launch Neovim — LazyVim will automatically install all plugins on first start:

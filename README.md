@@ -31,11 +31,11 @@ organization over controlled chaos, documentation, context, caching, reuse, and 
 
 1. [Git Install](wsl/git/git-install.md)
 1. [Git Configuration](wsl/git/git-config.md)
-1. [Git Authentication](wsl/git/git-auth.md) — GCM with Microsoft Entra ID
+1. [Git Authentication](wsl/git/git-auth.md) — GitHub CLI via HTTPS (Recommended) or GCM with Entra ID (**OPTIONAL**: Work only)
 1. [Clone Repos](wsl/git/git-clone-repos.md)
-1. [Homebrew](wsl/homebrew-install.md) — required for tree-sitter-cli (LazyVim Treesitter)
-1. [Neovim](wsl/nvim/nvim-install.md) — via Bob version manager
-1. [mise / Node.js](wsl/mise-install.md)
+1. [mise (Polyglot Tool Manager)](wsl/mise-install.md) — replaces Volta, Bob, and Pyenv
+1. [Tree-Sitter](wsl/tree-sitter-install.md) — via mise
+1. [Neovim](wsl/nvim/nvim-install.md) — via mise
 
 ### Editor and AI
 
@@ -43,13 +43,13 @@ organization over controlled chaos, documentation, context, caching, reuse, and 
 1. [VS Code Extensions](windows/vscode/vscode-extensions.md)
 1. [Claude Code](wsl/claude-install.md) — AI coding assistant in VS Code + WSL
 
-### Database tools
+### Database tools (**OPTIONAL**: Work setup only)
 
-1. [Rancher Desktop](windows/rancher-desktop.md) — Docker daemon for running SQL Server and other services in containers; free alternative to Docker Desktop
-1. [SSMS](windows/ssms-install.md) — SQL Server Management Studio; connection and database import covered later in the CC section
+1. [Rancher Desktop](windows/rancher-desktop.md) — Docker daemon for running SQL Server and other services in containers
+1. [SSMS](windows/ssms-install.md) — SQL Server Management Studio
 1. [DBeaver](windows/dbeaver-install.md) — SQL query tool for Infor Data Fabric via JDBC
 
-### Optimizely Configured Commerce
+### Optimizely Configured Commerce (**OPTIONAL**: Work setup only)
 
 [Configured Commerce local dev setup](optimizely/cfg/README.md) — container stack, .NET projects, and branch structure for Wausau's CC repositories.
 
@@ -79,3 +79,47 @@ organization over controlled chaos, documentation, context, caching, reuse, and 
 | Microsoft Edge | [windows/edge-setup.md](windows/edge-setup.md) |
 | Default text editor | [windows/text-editor.md](windows/text-editor.md) |
 | Google Antigravity (personal PC) | [google-antigravity.md](google-antigravity.md) |
+
+## Setup Doctor
+
+This repo contains a `doctor.ps1` and a `doctor.sh` script for checking your completed environment for alignment with these setup instructions.
+
+• Active Tool Alignment: Checks for the existence and activation of mise, node, python, nvim, gh, tree-sitter-cli, and claude. If installed but not managed by mise, it suggests migrating them to mise.
+• Retired Tool Detection: Scans the environment for conflicting or deprecated tools and provides exact commands to remove them. This includes checking for:
+    • bob (Neovim manager)
+    • pyenv (Python manager)
+    • volta & fnm (Node managers)
+    • nvm & asdf
+    • Homebrew (on WSL)
+• Authentication Check: Verifies that your Git global configuration is set to use the modern GitHub CLI (gh) as your
+credential helper.
+
+### Optional Work-Specific Inspection (--work / -Work)
+
+If passed, the scripts inspect requirements specific to your corporate setup:
+
+• Linux/WSL: Checks for the .NET SDK 8.0, Git Credential Manager (GCM), gpg, pass, GNOME Keyring daemon status, and GCM's credential store bindings.
+• Windows: Checks for IIS (Internet Information Services Windows Feature), .NET Framework 4.8 registry presence, Rancher Desktop (or active Docker daemon), SSMS (SQL Server Management Studio), and DBeaver.
+• If the work flag is omitted, all enterprise database, IIS, and GCM/.NET checks are gracefully bypassed.
+
+### 💻 How to Run the Scripts
+
+#### 🟢 On a Personal / Home Machine (Standard Checks Only)
+
+```bash
+./doctor.sh
+```
+
+```pwsh
+.\doctor.ps1
+```
+
+#### 🏢 On a Work Machine (Includes GCM, .NET, IIS, and Databases)
+
+```bash
+./doctor.sh --work
+```
+
+```pwsh
+.\doctor.ps1 -Work
+```
