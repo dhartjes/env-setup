@@ -36,12 +36,15 @@ organization over controlled chaos, documentation, context, caching, reuse, and 
 1. [mise (Polyglot Tool Manager)](wsl/mise-install.md) — replaces Volta, Bob, and Pyenv
 1. [Tree-Sitter](wsl/tree-sitter-install.md) — via mise
 1. [Neovim](wsl/nvim/nvim-install.md) — via mise
+1. [Python & uv](wsl/python/python-setup.md) — Python runtime and package/dependency management via mise and uv
+1. [SQLite & Harlequin](wsl/python/python-setup.md) — Database CLI utilities (SQLite3 and Harlequin SQL TUI)
 
 ### Editor and AI
 
 1. [VS Code Install](windows/vscode/vscode-install.md)
 1. [VS Code Extensions](windows/vscode/vscode-extensions.md)
-1. [Claude Code](wsl/claude-install.md) — AI coding assistant in VS Code + WSL
+1. [Google Antigravity](google-antigravity.md) — AI coding assistant in terminal (**RECOMMENDED**: Home only)
+1. [Claude Code](wsl/claude-install.md) — AI coding assistant in VS Code + WSL (**OPTIONAL**: Work only)
 
 ### Database tools (**OPTIONAL**: Work setup only)
 

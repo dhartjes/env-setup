@@ -58,7 +58,14 @@ mise use --global gh@latest
 gh --version
 ```
 
-### Tree-Sitter CLI & Claude Code (npm Globals)
+### Python Package Manager (uv)
+
+```bash
+mise use --global uv@latest
+uv --version
+```
+
+### Tree-Sitter CLI (npm Globals)
 
 `mise` can manage globally installed npm packages natively:
 
@@ -66,8 +73,25 @@ gh --version
 # Install Tree-Sitter (required for LazyVim)
 mise use --global npm:tree-sitter-cli
 tree-sitter --version
+```
 
-# Install Claude Code (AI coding assistant)
+### AI Coding Assistants
+
+Depending on whether you are setting up your personal or work machine, configure the appropriate AI assistant:
+
+#### Option A: Google Antigravity CLI (Personal / Home Setup Only)
+
+Google Antigravity (`agy`) is pre-installed on your home environment. To run and configure:
+
+```bash
+agy
+```
+
+#### Option B: Claude Code (OPTIONAL - Work Setup Only)
+
+For corporate work environments, install Claude Code via `mise`'s global npm manager:
+
+```bash
 mise use --global npm:@anthropic-ai/claude-code
 claude --version
 ```
