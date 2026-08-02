@@ -93,13 +93,34 @@ if (Get-Command mise -ErrorAction SilentlyContinue) {
 
 Write-Host ""
 
-# ── 2. RETIRED / CONFLICTING WINDOWS MANAGERS ────────────────────────────────
+# ── 2. POWERSHELL PROFILE CONFIGURATION CHECK ($PROFILE) ──────────────────────
+Write-Host "--- Inspecting PowerShell `$PROFILE Environment Configuration ---" -ForegroundColor Blue
+
+if (Test-Path $PROFILE) {
+    $profileContent = Get-Content $PROFILE -Raw -ErrorAction SilentlyContinue
+    if ($profileContent -match "mise activate pwsh" -or $profileContent -match "mise activate powershell") {
+        Write-Host "  [✅ OK] mise activation hook found in your PowerShell `$PROFILE" -ForegroundColor Green
+    } else {
+        Write-Host "  [❌ MISSING] mise activation hook in your PowerShell `$PROFILE" -ForegroundColor Red
+        Write-Host "             -> Recommendation: Run: '`"mise activate pwsh | Invoke-Expression`" >> `$PROFILE'" -ForegroundColor Yellow
+        $ErrorsCount++
+    }
+} else {
+    Write-Host "  [❌ MISSING] PowerShell profile file does not exist at `$PROFILE" -ForegroundColor Red
+    Write-Host "             -> Recommendation: Create the file and add the mise activation hook by running:" -ForegroundColor Yellow
+    Write-Host "                New-Item -Type File -Path `$PROFILE -Force; '`"mise activate pwsh | Invoke-Expression`" >> `$PROFILE'" -ForegroundColor Yellow
+    $ErrorsCount++
+}
+
+Write-Host ""
+
+# ── 3. RETIRED / CONFLICTING WINDOWS MANAGERS ────────────────────────────────
 Write-Host "--- Checking for Retired Windows Package Managers ---" -ForegroundColor Blue
 
 $voltaFound = Get-Command volta -ErrorAction SilentlyContinue
 if ($voltaFound) {
     Write-Host "  [🗑️ RETIRED] Volta on Windows is installed" -ForegroundColor Red
-    Write-Host "               -> Recommendation: Uninstall Volta via Control Panel or winget" -ForegroundColor Yellow
+    Write-Host "               -> Recommendation: Uninstall Volta via Settings or winget" -ForegroundColor Yellow
     $RetiredCount++
 }
 
@@ -116,11 +137,11 @@ if (-not $voltaFound -and -not $fnmFound) {
 
 Write-Host ""
 
-# ── 3. WORK ENVIRONMENT WINDOWS CHECKS ────────────────────────────────────────
+# ── 4. WORK ENVIRONMENT WINDOWS CHECKS ────────────────────────────────────────
 if ($Work) {
     Write-Host "--- Checking Work-Specific Windows Features (.NET & Databases) ---" -ForegroundColor Blue
     
-    # 3.1 IIS Feature
+    # 4.1 IIS Feature
     try {
         # We try to use Get-WindowsOptionalFeature. Note: this usually requires admin elevation, so we try-catch gracefully.
         $iisFeature = Get-WindowsOptionalFeature -Online -FeatureName "IIS-WebServerRole" -ErrorAction SilentlyContinue
@@ -137,7 +158,7 @@ if ($Work) {
         $WarningsCount++
     }
 
-    # 3.2 .NET Framework 4.8
+    # 4.2 .NET Framework 4.8
     try {
         $regPath = "HKLM:\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full"
         if (Test-Path $regPath) {
@@ -158,7 +179,7 @@ if ($Work) {
         $WarningsCount++
     }
 
-    # 3.3 Rancher Desktop / Docker Daemon
+    # 4.3 Rancher Desktop / Docker Daemon
     if (Get-Command rancher-desktop -ErrorAction SilentlyContinue) {
         Write-Host "  [✅ OK] Rancher Desktop" -ForegroundColor Green
     } elseif (Get-Command docker -ErrorAction SilentlyContinue) {
@@ -169,7 +190,7 @@ if ($Work) {
         $ErrorsCount++
     }
 
-    # 3.4 SSMS (SQL Server Management Studio)
+    # 4.4 SSMS (SQL Server Management Studio)
     $ssmsPaths = @(
         "C:\Program Files (x86)\Microsoft SQL Server Management Studio 18",
         "C:\Program Files (x86)\Microsoft SQL Server Management Studio 19",
@@ -188,7 +209,7 @@ if ($Work) {
         $ErrorsCount++
     }
 
-    # 3.5 DBeaver
+    # 4.5 DBeaver
     if (Get-Command dbeaver -ErrorAction SilentlyContinue -or (Test-Path "C:\Program Files\DBeaver")) {
         Write-Host "  [✅ OK] DBeaver" -ForegroundColor Green
     } else {

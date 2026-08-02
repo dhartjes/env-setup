@@ -90,25 +90,18 @@ echo -e "${BLUE}--- Checking Core Required Toolstack ---${NC}"
 # Check mise
 if command -v mise >/dev/null 2>&1; then
   echo -e "  [${GREEN}✅ OK${NC}] mise (Polyglot Tool Manager)"
-  # Check if activated in current shell environment
-  if [[ -n "${MISE_SHELL:-}" ]] || [[ "$PATH" == *".local/share/mise"* ]]; then
-    echo -e "  [${GREEN}✅ OK${NC}] mise is active in the current shell session"
-  else
-    echo -e "  [${YELLOW}⚠️ WARN${NC}] mise is installed but NOT active in current shell!"
-    echo -e "           -> Recommendation: run 'echo '\''eval \"\$(~/.local/bin/mise activate bash)\"'\'' >> ~/.bashrc && source ~/.bashrc'"
-    (( WARNINGS++ )) || true
-  fi
 else
   echo -e "  [${RED}❌ MISSING${NC}] mise"
   echo -e "             -> Install via: curl https://mise.run | sh"
   (( ERRORS++ )) || true
 fi
 
-# If mise exists, check tools managed by mise
+# Core tools managed by mise in both configurations
 check_required_tool "Node.js" "node" "mise use --global node@lts"
 check_required_tool "Python" "python" "mise use --global python@3.13"
 check_required_tool "Neovim" "nvim" "mise use --global neovim@stable"
 check_required_tool "GitHub CLI" "gh" "mise use --global gh@latest"
+check_required_tool "Python UV" "uv" "mise use --global uv@latest"
 
 # Check Tree-Sitter-CLI (npm package)
 if command -v tree-sitter >/dev/null 2>&1; then
@@ -119,16 +112,39 @@ else
   (( ERRORS++ )) || true
 fi
 
-# Check Claude Code (npm package)
-if command -v claude >/dev/null 2>&1; then
-  echo -e "  [${GREEN}✅ OK${NC}] Claude Code"
+# Configured AI assistants depending on mode
+if [ "$WORK_MODE" = true ]; then
+  # Work configuration requires Claude Code
+  check_required_tool "Claude Code" "claude" "mise use --global npm:@anthropic-ai/claude-code"
 else
-  echo -e "  [${RED}❌ MISSING${NC}] Claude Code"
-  echo -e "             -> Install via: mise use --global npm:@anthropic-ai/claude-code"
-  (( ERRORS++ )) || true
+  # Personal/Home configuration requires Google Antigravity CLI (agy)
+  if command -v agy >/dev/null 2>&1; then
+    echo -e "  [${GREEN}✅ OK${NC}] Google Antigravity CLI (agy)"
+    # Check settings file presence
+    if [ -f "$HOME/.gemini/antigravity-cli/settings.json" ]; then
+      echo -e "  [${GREEN}✅ OK${NC}] Antigravity CLI settings.json exists"
+    else
+      echo -e "  [${YELLOW}⚠️  NOTE${NC}] Antigravity settings.json not found (will be created on first login)"
+    fi
+  else
+    echo -e "  [${RED}❌ MISSING${NC}] Google Antigravity CLI (agy)"
+    echo -e "             -> Ensure Antigravity CLI is preinstalled in your home terminal."
+    (( ERRORS++ )) || true
+  fi
+
+  # SQLite3 & Harlequin checks for personal home database utilities
+  check_required_tool "SQLite3 CLI" "sqlite3" "sudo apt update && sudo apt install sqlite3"
+  
+  if command -v harlequin >/dev/null 2>&1; then
+    echo -e "  [${GREEN}✅ OK${NC}] Harlequin SQL Client"
+  else
+    echo -e "  [${YELLOW}⚠️ WARN${NC}] Harlequin SQL TUI client is missing"
+    echo -e "           -> Recommended: Install via 'uv tool install harlequin'"
+    (( WARNINGS++ )) || true
+  fi
 fi
 
-# Check Git config helper
+# Check Git credential helper configuration
 if command -v gh >/dev/null 2>&1; then
   if git config --global credential.helper | grep -q "gh" >/dev/null 2>&1; then
     echo -e "  [${GREEN}✅ OK${NC}] Git credential helper configured to use GitHub CLI (gh)"
@@ -141,7 +157,56 @@ fi
 
 echo ""
 
-# ── 2. RETIRED / DEPRECATED TOOLS ─────────────────────────────────────────────
+# ── 2. SHELL PROFILE CONFIGURATION CHECK (~/.bashrc) ─────────────────────────
+echo -e "${BLUE}--- Inspecting ~/.bashrc Environment Configuration ---${NC}"
+BASHRC="$HOME/.bashrc"
+if [ -f "$BASHRC" ]; then
+  # Check mise activation
+  if grep -q "mise activate bash" "$BASHRC"; then
+    echo -e "  [${GREEN}✅ OK${NC}] mise activation hook found in ~/.bashrc"
+  else
+    echo -e "  [${RED}❌ MISSING${NC}] mise activation hook in ~/.bashrc"
+    echo -e "             -> Recommendation: Run 'echo '\''eval \"\$(~/.local/bin/mise activate bash)\"'\'' >> ~/.bashrc'"
+    (( ERRORS++ )) || true
+  fi
+
+  # Check wslview / BROWSER integration (extremely important for browser authentication on WSL)
+  if grep -q "export BROWSER=wslview" "$BASHRC" || grep -q "export BROWSER=\"wslview\"" "$BASHRC"; then
+    echo -e "  [${GREEN}✅ OK${NC}] BROWSER=wslview is declared in ~/.bashrc"
+  else
+    echo -e "  [${YELLOW}⚠️ WARN${NC}] BROWSER=wslview is missing from ~/.bashrc (authenticating via gh/GCM might fail to open your Windows browser)"
+    echo -e "           -> Recommendation: Run 'echo '\''export BROWSER=wslview'\'' >> ~/.bashrc'"
+    (( WARNINGS++ )) || true
+  fi
+
+  # GCM & Work specific bashrc variables
+  if [ "$WORK_MODE" = true ]; then
+    # GPG_TTY export for sign-ins
+    if grep -q "export GPG_TTY=" "$BASHRC" || grep -q "GPG_TTY=\$(tty)" "$BASHRC"; then
+      echo -e "  [${GREEN}✅ OK${NC}] export GPG_TTY=\$(tty) found in ~/.bashrc"
+    else
+      echo -e "  [${YELLOW}⚠️ WARN${NC}] GPG_TTY is not exported. GPG passphrase prompts might fail in this shell."
+      echo -e "           -> Recommendation: Run 'echo '\''export GPG_TTY=\$(tty)'\'' >> ~/.bashrc'"
+      (( WARNINGS++ )) || true
+    fi
+
+    # Dotnet tools in PATH
+    if grep -q "\.dotnet/tools" "$BASHRC" || [[ "$PATH" == *".dotnet/tools"* ]]; then
+      echo -e "  [${GREEN}✅ OK${NC}] .dotnet/tools path configuration found"
+    else
+      echo -e "  [${YELLOW}⚠️ WARN${NC}] ~/.dotnet/tools is not on your PATH or in ~/.bashrc"
+      echo -e "           -> Recommendation: Run 'echo '\''export PATH=\"\$PATH:\$HOME/.dotnet/tools\"'\'' >> ~/.bashrc'"
+      (( WARNINGS++ )) || true
+    fi
+  fi
+else
+  echo -e "  [${RED}❌ ERROR${NC}] ~/.bashrc file not found!"
+  (( ERRORS++ )) || true
+fi
+
+echo ""
+
+# ── 3. RETIRED / DEPRECATED TOOLS ─────────────────────────────────────────────
 echo -e "${BLUE}--- Checking for Retired / Deprecated Tools ---${NC}"
 
 check_retired_tool "Bob (Neovim Manager)" "bob" "Remove Neovim Bob manager: run 'rm -rf ~/.local/share/bob' and clear path bindings in ~/.bashrc"
@@ -155,8 +220,13 @@ check_retired_tool "Homebrew (WSL)" "brew" "Remove Homebrew if not needed for wo
 SSH_KEYS=$(find "$HOME/.ssh" -type f \( -name "id_rsa" -o -name "id_ed25519" -o -name "id_git-*" \) 2>/dev/null || true)
 if [[ -n "$SSH_KEYS" ]]; then
   echo -e "  [${YELLOW}⚠️  NOTE${NC}] Found standard/legacy SSH Keys in ~/.ssh/"
-  echo -e "           -> Since setup uses GitHub CLI and HTTPS, you can optionally remove these"
+  echo -e "           -> Since setup uses GitHub CLI and HTTPS, you can safely remove these"
   echo -e "              keys if you do not use them for other setups/platforms."
+fi
+
+# In personal mode, Claude Code is retired (use Antigravity instead)
+if [ "$WORK_MODE" = false ]; then
+  check_retired_tool "Claude Code (Work Only)" "claude" "Uninstall Claude Code on Home PC: run 'mise uninstall npm:@anthropic-ai/claude-code'"
 fi
 
 if [ "$RETIRED_FOUND" -eq 0 ]; then
@@ -165,7 +235,7 @@ fi
 
 echo ""
 
-# ── 3. WORK ENVIRONMENT ONLY CHECKS ───────────────────────────────────────────
+# ── 4. WORK ENVIRONMENT ONLY CHECKS ───────────────────────────────────────────
 if [ "$WORK_MODE" = true ]; then
   echo -e "${BLUE}--- Checking Work-Specific Toolstack (GCM & Azure DevOps) ---${NC}"
   
