@@ -1,8 +1,13 @@
 # Install mise (Polyglot Tool Manager)
 
-<-- [Back to README](../README.md)
+<-- [Back to README](../README.md) | [Migration Guide (migrate-to-mise.md)](migrate-to-mise.md)
 
 `mise` (pronounced "meez") is a polyglot version manager and task runner. In this repository, it acts as the centralized system to manage Node.js, Python, Neovim, and the GitHub CLI. It replaces Volta, Pyenv, and Bob with a single, fast tool.
+
+> [!IMPORTANT]
+> **Migrating from Volta, NVM, fnm, Pyenv, or Bob?**
+> Sourcing older version managers alongside `mise` will cause critical PATH conflicts, command hijacking, and terminal startup lag. You **must** completely uninstall those tools before using `mise`.
+> Please read the [Migrating to mise Guide](migrate-to-mise.md) before installing!
 
 ---
 
@@ -20,6 +25,7 @@ source ~/.bashrc
 ```
 
 Verify:
+
 ```bash
 mise --version
 ```

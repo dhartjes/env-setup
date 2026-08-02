@@ -89,6 +89,16 @@ if (Get-Command mise -ErrorAction SilentlyContinue) {
     Write-Host "  [❌ MISSING] mise on Windows" -ForegroundColor Red
     Write-Host "             -> Install via winget: 'winget install jdx.mise'" -ForegroundColor Yellow
     $ErrorsCount++
+
+    # Highlight if node is installed but mise is not
+    if (Get-Command node -ErrorAction SilentlyContinue) {
+        Write-Host "  [⚠️ WARN] Node.js is installed, but Windows mise is NOT!" -ForegroundColor Yellow
+        Write-Host "           -> CRITICAL MIGRATION WARNING: If migrating to mise, you MUST first" -ForegroundColor Yellow
+        Write-Host "              uninstall Node.js (via Volta, fnm, or Windows Settings/Apps)" -ForegroundColor Yellow
+        Write-Host "              before installing Node.js under mise to prevent PATH conflicts." -ForegroundColor Yellow
+        Write-Host "              See: [wsl/migrate-to-mise.md](wsl/migrate-to-mise.md) for details." -ForegroundColor Yellow
+        $WarningsCount++
+    }
 }
 
 Write-Host ""

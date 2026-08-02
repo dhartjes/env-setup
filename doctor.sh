@@ -42,13 +42,29 @@ check_required_tool() {
   
   if command -v "$cmd" >/dev/null 2>&1; then
     # Try to verify if it's managed by mise (if applicable)
-    if [[ "$install_cmd" == *"mise"* ]] && command -v mise >/dev/null 2>&1; then
-      if mise which "$cmd" >/dev/null 2>&1; then
-        echo -e "  [${GREEN}✅ OK${NC}] $name (managed by mise)"
+    if [[ "$install_cmd" == *"mise"* ]]; then
+      if command -v mise >/dev/null 2>&1; then
+        if mise which "$cmd" >/dev/null 2>&1; then
+          echo -e "  [${GREEN}✅ OK${NC}] $name (managed by mise)"
+        else
+          echo -e "  [${YELLOW}⚠️ WARN${NC}] $name exists, but does not seem to be managed by mise!"
+          echo -e "           -> Recommendation: migrate to mise via '${install_cmd}'"
+          (( WARNINGS++ )) || true
+        fi
       else
-        echo -e "  [${YELLOW}⚠️ WARN${NC}] $name exists, but does not seem to be managed by mise!"
-        echo -e "           -> Recommendation: migrate to mise via '${install_cmd}'"
-        (( WARNINGS++ )) || true
+        # cmd exists, but mise does NOT! This is a major pitfall/conflict, especially for node
+        if [[ "$cmd" == "node" ]]; then
+          echo -e "  [${YELLOW}⚠️ WARN${NC}] $name is installed, but mise is NOT installed!"
+          echo -e "           -> CRITICAL MIGRATION WARNING: You must first UNINSTALL your pre-existing Node.js"
+          echo -e "              (via Volta, NVM, or apt) BEFORE installing/migrating to mise."
+          echo -e "              Otherwise, PATH conflicts will break your terminal Node version."
+          echo -e "              See: [wsl/migrate-to-mise.md](wsl/migrate-to-mise.md) for details."
+          (( WARNINGS++ )) || true
+        else
+          echo -e "  [${YELLOW}⚠️ WARN${NC}] $name exists, but mise is not installed to manage it!"
+          echo -e "           -> Recommendation: Install mise, then migrate $name."
+          (( WARNINGS++ )) || true
+        fi
       fi
     else
       echo -e "  [${GREEN}✅ OK${NC}] $name"
@@ -146,7 +162,8 @@ fi
 
 # Check Git credential helper configuration
 if command -v gh >/dev/null 2>&1; then
-  if git config --global credential.helper | grep -q "gh" >/dev/null 2>&1; then
+  # gh auth setup-git configures domain-specific helpers (e.g. credential.https://github.com.helper) instead of the top-level credential.helper
+  if git config --global --get-regexp "credential\..*helper" 2>/dev/null | grep -q "gh" >/dev/null 2>&1 || git config --global credential.helper 2>/dev/null | grep -q "gh" >/dev/null 2>&1; then
     echo -e "  [${GREEN}✅ OK${NC}] Git credential helper configured to use GitHub CLI (gh)"
   else
     echo -e "  [${YELLOW}⚠️ WARN${NC}] Git credential helper is NOT configured to use GitHub CLI"
