@@ -53,5 +53,18 @@ This produces two files in the same directory: `insiteidentity.pfx` and `InsiteI
    <add key="Environment__CertificatePassword" value="<password from InsiteIdentityPassword.txt>" />
    ```
 
+## Verify static content MIME types
+
+Configured Commerce's `Web.config` ships `<staticContent>` overrides for a handful of extensions IIS doesn't map by default — `.woff`, `.woff2`, `.xlsx`, `.ts`, `.scss`, `.json` — but not always `.css`. If that entry is missing, IIS serves every `.css` file as `application/octet-stream` instead of `text/css`. The request still comes back 200 OK with valid CSS content, but browsers silently refuse to apply a stylesheet with the wrong content type — so the site (Admin Console or storefront) loads completely unstyled, with no error in the console to point at. See [Admin Console troubleshooting](admin-console.md#gigantic-opti-logo) for the full diagnosis.
+
+Check `src\InsiteCommerce.Web\Web.config` for a `.css` entry inside `<system.webServer><staticContent>` before moving on, and add one if it's missing:
+
+```xml
+<remove fileExtension=".css" />
+<mimeMap fileExtension=".css" mimeType="text/css" />
+```
+
+If you land here *after* already hitting the unstyled-site symptom in a browser, a hard refresh (Ctrl+Shift+R) is required afterward — the same `<staticContent>` block sets a 30-day `max-age` with no revalidation, so the browser has already cached the bad response.
+
 <-- Prev: [Clone and Branch Setup](branch-setup-for-multiple-repositories.md)
 --> Next: [SSMS Setup](database/ssms-setup.md)
