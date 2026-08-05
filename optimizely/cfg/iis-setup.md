@@ -15,14 +15,16 @@
    - **Physical path:** `C:\Users\Dominic.Hartjes\projects\wausausupply\src\InsiteCommerce.Web`
    - **Binding type:** `http`
    - **Port:** `8080`
-   - **Permissions:** 
+   - **Permissions:**
       - Edit Permissions, Security Tab, Edit, Add, "iis apppool\wausau.local.com", Check Names, OK.
       - Permissions for wausau.local.com: Modify, Full control, click Apply.
 
    For multiple active projects, use named hostnames on port 80 instead. Add entries to `C:\Windows\System32\drivers\etc\hosts` (requires an elevated editor):
+
    ```
    127.0.0.1  wausau.local.com
    ```
+
    Then set the IIS binding hostname to `wausau.local.com` on port 80.
 
 4. Click **OK**.
@@ -38,6 +40,7 @@ Run from the SDK tools folder in PowerShell:
 This produces two files in the same directory: `insiteidentity.pfx` and `InsiteIdentityPassword.txt`.
 
 1. Copy `insiteidentity.pfx` to:
+
    ```
    src\InsiteCommerce.Web\AppData\insiteidentity.pfx
    ```
@@ -45,6 +48,7 @@ This produces two files in the same directory: `insiteidentity.pfx` and `InsiteI
 2. Open `InsiteIdentityPassword.txt` and copy the password.
 
 3. Open `src\InsiteCommerce.Web\config\AppSettings.config` and add the following key (the key does not exist by default and must be added manually):
+
    ```xml
    <add key="Environment__CertificatePassword" value="<password from InsiteIdentityPassword.txt>" />
    ```
