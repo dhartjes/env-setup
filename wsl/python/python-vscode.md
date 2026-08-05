@@ -52,3 +52,4 @@ black <name-of-file.py>
 - [Black - PyPI](https://pypi.org/project/black/)
 
 <-- Prev: [Python Setup](python-setup.md)
+--> Next: [Meld Installation (WSL)](../meld/meld-install.md)

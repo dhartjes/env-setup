@@ -35,9 +35,13 @@ organization over controlled chaos, documentation, context, caching, reuse, and 
 1. [Clone Repos](wsl/git/git-clone-repos.md)
 1. [mise (Polyglot Tool Manager)](wsl/mise-install.md) — replaces Volta, Bob, and Pyenv (see [Migrating to mise](wsl/migrate-to-mise.md) if upgrading from an older setup)
 1. [Tree-Sitter](wsl/tree-sitter-install.md) — via mise
-1. [Neovim](wsl/nvim/nvim-install.md) — via mise
 1. [Python & uv](wsl/python/python-setup.md) — Python runtime and package/dependency management via mise and uv
 1. [SQLite & Harlequin](wsl/python/python-setup.md) — Database CLI utilities (SQLite3 and Harlequin SQL TUI)
+1. [Meld Installation (WSL)](wsl/meld/meld-install.md) — visual diff and merge tool
+1. [Meld Configuration (WSL)](wsl/meld/meld-config.md) — configure as git difftool/mergetool
+1. [Meld Installation (Windows)](windows/meld/meld-install.md)
+1. [Meld Configuration (Windows)](windows/meld/meld-config.md)
+1. [Neovim](wsl/nvim/nvim-install.md) — via mise
 
 ### Editor and AI
 
@@ -126,3 +130,9 @@ If passed, the scripts inspect requirements specific to your corporate setup:
 ```pwsh
 .\doctor.ps1 -Work
 ```
+
+---
+
+## Contributing / Adding New Docs
+
+See [`.claude/adding-new-docs.md`](.claude/adding-new-docs.md) for the full guide on adding new setup sections — doc template, navigation chain wiring, Windows constraints, and doctor script sync rules.
