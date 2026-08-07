@@ -15,10 +15,12 @@ Oh My Posh relies on Nerd Fonts to render icons and glyphs correctly. Without a 
 
 ### Recommended Fonts & Settings
 
+Download from <https://www.nerdfonts.com/> and install them using "More Options > Install for all Users."
+
 | App / Shell | Font | Additional Appearance Settings |
 | :--- | :--- | :--- |
 | **VS Code** | `FiraCode Nerd Font` | Ligatures enabled, Ligatures in Terminal enabled |
-| **Ubuntu (WSL)** | `UbuntuSansMono Nerd Font Mono` | Size 12 |
+| **Ubuntu (WSL)** | `UbuntuSansMono Nerd Font Mono` | Size 12, All UbuntuSansMonoNerdFontMono-* options |
 | **PowerShell** | `CaskaydiaMono Nerd Font Mono` | |
 
 ---
