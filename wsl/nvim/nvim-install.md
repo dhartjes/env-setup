@@ -25,5 +25,5 @@ For the initial setup, we use LazyVim to configure Neovim.
 > [!NOTE]
 > `mise` automatically manages the PATH and environment configuration when activated via your shell hook, so there is no need for manual PATH hacks or separate auto-completions as required by other version managers.
 
-<-- Prev: [Tree-Sitter](../tree-sitter-install.md)
+<-- Prev: [Meld Configuration (Windows)](../../windows/meld/meld-config.md)
 --> Next: [Neovim Configuration with LazyVim](nvim-lazyvim-config.md)
