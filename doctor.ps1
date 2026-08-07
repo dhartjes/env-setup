@@ -72,6 +72,7 @@ if (Get-Command wt -ErrorAction SilentlyContinue) {
 
 # Check VS Code
 Check-Package "VS Code (Visual Studio Code)" "code" "Microsoft.VisualStudioCode"
+Check-Package "Meld" "meld" "Meld.Meld"
 
 # Check WSL2
 if (Get-Command wsl -ErrorAction SilentlyContinue) {

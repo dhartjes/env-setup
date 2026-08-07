@@ -118,6 +118,7 @@ check_required_tool "Python" "python" "mise use --global python@3.13"
 check_required_tool "Neovim" "nvim" "mise use --global neovim@stable"
 check_required_tool "GitHub CLI" "gh" "mise use --global gh@latest"
 check_required_tool "Python UV" "uv" "mise use --global uv@latest"
+check_required_tool "Meld" "meld" "sudo apt update && sudo apt install meld"
 
 # Check Tree-Sitter-CLI (npm package)
 if command -v tree-sitter >/dev/null 2>&1; then

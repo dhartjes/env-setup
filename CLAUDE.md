@@ -42,6 +42,10 @@ Sequential files in a section use `<-- Prev` / `--> Next` links at the bottom. F
 
 Relative links in markdown must never use a `./` prefix — use `file.md` not `./file.md`, and `../dir/file.md` not `./../dir/file.md`. The `./` form can fail when GitHub renders files outside the standard tree view (e.g. blame, raw).
 
+## Adding New Documentation
+
+Before creating or editing setup docs, read **`.claude/adding-new-docs.md`**. It covers the full doc template, file placement rules, navigation chain wiring, Windows environment constraints (no admin access), and the doctor script sync checklist.
+
 ## Editing Guidelines
 
 All content is Markdown (with the exception of validation/doctor scripts). When updating setup instructions:
