@@ -29,7 +29,15 @@ apiUrl: 'http://localhost:8080',
 npm run start
 ```
 
+Or from the repo root, without `cd`-ing into `src\FrontEnd`:
+
+```powershell
+mise run start-spire
+```
+
 Navigate to `http://localhost:3000`.
+
+A `mise run build-spire` task is likewise available from the repo root as a wrapper around `npm run build` — the underlying webpack build itself is unchanged, this just saves the `cd`.
 
 VS Code launch configurations are already present in the `/FrontEnd` directory. The **Run and Debug** panel will show a Spire launch option that runs `npm run start` without additional configuration.
 

@@ -35,6 +35,8 @@ If you add a custom pre/post-build step to any CC project and want it to behave 
 <Exec Command="powershell.exe -command &quot;&amp; { $(MSBuildProjectDirectory)\..\..\dist\buildExtensions.ps1 }&quot;" />
 ```
 
+> **Don't wire `buildExtensions.ps1` as an automatic `PostBuild` target on `Extensions.csproj`**, even with the path fixed. That script's whole job is to run `dotnet build` on `Extensions.csproj` itself (to produce a Release build in `dist/`) — if the project's own build automatically re-triggers that script on every build, it recurses forever. Invoke it manually instead (`mise run release`, or `npm run ext`), never as a build hook on the project it builds.
+
 <-- Prev: [CFG Setup](README.md)
 --> Next: [Branch Setup](branch-setup-for-multiple-repositories.md)
 
