@@ -25,6 +25,7 @@ Add the following:
         tool = meld
         conflictstyle = diff3
 [mergetool "meld"]
+        path = "C:\Users\Dominic.Hartjes\AppData\Local\Programs\Meld\meld.exe"
         cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
         # cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
 ```
