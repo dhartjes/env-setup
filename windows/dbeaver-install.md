@@ -96,3 +96,4 @@ Adds a quick "open in Excel" button to query results.
 3. Check the items to install, click **Next → Finish**, and restart DBeaver.
 
 <-- Prev: [SSMS](ssms-install.md)
+--> Next: [LINQPad 5](linqpad5-install.md)
