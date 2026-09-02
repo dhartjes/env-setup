@@ -97,7 +97,7 @@ if (Get-Command mise -ErrorAction SilentlyContinue) {
         Write-Host "           -> CRITICAL MIGRATION WARNING: If migrating to mise, you MUST first" -ForegroundColor Yellow
         Write-Host "              uninstall Node.js (via Volta, fnm, or Windows Settings/Apps)" -ForegroundColor Yellow
         Write-Host "              before installing Node.js under mise to prevent PATH conflicts." -ForegroundColor Yellow
-        Write-Host "              See: [wsl/migrate-to-mise.md](wsl/migrate-to-mise.md) for details." -ForegroundColor Yellow
+        Write-Host "              See: [windows/migrate-to-mise.md](windows/migrate-to-mise.md) for details." -ForegroundColor Yellow
         $WarningsCount++
     }
 }
@@ -142,8 +142,22 @@ if ($fnmFound) {
     $RetiredCount++
 }
 
-if (-not $voltaFound -and -not $fnmFound) {
-    Write-Host "  [✅ OK] Clean Windows toolstack! No retired node managers found." -ForegroundColor Green
+$nvmFound = Get-Command nvm -ErrorAction SilentlyContinue
+if ($nvmFound) {
+    Write-Host "  [🗑️ RETIRED] nvm-windows is installed" -ForegroundColor Red
+    Write-Host "               -> Recommendation: winget uninstall CoreyButler.NVMforWindows" -ForegroundColor Yellow
+    $RetiredCount++
+}
+
+$bobFound = Get-Command bob -ErrorAction SilentlyContinue
+if ($bobFound) {
+    Write-Host "  [🗑️ RETIRED] Bob (Neovim version manager) is installed" -ForegroundColor Red
+    Write-Host "               -> Recommendation: Remove-Item -Recurse -Force `"`$env:LOCALAPPDATA\bob`"" -ForegroundColor Yellow
+    $RetiredCount++
+}
+
+if (-not $voltaFound -and -not $fnmFound -and -not $nvmFound -and -not $bobFound) {
+    Write-Host "  [✅ OK] Clean Windows toolstack! No retired node/neovim managers found." -ForegroundColor Green
 }
 
 Write-Host ""
@@ -221,11 +235,15 @@ if ($Work) {
     }
 
     # 4.5 DBeaver
-    if (Get-Command dbeaver -ErrorAction SilentlyContinue -or (Test-Path "C:\Program Files\DBeaver")) {
+    $dbeaverFound = (Get-Command dbeaver -ErrorAction SilentlyContinue) -or
+        (Test-Path "C:\Program Files\DBeaver") -or
+        (Test-Path "$env:LOCALAPPDATA\Programs\dbeaver") -or
+        (Get-ChildItem "$env:LOCALAPPDATA\Programs" -Filter "*dbeaver*" -Directory -ErrorAction SilentlyContinue)
+    if ($dbeaverFound) {
         Write-Host "  [✅ OK] DBeaver" -ForegroundColor Green
     } else {
         Write-Host "  [❌ MISSING] DBeaver" -ForegroundColor Red
-        Write-Host "             -> Install via winget: 'winget install dbeaver.dbeaver'" -ForegroundColor Yellow
+        Write-Host "             -> Install via winget: 'winget install DBeaver.DBeaver.Community'" -ForegroundColor Yellow
         $ErrorsCount++
     }
 } else {

@@ -1,52 +1,14 @@
-# Migrating to mise (Polyglot Tool Manager)
+# Migrating to mise (WSL / Linux)
 
-<-- [Back to README](../README.md) | [Go to Install mise Guide](mise-install.md)
+<-- [Back to README](../README.md) | [Migration Overview](../migrations/migrate-to-mise.md) | [Go to Install mise Guide](mise-install.md)
 
-`mise` is the unified workstation manager used in this environment. It replaces several language-specific version managers, including **Volta**, **fnm**, **NVM**, **Pyenv**, and **Bob**.
+`mise` is the unified workstation tool manager used in this environment. It replaces **Volta**, **fnm**, **NVM**, **Pyenv**, and **Bob**.
 
-To prevent conflicts and ensure a seamless transition, you **MUST** completely uninstall your existing version managers before activating `mise`.
-
----
-
-## ⚠️ The Golden Rule: Clean Slate First
-
-Installing languages/runtimes (especially **Node.js**) through `mise` while older managers are still active is the single most common cause of setup issues.
-
-> [!CAUTION]
-> **Do not skip the uninstall step!** Even if `mise` installs successfully, pre-existing version managers on your PATH will intercept your commands, causing subtle, hard-to-debug version mismatches and broken global tools.
-
----
-
-## 🚫 Critical Pitfalls of Coexistence
-
-If you do not uninstall older tools before setting up `mise`, you will likely encounter these issues:
-
-### 1. PATH Hijacking and Command Interception
-Version managers like Volta and NVM inject shell configuration blocks into your `~/.bashrc` (WSL) or `$PROFILE` (PowerShell). They add their own executable directory to the top of your `$PATH`. 
-* Even if `mise` is active, if Volta's path is listed first, running `node -v` will execute Volta's version, completely ignoring your `mise` configuration.
-
-### 2. The Volta Shim Trap
-Volta does not place real executables on your path. It places **shims** (dummy symlinks/redirects) for `node`, `npm`, `npx`, `yarn`, and `pnpm`.
-* If Volta is not uninstalled, these shims remain in `~/.volta/bin` (or `AppData\Local\Volta\bin` on Windows).
-* These shims are designed to intercept any call to Node.js and route it to Volta's engines. This will break `mise`'s ability to switch Node.js versions on the fly.
-
-### 3. NVM's Shell Function Overrides
-NVM is not a standalone executable; it is loaded as a series of bash functions when your terminal starts.
-* These functions override standard executable lookup rules. If NVM is sourced in your `~/.bashrc`, running `node` will always invoke NVM, even if `mise` is placed first on your physical PATH.
-
-### 4. Global Package Contamination
-If you run `npm install -g <package>` while Volta, NVM, or system Node are active:
-* The package will be installed in Volta's or NVM's proprietary global storage.
-* If you then try to run the tool (like `tree-sitter` or `claude`), it will fail to launch or run under the wrong Node engine.
-
-### 5. Extreme Shell Startup Lag
-Loading NVM's startup scripts (`nvm.sh`), Volta's hooks (`volta setup`), Bob, and Pyenv hooks simultaneously adds **0.5 to 2.0 seconds** of lag to *every single terminal session* you open. `mise` is written in Rust and activates instantly (< 10ms).
+Follow the steps below in your WSL terminal to completely clean out old version managers before installing `mise`. For why this matters and the pitfalls of skipping it, see the [Migration Overview](../migrations/migrate-to-mise.md).
 
 ---
 
 ## 🛠️ WSL / Linux (Ubuntu) Migration Steps
-
-Follow these steps in your WSL terminal to completely clean out old managers.
 
 ### Step 1: Backup Any Custom Global Packages
 Make a mental or physical list of global packages you currently rely on. (e.g., `npm list -g --depth=0`). You will re-install these instantly using `mise` globals later.
@@ -177,60 +139,6 @@ Now that your environment is clean, you can install everything cleanly with `mis
    tree-sitter --version
    ```
 
----
+Once done, run the Doctor Check to confirm your environment is clean — see the [Migration Overview](../migrations/migrate-to-mise.md#-running-doctor-check).
 
-## 🪟 Windows Migration Steps
-
-If you are migrating your native Windows environment:
-
-### Step 1: Uninstall Old Managers
-Uninstall Volta or fnm via Windows **Settings > Apps > Installed Apps** or PowerShell:
-```powershell
-# If installed via winget
-winget uninstall Volta.Volta
-winget uninstall Schniz.fnm
-winget uninstall OpenJS.NodeJS
-```
-
-### Step 2: Clean Filesystem Directories
-Remove remaining configuration and storage folders:
-```powershell
-Remove-Item -Recurse -Force "$HOME\.volta" -ErrorAction SilentlyContinue
-Remove-Item -Recurse -Force "$HOME\.fnm" -ErrorAction SilentlyContinue
-```
-
-### Step 3: Clean PowerShell profile ($PROFILE)
-Open your profile:
-```powershell
-code $PROFILE
-```
-Remove any lines containing `volta setup` or `fnm env`.
-
-### Step 4: Setup mise on Windows
-Install `mise` via winget and add the activation hook:
-```powershell
-winget install jdx.mise
-"mise activate pwsh | Invoke-Expression" >> $PROFILE
-```
-Restart your PowerShell terminal and run:
-```powershell
-mise use --global node@lts
-```
-
----
-
-## 🩺 Running Doctor Check
-
-After you complete the migration, run the Doctor script to verify that no remnants of old version managers are lingering and that all tools are successfully aligned:
-
-```bash
-# In WSL
-./doctor.sh
-```
-
-```powershell
-# In Windows PowerShell
-.\doctor.ps1
-```
-
-<-- [Back to README](../README.md) | [Go to Install mise Guide](mise-install.md)
+<-- [Back to README](../README.md) | [Migration Overview](../migrations/migrate-to-mise.md) | [Go to Install mise Guide](mise-install.md)
