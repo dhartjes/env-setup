@@ -33,7 +33,7 @@ organization over controlled chaos, documentation, context, caching, reuse, and 
 1. [Git Configuration](wsl/git/git-config.md)
 1. [Git Authentication](wsl/git/git-auth.md) — GitHub CLI via HTTPS (Recommended) or GCM with Entra ID (**OPTIONAL**: Work only)
 1. [Clone Repos](wsl/git/git-clone-repos.md)
-1. [mise (Polyglot Tool Manager)](wsl/mise-install.md) — replaces Volta, Bob, and Pyenv (see [Migrating to mise](wsl/migrate-to-mise.md) if upgrading from an older setup)
+1. [mise (Polyglot Tool Manager)](wsl/mise-install.md) — replaces Volta, Bob, and Pyenv (see [Migrating to mise](migrations/migrate-to-mise.md) if upgrading from an older setup)
 1. [Tree-Sitter](wsl/tree-sitter-install.md) — via mise
 1. [Python & uv](wsl/python/python-setup.md) — Python runtime and package/dependency management via mise and uv
 1. [SQLite & Harlequin](wsl/python/python-setup.md) — Database CLI utilities (SQLite3 and Harlequin SQL TUI)

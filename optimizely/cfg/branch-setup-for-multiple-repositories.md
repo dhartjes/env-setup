@@ -47,11 +47,27 @@ When the wausausupply2 repo was created, base code was pulled in first and then 
 Set up the remote relationship from within the original sandbox repository. Add a remote named "ade" that points to the sandbox2 repository.
  
 ```
-cd wausau
+cd wausausupply
 git remote add ade https://github.com/OptimizelyB2BES/wausausupply2.git
 git remote -v
 ```
  
+## Naming scheme for identification of remote/branch name
+
+Track the remote main branch using a different name locally.
+ 
+```
+
+git fetch ade main
+git checkout -b ade-main ade/main
+git config --add remote.ade.push refs/heads/ade-main:refs/heads/main
+
+git fetch ade sandbox
+git checkout -b ade-sandbox ade/sandbox
+git config --add remote.ade.push refs/heads/ade-sandbox:refs/heads/sandbox
+```
+
+
 ## Structure of git remotes and branches
  
 Branch roles:
@@ -124,18 +140,6 @@ Important! Before moving to a higher target branch, ensure that branch is fully 
     - Checkout production and pull.
     - Merge ade-main into production.
     - Build extensions and push.
-
-### Naming scheme for identification of remote/branch name
-
-Track the remote main branch using a different name locally.
- 
-```
-git fetch ade main
-git checkout -b ade-main ade/main
-
-git fetch ade sandbox
-git checkout -b ade-sandbox ade/sandbox
-```
  
 <-- Prev: [.NET Framework 4.8 Setup](dotnet-framework-setup.md)
 --> Next: [IIS Setup](iis-setup.md)
