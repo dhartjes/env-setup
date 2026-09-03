@@ -19,7 +19,7 @@ Download from <https://www.nerdfonts.com/> and install them using "More Options 
 
 | App / Shell | Install Name | Font Name | Additional Appearance Settings |
 | :--- | :--- | :--- | :--- |
-| **VS Code** | `FiraCode Nerd Font` | FiraCode Nerd Font | Ligatures enabled, Ligatures in Terminal enabled |
+| **VS Code** | `FiraCode Nerd Font` | FiraCode Nerd Font | All FiraCodeNerdFont-* options, Ligatures enabled, Ligatures in Terminal enabled |
 | **Ubuntu (WSL)** | `UbuntuSans Nerd Font` | UbuntuSansMono Nerd Font Mono | Size 12, All UbuntuSansMonoNerdFontMono-* options |
 | **PowerShell** | `CaskaydiaMono Nerd Font` | CaskaydiaMono Nerd Font Mono | All CaskaydiaMonoNerdFontMono-* options |
 
