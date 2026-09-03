@@ -4,7 +4,7 @@
 
 ```bash
 # Review your current git settings
-git config --global list
+git config --global --list
 
 # Replace 'master' moniker with 'main' on default branch
 git config --global init.defaultBranch main
