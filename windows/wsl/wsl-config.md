@@ -75,12 +75,14 @@ This ensures the WSL VM restarts and applies your changes (the â€œ8-second ruleâ
 
 Give WSL2 a generous but not excessive memory allocation while leaving enough for Windows to avoid performance issues.
 
+```yaml
 [wsl2]
 memory=24GB
 processors=8
 swap=auto
 vmIdleTimeout=600
 networkingMode=mirrored
+```
 
 ### Explanation of settings
 
@@ -110,7 +112,7 @@ Run `wsl --shutdown` in PowerShell or Command Prompt.
 
 Restart WSL2 (e.g., wsl or your distro name).
 
-Verify with from bash inside WSL to confirm the memory limit. `free -h`
+Verify from bash inside WSL to confirm the memory limit. `free -h`
 
 ### Tips
 
