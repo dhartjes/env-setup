@@ -41,6 +41,7 @@ ls -a | grep wsl.conf
 
 ## Example .wslconfig
 
+```yaml
 [wsl2]
 memory=4GB
 processors=2
@@ -49,6 +50,7 @@ localhostForwarding=true
 
 [experimental]
 sparseVhd=true
+```
 
 This limits VM memory, sets CPU count, swap size, and enables sparse VHDs.
 
