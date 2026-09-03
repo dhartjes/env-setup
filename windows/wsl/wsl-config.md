@@ -79,7 +79,7 @@ Give WSL2 a generous but not excessive memory allocation while leaving enough fo
 [wsl2]
 memory=24GB
 processors=8
-swap=auto
+swap=8GB
 vmIdleTimeout=600
 networkingMode=mirrored
 ```
