@@ -17,11 +17,11 @@ Oh My Posh relies on Nerd Fonts to render icons and glyphs correctly. Without a 
 
 Download from <https://www.nerdfonts.com/> and install them using "More Options > Install for all Users."
 
-| App / Shell | Font | Additional Appearance Settings |
+| App / Shell | Install Name | Font Name | Additional Appearance Settings |
 | :--- | :--- | :--- |
-| **VS Code** | `FiraCode Nerd Font` | Ligatures enabled, Ligatures in Terminal enabled |
-| **Ubuntu (WSL)** | `UbuntuSans Nerd Font` | Size 12, All UbuntuSansMonoNerdFontMono-* options |
-| **PowerShell** | `CaskaydiaMono Nerd Font Mono` | |
+| **VS Code** | `FiraCode Nerd Font` | FiraCode Nerd Font | Ligatures enabled, Ligatures in Terminal enabled |
+| **Ubuntu (WSL)** | `UbuntuSans Nerd Font` | UbuntuSansMono Nerd Font Mono | Size 12, All UbuntuSansMonoNerdFontMono-* options |
+| **PowerShell** | `CaskaydiaMono Nerd Font` | CaskaydiaMono Nerd Font Mono | All CaskaydiaMonoNerdFontMono-* options |
 
 ---
 
