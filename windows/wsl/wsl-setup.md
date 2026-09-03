@@ -17,12 +17,10 @@ Be sure to check [Best Practices for Setup](https://learn.microsoft.com/en-us/wi
 1. Install (or update) git for linux with:
 
    ```bash
-   sudo apt-get update && sudo apt-get upgrade
    sudo apt-get install git
    ```
 
 1. Install and configure **Oh My Posh** for WSL by following the central [Oh My Posh Setup Guide](../terminal/oh-my-posh.md). It details font dependencies, package requirements, and configuring a high-performance, locally-cached `.omp.json` theme.
-
 
 ## Tips
 
