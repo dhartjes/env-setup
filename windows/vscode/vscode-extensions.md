@@ -14,7 +14,7 @@ code --list-extensions > extensions.txt
 
 ```bash
 cd <location-of-extensions.txt>
-Get-Content extensions.txt | ForEach-Object { code --install-extension $_ }
+Get-Content \\wsl.localhost\Ubuntu\home\dhartjes\projects\env-setup\windows\vscode\extensions.txt | ForEach-Object { code --install-extension $_ }
 ```
 
 ## Current Extensions (last-update: 20260225)
