@@ -11,20 +11,37 @@ Enable all required Windows Features in a single admin session rather than acros
 1. Press `Win+R`, type `appwiz.cpl`, press Enter.
 2. Click **Turn Windows features on or off**.
 3. Enable the following:
+   - .net framework 3.5 and sub
    - **.NET Framework 4.8 Advanced Services**
      - **ASP.NET 4.8**
-   - **Internet Information Services**
-     - Web Management Tools → **IIS Management Console**
-     - World Wide Web Services → Application Development Features:
+     - WCF Services
+       - HttpActivation
+   - Containers
+   - HyperV and sub
+   - Internet Information Services
+     - Web Management Tools and Sub
+   - World Wide Web Services
+     - Appdev features
        - **ASP.NET 4.8**
        - **.NET Extensibility 4.8**
        - **ISAPI Extensions**
        - **ISAPI Filters**
-     - World Wide Web Services → Common HTTP Features:
-       - **Default Document**
-       - **HTTP Errors**
-       - **Static Content**
+       - Server-side includes
+   - Common Http features
+     - Default Document
+     - Http Errors
+     - Http Redirection
+     - Static Content
+   - Health and Diag
+     - Http logging
+   - Security
+     - Basic Authentication
+     - Centralized SSL Cert Support
+     - Request Filtering
+     - Windows Authentication
    - **Windows Process Activation Service**
+   - Windows Projected File System
+
 4. Click **OK**. Windows will install the features — a restart may be required.
 
 ### Option B — PowerShell (if Option A fails or is inaccessible)

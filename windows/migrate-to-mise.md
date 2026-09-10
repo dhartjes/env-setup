@@ -83,7 +83,7 @@ Each should return nothing.
 
 ```powershell
 winget install jdx.mise
-'mise activate pwsh | Invoke-Expression' >> $PROFILE
+'(&mise activate pwsh) | Out-String | Invoke-Expression' >> $PROFILE
 ```
 Restart your terminal, then set up your global tools:
 ```powershell
