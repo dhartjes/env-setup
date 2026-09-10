@@ -93,6 +93,21 @@ Cannot find the symmetric key 'master key', because it does not exist or you do 
 The current master key cannot be decrypted. The error was ignored because the FORCE option was specified.
 ```
 
+**Cannot open database "<database-name>" requested by the login. The login failed.**
+
+```
+[SqlException (0x80131904): Cannot open database "wausau.local.com" requested by the login. The login failed.
+Login failed for user 'sa'.]
+```
+
+Data is stored in .sql/ in the repo when you use docker-compose to host your database. If you run docker-compose from a different directory that doesn't have the local only .sql/ changes, it will not locate your databases.
+
+Fix with:
+
+1. In Rancher Desktop, stop the wausausupply-mssql-1 container.
+1. Moving all files under /.sql from the old repo location to the new one.
+1. Restart the wausausupply-mssql-1 container.
+
 ## Source
 
 - https://learn.microsoft.com/en-us/sql/tools/sqlpackage/sqlpackage-download?view=sql-server-ver16#windows-net-6

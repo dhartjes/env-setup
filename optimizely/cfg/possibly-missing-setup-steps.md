@@ -49,15 +49,6 @@ Tum Windows features on or off
 - [x] Media Features
 
 • Check localhost:9201 or localhost:9200 to verify elastic search port. If not in 9201 you have to change the   <add key="Elasticsearch5ServerUrl" value="http://localhost:9200" /> in application’s appsettings.config file.
-• Open windows hosts file to add the website by opening notepad as administrator
-• In notepad click File > Open then go to C:\Windows\System32\drivers\etc folder.
-• From the bottom right select all files then open hosts file.
-• Add a line in the bottom 127.0.0.1 lpscommerce.local.com then save
-• Import the bacpac file in database server.
-• Then expand tables in that database and Select dbo.Websites table and edit top 200 rows.
-• Find out the row with name main. In that row in DmainName column add lpscommerce.local.com using a comma after whatever there is.
-• Goto projects \src\InsiteCommerce.Web folder open cmd there and paste in npm install
-• Once npm install is done paste in grunt build
 • Open visual studio as administrator. Click open project or solution and open the solution.
 • Set InsiteCommerce.Web as startup. Open file /config/connectionStrings.config and set the proper connectionString. Example:   <add name="InSite.Commerce" connectionString="Server=JUARAF020;User Id=sa;Password=Optimizely@13;Initial Catalog=fox_database-backup-bacpac-fox-mqsww;MultipleActiveResultSets=true;" providerName="System.Data.SqlClient" />
 • If the project is classic themed one find out the project folder inside \src\InsiteCommerce.Web\Themes\ folder. Open any typescript file from inside scripts folder. Put a space inside the ts file and save. This will trigger the scripts files build. (Skip this if Spire)
