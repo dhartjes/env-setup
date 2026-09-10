@@ -15,12 +15,12 @@ npm install
 
 ## Configure the API target
 
-By default, Spire forwards API requests to `http://commerce.local.com`. Change this to match your local IIS binding.
+By default, Spire forwards API requests to `http://commerce.local.com`. Change this to `http://wausau.local.com:8080`, the IIS Express port that is configured in <repo-root>/.vscode/launch.json (Not source controlled).
 
 Edit `src\FrontEnd\config\settings.js`:
 
 ```js
-apiUrl: 'http://localhost:8080',
+apiUrl: 'http://wausau.local.com:8080',
 ```
 
 ## Start Spire
@@ -67,5 +67,18 @@ Pages generate automatically on the first request to the server if none are pres
 ```sql
 DELETE FROM content.Node
 ```
+
+## Troubleshooting
+
+**"We're sorry. An unhandled error has occurred and been reported." With console error "Environment__ElasticsearchNextServerUrl**
+
+Review the DevTools Console. If the error message looks like:
+
+```
+  "message": "There is not currently a setting for 'Environment__ElasticsearchNextServerUrl' in the AppSettings section of your web.config."
+
+```
+
+Then a config step was missed.
 
 <-- Prev: [Admin Console](admin-console.md)
