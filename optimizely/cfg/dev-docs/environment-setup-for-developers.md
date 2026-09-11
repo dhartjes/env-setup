@@ -67,11 +67,11 @@ The branch tags containing version name are prepended with **lts** or **sts**. S
 
 ### Configure the Optimizely NuGet source
 
-NuGet packages are available on [https://nuget.optimizely.com](https://nuget.optimizely.com/), which does not require authentication. This project uses VS Code, not Visual Studio — see [Admin Console → Configure the NuGet source](../admin-console.md) for the VS-Code-appropriate approach (a `nuget.config` file at the repo root, no Visual Studio UI needed).
+NuGet packages are available on [https://nuget.optimizely.com](https://nuget.optimizely.com/), which does not require authentication. This project uses VS Code, not Visual Studio — see [Admin Console → Configure the NuGet source](../admin-console/admin-console.md) for the VS-Code-appropriate approach (a `nuget.config` file at the repo root, no Visual Studio UI needed).
 
 ### Configure the local environment
 
-This project builds via the `dotnet` CLI, not the Visual Studio UI — see [Admin Console → Restore and build](../admin-console.md).
+This project builds via the `dotnet` CLI, not the Visual Studio UI — see [Admin Console → Restore and build](../admin-console/admin-console.md).
 
 For SQL: this section (`StartingDatabase.sql`) only applies to a brand-new environment. For an existing customer's site, restore their `.bacpac` instead — see [SSMS Setup](../database/ssms-setup.md). Either way, update `./src/InsiteCommerce.Web/config/connectionStrings.config` so it can connect to your database (`connectionStrings.default.config` is copied to `connectionStrings.config` during a build; if you skipped creating a database, copy the file manually).
 
@@ -86,7 +86,7 @@ Setup certificate:
 2. Copy the generated `insiteidentity.pfx` to `{Web Project Folder}/AppData/insiteidentity.pfx`.
 3. Copy the password in `InsiteIdentityPassword.txt` into the IdentityServerCertificatePassword node in `{Web Project Folder}/config/AppSettings.config`
 
-For a Spire (React) project specifically — API target configuration, VS Code launch setup, and whether bindings differ — see [Spire Setup](../spire-setup.md) and [IIS Setup](../iis-setup.md); `https` is not required for the Spire front-end.
+For a Spire (React) project specifically — API target configuration, VS Code launch setup, and whether bindings differ — see [Spire Setup](../spire/spire-setup.md) and [IIS Setup](../iis-setup.md); `https` is not required for the Spire front-end.
 
 Once finished, log in to `/admin` with the following credentials:\
 **user** – admin\

@@ -1,10 +1,10 @@
 # Spire Setup
 
-<-- [Back to CFG README](README.md)
+<-- [Back to CFG README](../README.md)
 
 ## Prerequisites
 
-- Node.js installed — see [Mise Tools](mise-tools.md)
+- Node.js installed — see [Mise Tools](../mise/mise-tools.md)
 
 ## Install frontend dependencies
 
@@ -70,15 +70,6 @@ DELETE FROM content.Node
 
 ## Troubleshooting
 
-**"We're sorry. An unhandled error has occurred and been reported." With console error "Environment__ElasticsearchNextServerUrl**
+See [Troubleshooting: Spire Setup](spire-setup-troubleshooting.md).
 
-Review the DevTools Console. If the error message looks like:
-
-```
-  "message": "There is not currently a setting for 'Environment__ElasticsearchNextServerUrl' in the AppSettings section of your web.config."
-
-```
-
-Then a config step was missed.
-
-<-- Prev: [Mise Tools](mise-tools.md)
+<-- Prev: [Mise Tools](../mise/mise-tools.md)

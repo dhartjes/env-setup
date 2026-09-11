@@ -1,15 +1,15 @@
 # Configured Commerce Mise Tools
 
-<-- [Back to CFG README](README.md)
+<-- [Back to CFG README](../README.md)
 
-Assumes `mise` itself is already installed — see [Install mise (Windows)](../../windows/mise/mise-install.md) if not. This page covers only what's specific to Configured Commerce; general-purpose tools (Python, Neovim, GitHub CLI, etc.) are documented generically in [Mise Tools (Windows)](../../windows/mise/mise-tools.md), not here.
+Assumes `mise` itself is already installed — see [Install mise (Windows)](../../../windows/mise/mise-install.md) if not. This page covers only what's specific to Configured Commerce; general-purpose tools (Python, Neovim, GitHub CLI, etc.) are documented generically in [Mise Tools (Windows)](../../../windows/mise/mise-tools.md), not here.
 
 > [!IMPORTANT]
 > **wausausupply's `mise.toml` (repo root) is a custom addition, not an out-of-the-box Configured Commerce file.** It was hand-built (Dominic + Claude) on top of the vendor-supplied `insite-commerce-cloud` base — Optimizely's own template ships no `mise.toml` at all. It's git-tracked, so normal history/diffing protects it, but a bad upstream vendor sync or merge could plausibly clobber or conflict with it since nothing about it is expected by Optimizely's tooling. This page is the from-scratch reference: what it contains and why, so it can be rebuilt if it's ever lost or damaged.
 
 ## Node.js
 
-Node is required for building and running **Spire** (the React storefront) — it is **not** needed for the Admin Console; see [Admin Console](admin-console.md).
+Node is required for building and running **Spire** (the React storefront) — it is **not** needed for the Admin Console; see [Admin Console](../admin-console/admin-console.md).
 
 `mise.toml` pins `node = "22.12.0"` under `[tools]` at the repo root. mise installs and activates that exact version automatically the first time you `cd` into the repo (or open it in VS Code / a terminal that runs mise's shell hook) — no manual `mise use --global node@...` needed for this project.
 
@@ -28,8 +28,8 @@ Everything below is defined in `[tasks.*]` blocks in the repo-root `mise.toml`, 
 | `fix-relay-fetch-reset` | `frfr` | Runs `relay-fix-revert` — manually reverts `Relay.ts` to HEAD, a standalone escape hatch |
 | `relay-fix-apply` | — (hidden) | Runs `tools/relayFixApply.ps1` — applies `patches/relay-native-fetch-fix.patch` to `src/FrontEnd/modules/server-framework/src/Relay.ts`, or no-ops if the fix is already present |
 | `relay-fix-revert` | — (hidden) | `git checkout -- src/FrontEnd/modules/server-framework/src/Relay.ts` |
-| `start-iis-express` | `iis` | Runs `iisexpress.exe /config:.vscode/iisexpress/applicationhost.config /site:InsiteCommerceWeb` directly — no admin required (see [IIS Setup](iis-setup.md)) |
-| `start-iis-express-fast` | `iisf` | Runs `tools/startIisExpressNoDebug.ps1` — builds, flips `web.config`'s `<compilation debug>` to `false` first (skips batch-compile/JIT-optimization penalties), runs IIS Express directly with no debugger attached, then reverts `web.config` to HEAD on exit. This is what the `.vscode/tasks.json` task `Run Without Debugging (Fast)` runs, which is what VS Code's globally-remapped Ctrl+F5 invokes — see [IIS Setup](iis-setup.md). |
+| `start-iis-express` | `iis` | Runs `iisexpress.exe /config:.vscode/iisexpress/applicationhost.config /site:InsiteCommerceWeb` directly — no admin required (see [IIS Setup](../iis-setup.md)) |
+| `start-iis-express-fast` | `iisf` | Runs `tools/startIisExpressNoDebug.ps1` — builds, flips `web.config`'s `<compilation debug>` to `false` first (skips batch-compile/JIT-optimization penalties), runs IIS Express directly with no debugger attached, then reverts `web.config` to HEAD on exit. This is what the `.vscode/tasks.json` task `Run Without Debugging (Fast)` runs, which is what VS Code's globally-remapped Ctrl+F5 invokes — see [IIS Setup](../iis-setup.md). |
 | `iis-debug-off` | — (hidden) | Runs `tools/iisDebugFlagOff.ps1` — flips `web.config`'s `debug="true"` to `debug="false"`, or no-ops if already `false` |
 | `iis-debug-restore` | — (hidden) | `git checkout -- src/InsiteCommerce.Web/Web.config` |
 | `ensure-dev-containers` | `edc` | Runs `tools/ensureDevContainers.ps1` — starts Rancher Desktop if it isn't running (via `rdctl start`, polling until the container engine responds), then `docker compose up -d --wait` for `mssql`, `mailhog`, `elasticsearchnext` |
@@ -42,20 +42,7 @@ Both use a PowerShell `try`/`finally` rather than mise's `depends`/`depends_post
 
 ## Troubleshooting
 
-### Option B — Direct install (no version manager)
+See [Troubleshooting: Mise Tools](mise-tools-troubleshooting.md).
 
-If mise is blocked by policy, install Node 22 directly:
-
-```powershell
-winget install OpenJS.NodeJS.LTS
-```
-
-Verify:
-
-```powershell
-node --version
-npm --version
-```
-
-<-- Prev: [Admin Console](admin-console.md)
---> Next: [Spire Setup](spire-setup.md)
+<-- Prev: [Admin Console](../admin-console/admin-console.md)
+--> Next: [Spire Setup](../spire/spire-setup.md)

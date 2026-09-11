@@ -114,3 +114,17 @@ Full original content, preserved verbatim:
 ## 2026-09-11 — Open question: `spire-setup.md`'s "Set TypeScript version to workspace version" section
 
 Dominic flagged this section as possibly obsolete in-doc ("skip unless needed while working on Spire"), but it hasn't been verified either way. The instructions are kept in `spire-setup.md` since removing an unverified optional step is riskier than leaving it — if you find yourself not needing it, or find a concrete reason it's no longer required with the current tsconfig/extension versions, update this entry and simplify or remove that section.
+
+## 2026-09-11 — Troubleshooting sections split into `<component>-troubleshooting.md`
+
+`admin-console.md`, `mise-tools.md`, and `spire-setup.md` each had an embedded "## Troubleshooting" section. Since each is now two related files (main doc + troubleshooting), they moved into their own component subfolders per this repo's file-placement convention (`.claude/adding-new-docs.md`):
+
+- `optimizely/cfg/admin-console.md` → `optimizely/cfg/admin-console/admin-console.md` + `admin-console-troubleshooting.md`
+- `optimizely/cfg/mise-tools.md` → `optimizely/cfg/mise/mise-tools.md` + `mise-tools-troubleshooting.md`
+- `optimizely/cfg/spire-setup.md` → `optimizely/cfg/spire/spire-setup.md` + `spire-setup-troubleshooting.md`
+
+`optimizely/cfg/database/ssms-setup.md` also had its Troubleshooting section extracted to a new `ssms-setup-troubleshooting.md` sibling — no new folder needed there since `database/` already held multiple files.
+
+Every inbound reference was updated to match: the CC `README.md`'s numbered setup path, `iis-setup.md`'s pointer to the Admin Console's "Gigantic Opti logo" fix (now at `admin-console/admin-console-troubleshooting.md#gigantic-opti-logo`), `dev-docs/environment-setup-for-developers.md`'s pointers, and each moved file's own Prev/Next footer and cross-links to the others (all now one directory deeper, so `../../` became `../../../` etc. inside `mise-tools.md`). `windows/mise/mise-tools.md`'s pointer to this CC page was fixed too.
+
+New troubleshooting docs link back to their main doc only (`<-- [Back to X](x.md)`), not a full Prev/Next chain — they're reference material, not a mandatory step in the linear setup sequence.

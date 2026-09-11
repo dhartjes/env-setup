@@ -2,7 +2,7 @@
 
 <-- [Back to README](../../README.md) | [Install mise](mise-install.md)
 
-General-purpose tools installed and managed via `mise` on Windows. Project-specific tools (e.g. a pinned Node version for one repo) don't need anything here — they're picked up automatically from that project's own `mise.toml`/`.node-version`. See [Configured Commerce Mise Tools](../../optimizely/cfg/mise-tools.md) for what's specific to that project.
+General-purpose tools installed and managed via `mise` on Windows. Project-specific tools (e.g. a pinned Node version for one repo) don't need anything here — they're picked up automatically from that project's own `mise.toml`/`.node-version`. See [Configured Commerce Mise Tools](../../optimizely/cfg/mise/mise-tools.md) for what's specific to that project.
 
 ## Node.js
 

@@ -52,7 +52,7 @@ organization over controlled chaos, documentation, context, caching, reuse, and 
 
 ### Database tools (**OPTIONAL**: Work setup only)
 
-1. [Rancher Desktop](windows/rancher-desktop.md) — Docker daemon for running SQL Server and other services in containers
+1. [Rancher Desktop](windows/rancher-desktop/rancher-desktop.md) — Docker daemon for running SQL Server and other services in containers
 1. [SSMS](windows/ssms-install.md) — SQL Server Management Studio
 1. [DBeaver](windows/dbeaver-install.md) — SQL query tool for Infor Data Fabric via JDBC
 1. [LINQPad 5](windows/linqpad5-install.md) — .NET 4.8 query tool for legacy codebases

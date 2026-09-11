@@ -1,0 +1,58 @@
+# Troubleshooting SSMS Setup
+
+<-- [Back to SSMS Setup](ssms-setup.md)
+
+**Error dropping tables**
+
+Run in SSMS with no database selected:
+
+```sql
+sp_configure 'contained database authentication', 1;
+GO
+RECONFIGURE;
+GO
+```
+
+**Create Master Key Encryption by Password error**
+
+```
+Error SQL72014: ... An error occurred during Service Master Key decryption
+```
+
+More recent fix (2025ish):
+
+Run the [RemoveMasterKey](RemoveMasterKey.ps1) script provided by Microsoft on the bacpac encoutnering the error.
+
+```pwsh
+.\RemoveMasterKey.ps1 -bacpacPath "C:\Users\<YourUserName>\Downloads\<database-export>.bacpac"
+```
+
+Fix with:
+
+```sql
+DROP MASTER KEY
+ALTER SERVICE MASTER KEY FORCE REGENERATE
+```
+
+This provided the following errors but still seemed to have the desired effect:
+
+```text
+Msg 15151, Level 16, State 1, Line 1
+Cannot find the symmetric key 'master key', because it does not exist or you do not have permission.
+The current master key cannot be decrypted. The error was ignored because the FORCE option was specified.
+```
+
+**Cannot open database "<database-name>" requested by the login. The login failed.**
+
+```
+[SqlException (0x80131904): Cannot open database "wausau.local.com" requested by the login. The login failed.
+Login failed for user 'sa'.]
+```
+
+Data is stored in .sql/ in the repo when you use docker-compose to host your database. If you run docker-compose from a different directory that doesn't have the local only .sql/ changes, it will not locate your databases.
+
+Fix with:
+
+1. In Rancher Desktop, stop the wausausupply-mssql-1 container.
+1. Moving all files under /.sql from the old repo location to the new one.
+1. Restart the wausausupply-mssql-1 container.

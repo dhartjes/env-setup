@@ -28,4 +28,4 @@ Get-Content \\wsl.localhost\Ubuntu\home\dhartjes\projects\env-setup\windows\vsco
 - [Docker | Makes it easy to build, manage, and deploy containerized applications](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
 
 <-- Prev: [VS Code Install](vscode-install.md)
---> Next: [Rancher Desktop](../rancher-desktop.md)
+--> Next: [Rancher Desktop](../rancher-desktop/rancher-desktop.md)
