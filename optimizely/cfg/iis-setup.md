@@ -116,7 +116,7 @@ This produces two files in the same directory: `insiteidentity.pfx` and `InsiteI
 
 ## Verify static content MIME types
 
-Configured Commerce's `Web.config` ships `<staticContent>` overrides for a handful of extensions IIS doesn't map by default — `.woff`, `.woff2`, `.xlsx`, `.ts`, `.scss`, `.json` — but not always `.css`. If that entry is missing, IIS serves every `.css` file as `application/octet-stream` instead of `text/css`. The request still comes back 200 OK with valid CSS content, but browsers silently refuse to apply a stylesheet with the wrong content type — so the site (Admin Console or storefront) loads completely unstyled, with no error in the console to point at. See [Admin Console troubleshooting](admin-console.md#gigantic-opti-logo) for the full diagnosis.
+Configured Commerce's `Web.config` ships `<staticContent>` overrides for a handful of extensions IIS doesn't map by default — `.woff`, `.woff2`, `.xlsx`, `.ts`, `.scss`, `.json` — but not always `.css`. If that entry is missing, IIS serves every `.css` file as `application/octet-stream` instead of `text/css`. The request still comes back 200 OK with valid CSS content, but browsers silently refuse to apply a stylesheet with the wrong content type — so the site (Admin Console or storefront) loads completely unstyled, with no error in the console to point at. See [Admin Console troubleshooting](admin-console/admin-console-troubleshooting.md#gigantic-opti-logo) for the full diagnosis.
 
 Check `src\InsiteCommerce.Web\Web.config` for a `.css` entry inside `<system.webServer><staticContent>` before moving on, and add one if it's missing:
 

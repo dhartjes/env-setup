@@ -21,3 +21,12 @@ Per this repo's own two-related-files-get-a-subdirectory convention (`.claude/ad
 ## 2026-09-11 — `vscode/vscode-install.md`: WIP-commentary cleanup
 
 As part of a repo-wide pass removing session-narration-style commentary from main docs (see `.changelog/optimizely.md`'s "WIP-commentary cleanup pass" entry for the full pass description), dropped the "Added 2026-09-10 (wausausupply)" lead-in from the Ctrl+F5 keybinding section above — content unchanged, just de-dated.
+
+## 2026-09-11 — Troubleshooting sections split into `<component>-troubleshooting.md`
+
+`rancher-desktop.md` and `peripherals/mouse-setup.md` each had an embedded "## Troubleshooting" section, extracted per the same pass described in `.changelog/optimizely.md`'s matching entry:
+
+- `windows/rancher-desktop.md` → `windows/rancher-desktop/rancher-desktop.md` + `rancher-desktop-troubleshooting.md` (new subfolder — it was a flat file with no existing home for a second related file).
+- `windows/peripherals/mouse-setup.md` → gained a `mouse-setup-troubleshooting.md` sibling in place — no new folder needed, `peripherals/` already held `keyboard-setup.md` too.
+
+Root `README.md`, `windows/vscode/vscode-extensions.md`'s Next link, and `windows/ssms-install.md`'s Prev link were all updated for the Rancher Desktop path change.
