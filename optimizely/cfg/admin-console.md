@@ -2,7 +2,7 @@
 
 <-- [Back to CFG README](README.md)
 
-> Confirmed 2026-09-10: no `npm install`, `grunt`, or TypeScript compile step is needed to make the Admin Console work. Earlier versions of this doc had a "Build the frontend CSS" (`npm install` + `grunt build`) and "Build the Admin Console TypeScript" (`tsc`) section here — both removed. The one thing that actually matters for the Admin Console rendering correctly is the `.css` MIME-type fix under Troubleshooting → "Gigantic Opti logo" below.
+No `npm install`, `grunt`, or TypeScript compile step is needed to make the Admin Console work. The one thing that actually matters for the Admin Console rendering correctly is the `.css` MIME-type fix under Troubleshooting → "Gigantic Opti logo" below.
 
 ## Configure the NuGet source
 

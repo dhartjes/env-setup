@@ -58,9 +58,10 @@ done < <(printf '%s\n' "${ALL_MD[@]}")
 
 UNREFERENCED=0
 for md_file in "${ALL_MD[@]}"; do
-  # README and CLAUDE.md are intentionally top-level; skip them
+  # README and CLAUDE.md are intentionally top-level; skip them.
+  # .changelog/ files are standalone by design, never part of a Prev/Next chain; skip them too.
   basename_f="$(basename "$md_file")"
-  if [[ "$basename_f" == "README.md" || "$basename_f" == "CLAUDE.md" ]]; then
+  if [[ "$basename_f" == "README.md" || "$basename_f" == "CLAUDE.md" || "$md_file" == */.changelog/* ]]; then
     continue
   fi
 

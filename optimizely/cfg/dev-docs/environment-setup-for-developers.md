@@ -65,65 +65,30 @@ Add the original upstream repository to receive any new updates deployed by Opti
 
 The branch tags containing version name are prepended with **lts** or **sts**. See [Long-Term Support overview](https://support.optimizely.com/hc/en-us/articles/19456407554317-Long-Term-Support-overview) for information.
 
-<!-- Claude TODO: This installation uses VS Code not Visual Studio. Can you update these instructions to include how to set up a nuget package feed in VS Code? -->
-### Configure Optimizely NuGet source in Visual Studio
+### Configure the Optimizely NuGet source
 
-NuGet packages are available on [https://nuget.optimizely.com](https://nuget.optimizely.com/), which does not require authentication.
-
-1. Go to **Visual Studio** > **Tools** > **Options** > **NuGet Package Manager** > **Package Sources**.
-2. Click **Add**:
-   1. **Name** – Configured Commerce
-   2. **Source** – [https://nuget.optimizely.com/feed/packages.svc](https://nuget.optimizely.com/)
-3. Restore packages.
+NuGet packages are available on [https://nuget.optimizely.com](https://nuget.optimizely.com/), which does not require authentication. This project uses VS Code, not Visual Studio — see [Admin Console → Configure the NuGet source](../admin-console.md) for the VS-Code-appropriate approach (a `nuget.config` file at the repo root, no Visual Studio UI needed).
 
 ### Configure the local environment
 
-<!-- Claude TODO: This installation uses VS Code not Visual Studio. What are my options for building in VS Code? -->
-Open **Visual Studio** and rebuild the solution.
+This project builds via the `dotnet` CLI, not the Visual Studio UI — see [Admin Console → Restore and build](../admin-console.md).
 
-<!-- Claude TODO: In every instance except the first, creating a database is not necessary. Please add info about pulling a database from Mission Control and uploading it using SqlPackage. This info is available in env-setup/optimizely/cfg/user-docs//mission-control/actions/database-backup.md -->
-For SQL, follow these steps:
+For SQL: this section (`StartingDatabase.sql`) only applies to a brand-new environment. For an existing customer's site, restore their `.bacpac` instead — see [SSMS Setup](../database/ssms-setup.md). Either way, update `./src/InsiteCommerce.Web/config/connectionStrings.config` so it can connect to your database (`connectionStrings.default.config` is copied to `connectionStrings.config` during a build; if you skipped creating a database, copy the file manually).
 
-1. Create a database within SQL server
-2. Run `./database/Insite.Commerce.StartingDatabase.sql` against the database.
-3. Optionally run `./database/Insite.Commerce.SampleData.sql` against the database.
-4. Update `./src/InsiteCommerce.Web/config/connectionStrings.config` so it can connect to your new database.\
-   `connectionStrings.default.config` is copied to `connectionStrings.config` during a build. If you skipped step 1, you can copy the file manually.
-
-<!-- Claude TODO: I haven't indicated in my setup project that I need to enable IIS via Windows Features. Can you add this to the Windows setup section? -->
-For IIS (.NET 4.8), follow these steps:
+This project runs on **IIS Express**, not full IIS — see [IIS Setup](../iis-setup.md) for the actual site/binding/certificate setup used here (the certificate generation step below is still accurate).
 
 > 📘 Note
 >
 > IIS only works with .NET 4.8. For .NET 8.0+ information, see [.NET 8.0+ local development environment](https://docs.developers.optimizely.com/configured-commerce/docs/net8-local-development-environment).
 
-1. Add a new site to IIS, pointing to `./src/InsiteCommerce.Web`.
-2. Set up bindings:
-   1. For simple setups, using a non-standard port like 8080 is fine. The site can then be accessed at `http://localhost:8080`.
-   2. If dealing with multiple projects, it can help to have them setup with hostnames on port 80:\
-      `projectA.local.com`\
-      `projectB.local.com`\
-      This requires entries in `c:\Windows\System32\drivers\etc\hosts`:\
-      `127.0.0.1` `projectA.local.com`\
-      `127.0.0.1` `projectB.local.com`
-      > 📘 Note
-      >
-      > `https` is not required.
-3. Setup certificate:
-   1. Run powershell `{SDK Folder}\\tools\\generatePfx.ps1`. This generates two files, `insiteidentity.pfx` and `InsiteIdentityPassword.txt`.
-   2. Copy the generated `insiteidentity.pfx` to `{Web Project Folder}/AppData/insiteidentity.pfx`.
-   3. Copy the password in `InsiteIdentityPassword.txt` into the IdentityServerCertificatePassword node in `{Web Project Folder}/config/AppSettings.config`
+Setup certificate:
+1. Run powershell `{SDK Folder}\\tools\\generatePfx.ps1`. This generates two files, `insiteidentity.pfx` and `InsiteIdentityPassword.txt`.
+2. Copy the generated `insiteidentity.pfx` to `{Web Project Folder}/AppData/insiteidentity.pfx`.
+3. Copy the password in `InsiteIdentityPassword.txt` into the IdentityServerCertificatePassword node in `{Web Project Folder}/config/AppSettings.config`
 
-<!-- Claude NOTE: Somewhere around here there should be some different instructions when setting up a Spire Project instead of a Classic project. Here are some questions I have on setup that are always difficult to find answers to:
-1. Should my IIS bindings be different? 
-2. Should I use SSL for requests to the Spire front-end?
-3. What should my launch configuration look like in VS Code? 
-4. Where do I configure the connection to the API and what value should I use?
+For a Spire (React) project specifically — API target configuration, VS Code launch setup, and whether bindings differ — see [Spire Setup](../spire-setup.md) and [IIS Setup](../iis-setup.md); `https` is not required for the Spire front-end.
 
-Some of these questions may be answered in ./environment-setup-for-developers.md or in this file. Either way, the actual website documentation does not make setup easy by having some of this information hidden in articles outside of the Environment Setup for Devs article.
--->
-
-Once finished with either set of steps, log in to `/admin` with the following credentials:\
+Once finished, log in to `/admin` with the following credentials:\
 **user** – admin\
 **password** – admin123
 

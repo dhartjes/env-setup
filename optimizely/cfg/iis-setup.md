@@ -4,8 +4,6 @@
 
 This project runs on **IIS Express**, launched from VS Code (`launch.json`) or from the repo-root `mise run start-iis-express` / `start-iis-express-fast` tasks — not from full IIS / IIS Manager. IIS Express is self-contained and does not require the IIS Windows feature or admin rights to run day-to-day, only for the one-time host setup below.
 
-> Confirmed 2026-09-10: an earlier version of this doc described creating the site in full IIS Manager. That's the wrong tool for this project — keeping it here only as a historical note in case a future project genuinely needs full IIS.
-
 ## Prerequisites
 
 - IIS Express installed. There's no winget package for it — download "IIS Express 10" from Microsoft: https://www.microsoft.com/en-us/download/details.aspx?id=48264. Do **not** also install the ASP.NET Core Hosting Bundle unless you specifically need it — see the config note below.
@@ -52,7 +50,7 @@ F5 runs the first configuration with the debugger attached, via its `preLaunchTa
 
 ### `applicationhost.config`
 
-Create `.vscode/iisexpress/applicationhost.config`. Two things commonly break it — both were hit and fixed while setting this up on a fresh machine (2026-09-10):
+Create `.vscode/iisexpress/applicationhost.config`. Two things commonly break it:
 
 1. **Use the modern IIS Express default template**, whose CLR app pools point their `CLRConfigFile` at `%IIS_BIN%\config\templates\PersonalWebServer\aspnet.config` (a file that ships with the IIS Express install itself). Don't base it on an older config whose pools point at `%IIS_USER_HOME%\config\aspnet.config` — that path only exists once IIS Express's legacy per-user first-run wizard has run, which it won't have on a fresh profile, and every CLR app pool fails to start as a result.
 2. **Strip the ASP.NET Core module registration if the Hosting Bundle isn't installed.** The modern default template registers `AspNetCoreModule` / `AspNetCoreModuleV2` in `<globalModules>` (and matching `lockItem="true"` entries in `<modules>`). If `C:\Program Files\IIS Express\aspnetcore.dll` doesn't exist (Hosting Bundle not installed — it doesn't ship with plain IIS Express), those entries make IIS Express fail to start *any* site with `Error loading global modules. hr = 8007007e` ("module not found"). Delete both pairs of entries — this is a classic .NET Framework app and doesn't need ASP.NET Core hosting at all.

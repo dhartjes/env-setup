@@ -16,7 +16,7 @@ See [VSCode Extensions](vscode-extensions.md) for more info
 
 ## Keybinding convention: Ctrl+F5 runs a task, not the debugger
 
-Added 2026-09-10 (wausausupply). `keybindings.json` is a global, per-profile file, so this applies across every project once set — and travels to a new machine automatically via Settings Sync (see Configuration above), unlike anything in a repo's own `.vscode/`.
+`keybindings.json` is a global, per-profile file, so this applies across every project once set — and travels to a new machine automatically via Settings Sync (see Configuration above), unlike anything in a repo's own `.vscode/`.
 
 Ctrl+F5's built-in "Run Without Debugging" behavior re-runs whatever launch config is selected with a `noDebug` flag, which isn't reliable across debugger types (e.g. the C# extension's `clr` debug type for .NET Framework attach doesn't cleanly support it) and never gives you a way to run a *different* pre-launch step (e.g. flipping a debug-symbols flag off) than the F5 path does.
 
