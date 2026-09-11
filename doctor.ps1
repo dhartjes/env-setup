@@ -97,7 +97,7 @@ if (Get-Command mise -ErrorAction SilentlyContinue) {
         Write-Host "           -> CRITICAL MIGRATION WARNING: If migrating to mise, you MUST first" -ForegroundColor Yellow
         Write-Host "              uninstall Node.js (via Volta, fnm, or Windows Settings/Apps)" -ForegroundColor Yellow
         Write-Host "              before installing Node.js under mise to prevent PATH conflicts." -ForegroundColor Yellow
-        Write-Host "              See: [windows/migrate-to-mise.md](windows/migrate-to-mise.md) for details." -ForegroundColor Yellow
+        Write-Host "              See: migrations/migrate-to-mise.md#-windows-migration-steps for details." -ForegroundColor Yellow
         $WarningsCount++
     }
 }

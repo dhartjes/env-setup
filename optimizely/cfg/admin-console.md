@@ -2,6 +2,8 @@
 
 <-- [Back to CFG README](README.md)
 
+> Confirmed 2026-09-10: no `npm install`, `grunt`, or TypeScript compile step is needed to make the Admin Console work. Earlier versions of this doc had a "Build the frontend CSS" (`npm install` + `grunt build`) and "Build the Admin Console TypeScript" (`tsc`) section here — both removed. The one thing that actually matters for the Admin Console rendering correctly is the `.css` MIME-type fix under Troubleshooting → "Gigantic Opti logo" below.
+
 ## Configure the NuGet source
 
 The Optimizely NuGet feed requires no authentication. Add it to a `nuget.config` file at the repo root (create the file if it does not exist):
@@ -14,47 +16,6 @@ The Optimizely NuGet feed requires no authentication. Add it to a `nuget.config`
   </packageSources>
 </configuration>
 ```
-
-## Build the frontend CSS
-
-The Admin Console uses Dart Sass (no Ruby required). From `src\InsiteCommerce.Web`:
-
-```powershell
-npm install
-npx grunt build
-```
-
-`npm install` also downloads Node 22.12.0 via mise if it isn't already cached. `npx grunt build` compiles all `.scss` files in `Themes/` and `Styles/` to `.css`. No global grunt-cli install is needed — `npx` runs the locally installed version.
-
-For watch mode during active CSS development:
-
-```powershell
-npx grunt
-```
-
-## Build the Admin Console TypeScript
-
-The Admin Console's Angular scripts under `_SystemResources/Themes/Responsive/Scripts` are plain TypeScript, compiled to `.js` next to each `.ts` file (the `.js`/`.js.map` outputs are gitignored — they're always regenerated locally, never committed).
-
-Do **not** rely on Visual Studio to transpile this automatically. The project (`InsiteCommerce.Web.csproj`) uses the modern SDK-style project format, which does not auto-wire MSBuild's TypeScript build targets the way legacy web-application-style projects do — adding the `Microsoft.TypeScript.MSBuild` NuGet package does not fix this reliably either: when combined with a local `node_modules/typescript` and this project's `tsconfig.json`, it ends up loading TypeScript's own standard library files twice and fails the whole `dotnet build` with hundreds of bogus "duplicate identifier" errors that have nothing to do with your code. Compile with `tsc` directly instead, from `src\InsiteCommerce.Web`:
-
-```powershell
-npx tsc -p tsconfig.json
-```
-
-Or via mise from the repo root:
-
-```powershell
-mise run build-admin-ts
-```
-
-For watch mode during active TypeScript development:
-
-```powershell
-mise run watch-admin-ts
-```
-
-> `tsconfig.json` here was originally copied from the Spire (React) frontend's config. It's since been trimmed to drop React-specific and `strict`/`strictNullChecks` options — this legacy AngularJS code was never written against strict null checks, so enabling that surfaces hundreds of pre-existing type errors unrelated to any real bug.
 
 ## Restore and build
 
@@ -110,5 +71,5 @@ A `web.config` edit auto-recycles the app domain, so it takes effect on the next
 
 **Alternate cause — IIS anonymous auth identity.** If the CSS `Content-Type` looks correct but requests for static files under `_SystemResources` are failing outright (401/403, not 200), it's a permissions issue instead: in IIS, click the site, double-click Authentication, right-click Anonymous Authentication → Edit, and change from Specific user: `IUSR` to Application pool identity.
 
-<-- Prev: [Frontend Tools Setup](frontend-tools-setup.md)
---> Next: [Spire Setup](spire-setup.md)
+<-- Prev: [SSMS Setup](database/ssms-setup.md)
+--> Next: [Mise Tools](mise-tools.md)

@@ -23,5 +23,5 @@ tree-sitter --version
 - **Zero overhead**: Avoids installing Homebrew, which can take 10-15 minutes and consume gigabytes of disk space on WSL.
 - **Unified updates**: `tree-sitter-cli` is updated alongside your other global node packages via `mise`.
 
-<-- Prev: [Clone Repos](git/git-clone-repos.md)
+<-- Prev: [Mise Tools](mise/mise-tools.md)
 --> Next: [Neovim](nvim/nvim-install.md)

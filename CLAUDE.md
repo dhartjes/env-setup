@@ -14,7 +14,7 @@ The intended order matters when following this guide on a fresh machine:
 2. **PowerShell 7** (`windows/powershell-setup.md`) — required before WSL and most Windows steps
 3. **WSL2** (`windows/wsl/`) — foundation for all Linux-side tooling
 4. **Git** (`wsl/git/`) — source control and authentication (gh / GCM)
-5. **mise** (`wsl/mise-install.md`) — tool manager (Node.js, Python, Neovim, gh)
+5. **mise** (`wsl/mise/`) — tool manager (Node.js, Python, Neovim, gh)
 6. **Tree-Sitter** (`wsl/tree-sitter-install.md`) — syntax tool (via mise)
 7. **Neovim** (`wsl/nvim/`) — terminal editor (via mise)
 8. **VS Code** (`windows/vscode/`) — editor with WSL integration
@@ -49,7 +49,7 @@ Before creating or editing setup docs, read **`.claude/adding-new-docs.md`**. It
 ## Editing Guidelines
 
 All content is Markdown (with the exception of validation/doctor scripts). When updating setup instructions:
-- Single-file topics belong directly in the parent directory, not inside their own subfolder. Only create a subdirectory when it contains multiple related files (e.g. `winget/` holds both `winget-install.md` and `troubleshooting.md`).
+- Single-file topics belong directly in the parent directory, not inside their own subfolder. Only create a subdirectory when it contains multiple related files (e.g. `winget/` holds both `winget-install.md` and `winget-troubleshooting.md`).
 - Commands should be copy-pasteable as-is (no placeholders like `<your-value>` unless unavoidable).
 - Preserve the setup sequence rationale — note prerequisites explicitly.
 - Every time `sudo apt` or `sudo apt-get` is used in setup instructions, ensure that package updates are run first (e.g., `sudo apt update && sudo apt upgrade` or `sudo apt-get update` before installation).

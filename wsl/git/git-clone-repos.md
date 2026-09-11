@@ -9,4 +9,4 @@ git clone git@github.com:dhartjes/dhartjes.github.io.git
 ```
 
 <-- Prev: [Git Authentication](git-auth.md)
---> Next: [Tree-Sitter](../tree-sitter-install.md)
+--> Next: [Install mise](../mise/mise-install.md)

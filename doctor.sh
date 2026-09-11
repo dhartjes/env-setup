@@ -58,7 +58,7 @@ check_required_tool() {
           echo -e "           -> CRITICAL MIGRATION WARNING: You must first UNINSTALL your pre-existing Node.js"
           echo -e "              (via Volta, NVM, or apt) BEFORE installing/migrating to mise."
           echo -e "              Otherwise, PATH conflicts will break your terminal Node version."
-          echo -e "              See: [wsl/migrate-to-mise.md](wsl/migrate-to-mise.md) for details."
+          echo -e "              See: migrations/migrate-to-mise.md#-wsl-migration-steps for details."
           (( WARNINGS++ )) || true
         else
           echo -e "  [${YELLOW}⚠️ WARN${NC}] $name exists, but mise is not installed to manage it!"
