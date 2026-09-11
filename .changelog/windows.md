@@ -4,7 +4,7 @@ Running history of documentation changes under `windows/`, aggregated into this 
 
 ## 2026-09-10 — `vscode/vscode-install.md`: added the Ctrl+F5 keybinding convention
 
-Diagnosed why wausausupply's F5 and Ctrl+F5 both attached the debugger: VS Code's built-in Ctrl+F5 ("Run Without Debugging") just re-runs the *same* selected launch config with a `noDebug` flag, which isn't reliable across debugger types (the C# extension's `clr` debug type for .NET Framework attach doesn't cleanly support it), and it never gives a way to run a genuinely different pre-launch step than the F5 path does.
+Diagnosed why the repo's F5 and Ctrl+F5 both attached the debugger: VS Code's built-in Ctrl+F5 ("Run Without Debugging") just re-runs the *same* selected launch config with a `noDebug` flag, which isn't reliable across debugger types (the C# extension's `clr` debug type for .NET Framework attach doesn't cleanly support it), and it never gives a way to run a genuinely different pre-launch step than the F5 path does.
 
 Established a personal, portable convention instead: a global remap in `keybindings.json` (a per-profile file, travels to a new machine automatically via Settings Sync) so Ctrl+F5 always runs a task literally labeled `Run Without Debugging (Fast)` in whatever project is open, rather than relying on the built-in noDebug behavior. F5 still does whatever the project's `launch.json` default configuration does. Documented here since this is a cross-project habit, not specific to one repo — any project wanting Ctrl+F5 to do something just needs a task with that exact label.
 
@@ -20,7 +20,7 @@ Per this repo's own two-related-files-get-a-subdirectory convention (`.claude/ad
 
 ## 2026-09-11 — `vscode/vscode-install.md`: WIP-commentary cleanup
 
-As part of a repo-wide pass removing session-narration-style commentary from main docs (see `.changelog/optimizely.md`'s "WIP-commentary cleanup pass" entry for the full pass description), dropped the "Added 2026-09-10 (wausausupply)" lead-in from the Ctrl+F5 keybinding section above — content unchanged, just de-dated.
+As part of a repo-wide pass removing session-narration-style commentary from main docs (see `.changelog/optimizely.md`'s "WIP-commentary cleanup pass" entry for the full pass description), dropped the "Added 2026-09-10 (client)" lead-in from the Ctrl+F5 keybinding section above — content unchanged, just de-dated.
 
 ## 2026-09-11 — Troubleshooting sections split into `<component>-troubleshooting.md`
 

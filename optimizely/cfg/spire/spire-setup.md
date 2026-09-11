@@ -9,18 +9,18 @@
 ## Install frontend dependencies
 
 ```powershell
-cd C:\Users\Dominic.Hartjes\projects\wausausupply\src\FrontEnd
+cd repoRoot\src\FrontEnd
 npm install
 ```
 
 ## Configure the API target
 
-By default, Spire forwards API requests to `http://commerce.local.com`. Change this to `http://wausau.local.com:8080`, the IIS Express port that is configured in <repo-root>/.vscode/launch.json (Not source controlled).
+By default, Spire forwards API requests to `http://commerce.local.com`. Change this to `http://<clientUrl>.local.com:8080`, the IIS Express port that is configured in <repo-root>/.vscode/launch.json (Not source controlled).
 
 Edit `src\FrontEnd\config\settings.js`:
 
 ```js
-apiUrl: 'http://wausau.local.com:8080',
+apiUrl: 'http://<clientUrl>.local.com:8080',
 ```
 
 ## Start Spire

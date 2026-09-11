@@ -9,7 +9,7 @@ Setup guide for running the Configured Commerce (CC) stack locally on a Windows 
 These must be in place before starting CC-specific setup:
 
 - Windows 11
-- Git configured with access to the Wausau CC repositories
+- Git configured with access to the client's CC repositories
 - Visual Studio Code
 - [Windows Features](../../windows/windows-features.md) enabled — IIS, .NET Framework 4.8, and Windows Process Activation Service; do this once before steps 1 and 3 below (requires admin access)
 

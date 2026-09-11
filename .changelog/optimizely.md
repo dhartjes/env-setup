@@ -4,7 +4,7 @@ Running history of documentation changes under `optimizely/`, aggregated into th
 
 ## 2026-09-10 — `iis-setup.md`: rewritten around IIS Express instead of full IIS Manager
 
-An earlier version of this doc described creating the site in full IIS Manager (Site Manager UI, app pool permissions, port bindings via IIS Manager). That was the wrong tool for this project — it actually runs on IIS Express, launched from VS Code (`launch.json`) or the repo-root `mise run start-iis-express*` tasks, never from full IIS. Rewrite covered: the gitignored `.vscode/launch.json` / `.vscode/iisexpress/applicationhost.config` needing to be rebuilt per machine; two config gotchas that broke a fresh setup (CLR app pools pointing at `%IIS_USER_HOME%\config\aspnet.config`, which only exists after IIS Express's legacy per-user first-run wizard, instead of `%IIS_BIN%\config\templates\PersonalWebServer\aspnet.config`; and the modern default template registering `AspNetCoreModule`/`AspNetCoreModuleV2` which crashes IIS Express entirely — `Error loading global modules. hr = 8007007e` — when the ASP.NET Core Hosting Bundle isn't installed); and the one-time elevated host setup (`netsh http add urlacl` + a hosts file entry) needed for the `wausau.local.com:8080` binding, independent of where the repo is cloned.
+An earlier version of this doc described creating the site in full IIS Manager (Site Manager UI, app pool permissions, port bindings via IIS Manager). That was the wrong tool for this project — it actually runs on IIS Express, launched from VS Code (`launch.json`) or the repo-root `mise run start-iis-express*` tasks, never from full IIS. Rewrite covered: the gitignored `.vscode/launch.json` / `.vscode/iisexpress/applicationhost.config` needing to be rebuilt per machine; two config gotchas that broke a fresh setup (CLR app pools pointing at `%IIS_USER_HOME%\config\aspnet.config`, which only exists after IIS Express's legacy per-user first-run wizard, instead of `%IIS_BIN%\config\templates\PersonalWebServer\aspnet.config`; and the modern default template registering `AspNetCoreModule`/`AspNetCoreModuleV2` which crashes IIS Express entirely — `Error loading global modules. hr = 8007007e` — when the ASP.NET Core Hosting Bundle isn't installed); and the one-time elevated host setup (`netsh http add urlacl` + a hosts file entry) needed for the `<clientUrl>.local.com:8080` binding, independent of where the repo is cloned.
 
 ## 2026-09-10 — `admin-console.md`: removed the frontend build steps
 
@@ -13,7 +13,7 @@ Confirmed locally: no `npm install`, `grunt`, or TypeScript compile step is need
 - **"Build the frontend CSS"** — `npm install` + `npx grunt build` to compile `.scss` → `.css`.
 - **"Build the Admin Console TypeScript"** — `npx tsc -p tsconfig.json` (or `mise run build-admin-ts`) to compile the Angular scripts under `_SystemResources/Themes/Responsive/Scripts`.
 
-The corresponding `build-admin-ts` / `watch-admin-ts` mise tasks were also removed from wausausupply's `mise.toml`. The only thing that actually matters for the Admin Console rendering correctly is the `.css` MIME-type fix, still documented in the doc's own Troubleshooting → "Gigantic Opti logo" section (that one was never a workaround for a skipped build step — it's the actual fix).
+The corresponding `build-admin-ts` / `watch-admin-ts` mise tasks were also removed from client's `mise.toml`. The only thing that actually matters for the Admin Console rendering correctly is the `.css` MIME-type fix, still documented in the doc's own Troubleshooting → "Gigantic Opti logo" section (that one was never a workaround for a skipped build step — it's the actual fix).
 
 ## 2026-09-10 — `frontend-tools-setup.md`: rewritten, then superseded the same day
 
@@ -25,7 +25,7 @@ This whole file was superseded later the same day — see the mise doc restructu
 
 Once the CC mise setup was confirmed fully working, `optimizely/cfg/frontend-tools-setup.md` was deleted and replaced by `optimizely/cfg/mise-tools.md`, containing only what's CC-specific (the `mise.toml`-pinned Node version, no manual `mise use --global` needed). README, `admin-console.md`, and `spire-setup.md` were updated to point at it instead.
 
-`mise-tools.md` was later expanded with a full reference for wausausupply's root `mise.toml` — flagged as a **custom addition, not an out-of-the-box Configured Commerce file** (hand-built by Dominic + Claude, since Optimizely's own template ships no `mise.toml` at all), with every task documented (including the `tools/*.ps1` scripts each one calls) so it can be reconstructed if a vendor sync or merge ever damages it.
+`mise-tools.md` was later expanded with a full reference for the client's root `mise.toml` — flagged as a **custom addition, not an out-of-the-box Configured Commerce file** (hand-built by Dominic + Claude, since Optimizely's own template ships no `mise.toml` at all), with every task documented (including the `tools/*.ps1` scripts each one calls) so it can be reconstructed if a vendor sync or merge ever damages it.
 
 ## 2026-09-11 — WIP-commentary cleanup pass
 
@@ -133,7 +133,7 @@ New troubleshooting docs link back to their main doc only (`<-- [Back to X](x.md
 
 Created `optimizely/cfg/local-edits.md` as the single reference for everything about this repo's local setup that diverges from Optimizely's out-of-the-box template, spanning three different kinds of divergence that were previously scattered (or, in one case, never actually documented at all):
 
-- **Gitignored, local-only files**: `connectionStrings.config` (the `Initial Catalog=wausau.local.com` naming, confirmed intentional — it's the database's real name, not a stale placeholder), `AppSettings.config` (three keys), `settings.js` in `src/FrontEnd`.
+- **Gitignored, local-only files**: `connectionStrings.config` (the `Initial Catalog=<clientUrl>.local.com` naming, confirmed intentional — it's the database's real name, not a stale placeholder), `AppSettings.config` (three keys), `settings.js` in `src/FrontEnd`.
 - **Tracked files with a transient modification that must never be committed**: `Web.config`'s `<compilation debug>` flip, and `Relay.ts`'s native-fetch patch (now explained precisely — it swaps `node-fetch`-only APIs, `.buffer()` and `.raw()`, for standard-`fetch` equivalents, `arrayBuffer()` and `getSetCookie()`).
 - **Permanent tracked customization**: the full `mise.toml` task reference, moved here verbatim from `mise/mise-tools.md` (which now just points here).
 

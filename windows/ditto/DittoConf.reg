@@ -3,7 +3,7 @@ Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Ditto]
 "CheckForMaxEntries"=dword:00000001
 "SimpleTextSearch"=dword:00000001
-"DBPath3"="C:\\Users\\Dominic.Hartjes\\AppData\\Roaming\\Ditto\\Ditto.db"
+"DBPath3"="C:\\Users\\<UserName>\\AppData\\Roaming\\Ditto\\Ditto.db"
 "MainhWnd"=dword:00080ba6
 "(1920x1080)_QuickPasteCX"=dword:0000012c
 "(1920x1080)_QuickPasteCY"=dword:0000012c

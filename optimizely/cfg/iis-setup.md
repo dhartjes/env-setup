@@ -63,7 +63,7 @@ The site itself needs:
         <virtualDirectory path="/" physicalPath="<repo-root>\src\InsiteCommerce.Web" />
     </application>
     <bindings>
-        <binding protocol="http" bindingInformation=":8080:wausau.local.com" />
+        <binding protocol="http" bindingInformation=":8080:<clientUrl>.local.com" />
     </bindings>
 </site>
 ```
@@ -72,12 +72,12 @@ The site itself needs:
 
 ## One-time elevated host setup (per machine, not per clone)
 
-Binding to `wausau.local.com:8080` instead of plain `localhost` needs two elevated steps, done once per machine/user profile — independent of where the repo lives on disk:
+Binding to `<clientUrl>.local.com:8080` instead of plain `localhost` needs two elevated steps, done once per machine/user profile — independent of where the repo lives on disk:
 
 1. Add a hosts file entry (edit as Administrator, e.g. Notepad run as admin on `C:\Windows\System32\drivers\etc\hosts`):
 
    ```
-   127.0.0.1  wausau.local.com
+   127.0.0.1  <clientUrl>.local.com
    ```
 
    For multiple active projects, use additional hostnames the same way instead of colliding on one.
@@ -85,7 +85,7 @@ Binding to `wausau.local.com:8080` instead of plain `localhost` needs two elevat
 2. Reserve the URL for your Windows account (run from an elevated PowerShell — this is what lets ordinary, non-elevated IIS Express launches bind the hostname afterward):
 
    ```powershell
-   netsh http add urlacl url=http://wausau.local.com:8080/ user=<DOMAIN>\<username>
+   netsh http add urlacl url=http://<clientUrl>.local.com:8080/ user=<DOMAIN>\<username>
    ```
 
    Without this, IIS Express fails immediately with `Failed to register URL ... Access is denied (0x80070005)` even when the config file itself is correct.

@@ -6,7 +6,7 @@ This is the single reference for everything about this repo's local setup that d
 
 - **Gitignored, local-only files** — never committed, copied from a `.default.config`/`-base` template and then hand-edited per developer/environment (`connectionStrings.config`, `AppSettings.config`, `settings.js`).
 - **Tracked files with a transient local modification that must never actually be committed** — the baseline file is normal, tracked, vendor-supplied content; a mise task temporarily edits it and reverts it on exit (`Web.config`'s debug flag, `Relay.ts`'s native-fetch patch).
-- **Permanent, tracked, wausausupply-specific customizations** layered on top of the vendor baseline, which Optimizely's own tooling knows nothing about (`mise.toml`).
+- **Permanent, tracked, client-specific customizations** layered on top of the vendor baseline, which Optimizely's own tooling knows nothing about (`mise.toml`).
 
 ## InsiteCommerce.Web
 
@@ -15,10 +15,10 @@ This is the single reference for everything about this repo's local setup that d
 Copied from `connectionStrings.default.config` during a build (or manually, if you skip creating a database first — the file won't exist until the repo has been built once in its current location). Current local value:
 
 ```xml
-<add name="Insite.Commerce" connectionString="Data Source=127.0.0.1;Initial Catalog=<clienturl>.local.com;User ID=sa;Password=<unchanged>;MultipleActiveResultSets=true;" providerName="System.Data.SqlClient" />
+<add name="Insite.Commerce" connectionString="Data Source=127.0.0.1;Initial Catalog=<clientUrl>.local.com;User ID=sa;Password=<unchanged>;MultipleActiveResultSets=true;" providerName="System.Data.SqlClient" />
 ```
 
-In the `Initial Catalog`, <clienturl> should be the desired URL name for the client you are working with. Out of convention, it is made to match the site's domain rather than the default template's `Insite.Commerce`. It is also the name given to the SQL Server database on bacpac import. See [SSMS Setup](database/ssms-setup.md) for how the database itself is populated, and its troubleshooting doc for what happens if this value doesn't match the database that's actually there. `sa` / `password` should match `docker-compose.yml`'s `MSSQL_SA_PASSWORD`.
+In the `Initial Catalog`, <clientUrl> should be the desired URL name for the client you are working with. Out of convention, it is made to match the site's domain rather than the default template's `Insite.Commerce`. It is also the name given to the SQL Server database on bacpac import. See [SSMS Setup](database/ssms-setup.md) for how the database itself is populated, and its troubleshooting doc for what happens if this value doesn't match the database that's actually there. `sa` / `password` should match `docker-compose.yml`'s `MSSQL_SA_PASSWORD`.
 
 If you ever rename your database (useful for having separate local production/sandbox/ADE databases side by side), update `Initial Catalog` here to match.
 
@@ -36,7 +36,7 @@ Copied from `appSettings.default.config`, then diverges in three places:
 
 `<compilation debug="true">` is temporarily flipped to `debug="false"` by the `iis-debug-off` mise task — used by `start-iis-express-fast` (alias `iisf`), which is what the VS Code `Run Without Debugging (Fast)` task runs, which is what the globally-remapped Ctrl+F5 invokes (see [IIS Setup](iis-setup.md)). This disables batch-compile/JIT-optimization overhead for a snappier non-debug run. It's reverted automatically via `iis-debug-restore` (`git checkout -- src/InsiteCommerce.Web/Web.config`) in the same task's PowerShell `finally` block, so it survives Ctrl+C or a killed debug session. If that task ever gets killed hard enough to skip even `finally`, or you edit `Web.config` by hand while testing, check `git status` and revert before committing.
 
-### `mise.toml` (tracked, permanent — but still a wausausupply-specific addition, not out-of-the-box Configured Commerce)
+### `mise.toml` (tracked, permanent — but still a client-specific addition, not out-of-the-box Configured Commerce)
 
 Optimizely's own `insite-commerce-cloud` template ships no `mise.toml` at all — this one was hand-built (Dominic + Claude) on top of it. It's git-tracked, so normal history/diffing protects it day to day, but a bad upstream vendor sync or merge could plausibly clobber or conflict with it since nothing about it is expected by Optimizely's tooling. This is the from-scratch reference: what it contains and why, so it can be rebuilt if it's ever lost or damaged. (Formerly documented directly in [Mise Tools](mise/mise-tools.md), which now just points here.)
 
@@ -47,7 +47,7 @@ Everything below is defined in `[tasks.*]` blocks in the repo-root `mise.toml`, 
 | `build` | `b` | `dotnet build src/InsiteCommerce.Web/InsiteCommerce.Web.csproj -c Debug` |
 | `release` | `r` | Runs `dist/buildextensions.ps1` to produce a Release build of `Extensions.dll` |
 | `build-spire` | `bs` | `npm run build` in `src/FrontEnd` (wrapper to avoid `cd`-ing) |
-| `start` | `s` | Starts the Spire dev server directly: `node startDevelopment.js wausauCustomBlueprint` in `src/FrontEnd` |
+| `start` | `s` | Starts the Spire dev server directly: `node startDevelopment.js <clientBlueprintName>` in `src/FrontEnd` |
 | `fix-relay-fetch-start` | `frfs` | Runs `tools/startSpireDev.ps1` — applies the Relay.ts native-fetch patch, starts Spire, and reverts Relay.ts to its committed state on exit (even on Ctrl+C) |
 | `fix-relay-fetch` | `frf` | Runs `relay-fix-apply` — (re)applies the patch standalone, useful for testing it still applies after a vendor sync |
 | `fix-relay-fetch-reset` | `frfr` | Runs `relay-fix-revert` — manually reverts `Relay.ts` to HEAD, a standalone escape hatch |
@@ -72,7 +72,7 @@ Both use a PowerShell `try`/`finally` rather than mise's `depends`/`depends_post
 Copied from the tracked template `settings-base.js` (default `apiUrl: "http://commerce.local.com"`), then locally overridden:
 
 ```js
-apiUrl: "http://wausau.local.com:8080",
+apiUrl: "http://<clientUrl>.local.com:8080",
 ```
 
 Matches the IIS Express binding from [IIS Setup](iis-setup.md) / `.vscode/launch.json` (also gitignored — see IIS Setup for why). See [Spire Setup → Configure the API target](spire/spire-setup.md).

@@ -67,7 +67,7 @@ From ssms-setup.md, the following should be a step rather than a prerequisite:
 
 ## Sequencing `cd src/Frontend && npm install` before opening vs code
 
-Opening vs code initializes npm script runs. We should do npm install before launching vs code for the first time in the WausauSupply repo.
+Opening vs code initializes npm script runs. We should do npm install before launching vs code for the first time in the client's repo.
 
 ## Never before documented changes (I think)
 
@@ -86,7 +86,7 @@ Needs to go after winget and before wsl nvim. Or perhaps in wsl/nvim
 Unhandled error when using any search related functionality. Paired with error code 500 from /api/v1/autocomplete or api/v1/search. 
 
 ```
-  ElasticsearchV7: Failure in Running Product Search. Elasticsearch response error. Invalid NEST response built from a successful (404) low level call on POST: /wausau_local_com_product/_search?typed_keys=true
+  ElasticsearchV7: Failure in Running Product Search. Elasticsearch response error. Invalid NEST response built from a successful (404) low level call on POST: /<clientUrl>_local_com_product/_search?typed_keys=true
   # Audit trail of this API call:
    - [1] HealthyResponse: Node: http://localhost:9200/ Took: 00:00:00.1690922
   # Request:
