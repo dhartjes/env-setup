@@ -60,4 +60,4 @@ See [Troubleshooting: SSMS Setup](ssms-setup-troubleshooting.md).
 - https://learn.microsoft.com/en-us/sql/tools/sqlpackage/sqlpackage-download?view=sql-server-ver16#windows-net-6
 
 <-- Prev: [IIS Setup](../iis-setup.md)
---> Next: [Admin Console](../admin-console/admin-console.md)
+--> Next: [Initial Build](../initial-build.md)

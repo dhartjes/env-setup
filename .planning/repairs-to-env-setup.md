@@ -80,3 +80,24 @@ Troubleshooting: the file won't exist until the repo has been built once in its 
 ### Need to indicate the nvim troubleshooting issue relating to win32yank to the standard setup sequence
 
 Needs to go after winget and before wsl nvim. Or perhaps in wsl/nvim
+
+### Troubleshooting step re: Elasticsearch
+
+Unhandled error when using any search related functionality. Paired with error code 500 from /api/v1/autocomplete or api/v1/search. 
+
+```
+  ElasticsearchV7: Failure in Running Product Search. Elasticsearch response error. Invalid NEST response built from a successful (404) low level call on POST: /wausau_local_com_product/_search?typed_keys=true
+  # Audit trail of this API call:
+   - [1] HealthyResponse: Node: http://localhost:9200/ Took: 00:00:00.1690922
+  # Request:
+  <Request stream not captured or already read to completion by serializer. Set DisableDirectStreaming() on ConnectionSettings to force it to be set on the response.>
+  # Response:
+  <Response stream not captured or already read to completion by serializer. Set DisableDirectStreaming() on ConnectionSettings to force it to be set on the response.>
+```
+
+To Fix:
+Run index refresh via Marketing.
+
+-- OR --
+
+In a local environment, Settings/Search/Search Indexer Name: "Commerce Search v3" is unusable. Revert to "Commerce Search v2".

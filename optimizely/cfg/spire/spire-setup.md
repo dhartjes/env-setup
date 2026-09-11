@@ -25,6 +25,8 @@ apiUrl: 'http://wausau.local.com:8080',
 
 ## Start Spire
 
+> **This normally happens automatically.** `.vscode/tasks.json`'s `Start Spire Dev Server` task has `"runOn": "folderOpen"` — the moment you open this repo's folder in VS Code, it runs `mise run fix-relay-fetch-start` in a dedicated terminal panel on its own (applies the Relay.ts native-fetch patch — see [Local Edits](../local-edits.md) — starts Spire, and reverts the patch when the server stops). You generally won't need to run anything below by hand; it's here for when you want to start/restart Spire manually, or understand what that auto-started terminal panel is doing.
+
 ```powershell
 npm run start
 ```
@@ -32,7 +34,7 @@ npm run start
 Or from the repo root, without `cd`-ing into `src\FrontEnd`:
 
 ```powershell
-mise run start-spire
+mise run start
 ```
 
 Navigate to `http://localhost:3000`.
