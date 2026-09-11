@@ -46,6 +46,15 @@ Relative links in markdown must never use a `./` prefix — use `file.md` not `.
 
 Before creating or editing setup docs, read **`.claude/adding-new-docs.md`**. It covers the full doc template, file placement rules, navigation chain wiring, Windows environment constraints (no admin access), and the doctor script sync checklist.
 
+## `.changelog/` vs `.planning/`
+
+These two directories look similar but serve opposite purposes — don't mix them up:
+
+- **`.planning/` is transient scratch space.** Open questions, raw notes, not-yet-actioned ideas, future planned sections. Nothing here is finished or authoritative. **Never reference a `.planning/` file from anywhere else in the repo** — not from a main doc, not from a `.changelog/` entry, not from a script. Those references break the moment the transient content is cleaned up, reorganized, or deleted, which is expected to happen to `.planning/` content regularly.
+- **`.changelog/` is the running history.** When a `.planning/` item is actually done, or when session-narration-style commentary ("an earlier version of this doc said...", "confirmed 2026-09-10...") gets trimmed out of a main doc, its record moves to `.changelog/` — it does not stay in `.planning/` and does not get silently deleted.
+- **One changelog file per top-level directory**, not one per source file — e.g. `.changelog/optimizely.md` covers every file under `optimizely/`, not `.changelog/optimizely/cfg/admin-console.md`. Repo-root files (`README.md`, `CLAUDE.md`, `doctor.*`) go in `.changelog/root.md`. Use headings inside each file (date + which doc(s) it's about) to keep entries organized; aggregate into fewer files rather than mirroring the source tree.
+- If a piece of setup content itself needs a permanent home rather than being a changelog entry, it's a **troubleshooting doc** (`<component>-troubleshooting.md`, alongside the main doc, or its own folder if that topic doesn't already have one) or a **migration doc** (`migrations/<name>.md`) instead — changelog is for narrating what changed and why, not for content someone following the guide today actually needs to act on.
+
 ## Editing Guidelines
 
 All content is Markdown (with the exception of validation/doctor scripts). When updating setup instructions:
@@ -53,7 +62,7 @@ All content is Markdown (with the exception of validation/doctor scripts). When 
 - Commands should be copy-pasteable as-is (no placeholders like `<your-value>` unless unavoidable).
 - Preserve the setup sequence rationale — note prerequisites explicitly.
 - Every time `sudo apt` or `sudo apt-get` is used in setup instructions, ensure that package updates are run first (e.g., `sudo apt update && sudo apt upgrade` or `sudo apt-get update` before installation).
-- The `.planning/` directory holds future planned sections (Dev Containers, Remote SSH) that are not yet implemented — do not treat these as current documentation.
+- The `.planning/` directory holds future planned sections (Dev Containers, Remote SSH) that are not yet implemented — do not treat these as current documentation. See "`.changelog/` vs `.planning/`" above for the full rule.
 
 ## Workstation Doctor Scripts
 

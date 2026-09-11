@@ -246,7 +246,7 @@ After completing migration on either platform, run the Doctor script to verify n
 
 ## ✅ Status: complete
 
-Confirmed 2026-09-10 — every tool this migration set out to move onto `mise` has been: this section is kept as a historical record rather than an open plan (it previously lived as a "Future Phase" tracking doc at `.planning/migrate-to-mise.md`, archived here once verified done).
+Confirmed 2026-09-10 — every tool this migration set out to move onto `mise` has been: this section is kept as a historical record rather than an open plan (it previously lived as a separate "Future Phase" tracking doc that was deleted once every item on it was verified done).
 
 | Tool | Previously documented in | Replaced by |
 | --- | --- | --- |
