@@ -15,5 +15,5 @@ PowerShell 7 may have come pre-installed. To check:
 ## Installation  
 ```winget install --id Microsoft.PowerShell --source winget```
 
-<-- Prev: [WinGet](winget/troubleshooting.md)
+<-- Prev: [WinGet](winget/winget-troubleshooting.md)
 --> Next: [Windows Terminal](terminal/terminal-setup.md)

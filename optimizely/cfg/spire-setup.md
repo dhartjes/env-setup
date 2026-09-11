@@ -4,7 +4,7 @@
 
 ## Prerequisites
 
-- Node.js and Grunt CLI installed — see [Frontend Tools Setup](frontend-tools-setup.md)
+- Node.js installed — see [Mise Tools](mise-tools.md)
 
 ## Install frontend dependencies
 
@@ -81,4 +81,4 @@ Review the DevTools Console. If the error message looks like:
 
 Then a config step was missed.
 
-<-- Prev: [Admin Console](admin-console.md)
+<-- Prev: [Mise Tools](mise-tools.md)

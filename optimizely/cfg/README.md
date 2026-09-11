@@ -23,8 +23,8 @@ Use this path when cloning and running a customer's existing CC repo for the fir
 2. [Clone and Branch Setup](branch-setup-for-multiple-repositories.md) — clone the customer repo and understand the sandbox/production/ADE branch structure
 3. [IIS Setup](iis-setup.md) — configure the site binding and identity certificate
 4. [SSMS Setup](database/ssms-setup.md) — connect to SQL Server and import a `.bacpac` from Mission Control
-5. [Frontend Tools Setup](frontend-tools-setup.md) — install Node.js and Grunt CLI (required for Admin Console and Spire)
-6. [Admin Console](admin-console.md) — restore NuGet packages, build the solution, and confirm the admin login
+5. [Admin Console](admin-console.md) — restore NuGet packages, build the solution, and confirm the admin login
+6. [Mise Tools](mise-tools.md) — install Node.js via mise (required for Spire; not needed for Admin Console)
 7. [Spire Setup](spire-setup.md) — run `npm install`, configure the API URL, and start the frontend
 
 ### New project from scratch
