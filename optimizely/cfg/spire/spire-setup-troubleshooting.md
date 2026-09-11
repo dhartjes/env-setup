@@ -11,4 +11,4 @@ Review the DevTools Console. If the error message looks like:
 
 ```
 
-Then a config step was missed.
+Then `Environment__ElasticsearchNextServerUrl` is missing from `src\InsiteCommerce.Web\config\AppSettings.config` — it doesn't exist in the default template and must be added manually. Check the port matches what `docker-compose.yml`'s `elasticsearchnext` service is actually bound to (`9200` here, not the `Logging__ElasticServerUrl` default's `9201`). See [Local Edits → AppSettings.config](../local-edits.md) for the exact keys and values.

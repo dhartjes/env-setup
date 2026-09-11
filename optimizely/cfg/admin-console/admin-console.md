@@ -4,34 +4,14 @@
 
 No `npm install`, `grunt`, or TypeScript compile step is needed to make the Admin Console work. The one thing that actually matters for the Admin Console rendering correctly is the `.css` MIME-type fix — see [Troubleshooting](admin-console-troubleshooting.md).
 
-## Configure the NuGet source
-
-The Optimizely NuGet feed requires no authentication. Add it to a `nuget.config` file at the repo root (create the file if it does not exist):
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<configuration>
-  <packageSources>
-    <add key="Configured Commerce" value="https://nuget.optimizely.com/feed/packages.svc" />
-  </packageSources>
-</configuration>
-```
-
-## Restore and build
-
-In a PowerShell terminal at the repo root:
-
-```powershell
-dotnet restore .\src\InsiteCommerce.Web\InsiteCommerce.Web.csproj
-dotnet build .\src\InsiteCommerce.Web\InsiteCommerce.Web.csproj
-```
+By this point you've already restored, built, and edited the local config (see [Initial Build](../initial-build.md) and [Local Edits](../local-edits.md)) — this page just verifies it actually works.
 
 ## Log in to the Admin Console
 
 With IIS running and the database populated, navigate to:
 
 ```
-http://localhost:8080/admin
+http://<clientname>.local.com:8080/admin
 ```
 
 | Field | Value |
@@ -46,12 +26,12 @@ http://localhost:8080/admin
 The Spire content admin is at a separate path from the back-office admin console:
 
 ```
-http://localhost:8080/contentadmin
+http://<clientname>.local.com:8080/contentadmin
 ```
 
 ## Troubleshooting
 
 See [Troubleshooting: Admin Console](admin-console-troubleshooting.md).
 
-<-- Prev: [SSMS Setup](../database/ssms-setup.md)
+<-- Prev: [Local Edits](../local-edits.md)
 --> Next: [Mise Tools](../mise/mise-tools.md)
