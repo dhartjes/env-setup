@@ -50,7 +50,7 @@ These steps configure the Compass JDBC driver in DBeaver. Reference: Infor Xtrem
 4. Set the class name to: `com.infor.idl.jdbc.Driver`
 5. Set the URL to: `jdbc:infordatalake://TENANTNAME`
    - Example: `jdbc:infordatalake://ABCTENANT_TST`
-   - Wausau TRN: `jdbc:infordatalake://WAUSAUTRN`
+   - Client's TRN: `jdbc:infordatalake://<CLIENTNAME>_TRN`
 6. Save the driver.
 7. Select **Database → New Database Connection**, choose the Compass JDBC driver, and connect.
 

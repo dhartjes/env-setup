@@ -34,7 +34,7 @@ Global remap in `keybindings.json`, so Ctrl+F5 instead runs a task by a fixed na
 }
 ```
 
-**Convention:** every project that wants Ctrl+F5 to work should define a task literally labeled `Run Without Debugging (Fast)` in its own `.vscode/tasks.json`. F5 still does whatever the project's `launch.json` default configuration does (attach the appropriate debugger); Ctrl+F5 always runs that fixed-name task instead, whatever it happens to do in that project (e.g. wausausupply's runs IIS Express directly with `<compilation debug>` flipped off, skipping the debugger and the build's debug overhead entirely — see [IIS Setup](../../optimizely/cfg/iis-setup.md)). If a project has no task with that name, Ctrl+F5 just shows a "task not found" notice — harmless.
+**Convention:** every project that wants Ctrl+F5 to work should define a task literally labeled `Run Without Debugging (Fast)` in its own `.vscode/tasks.json`. F5 still does whatever the project's `launch.json` default configuration does (attach the appropriate debugger); Ctrl+F5 always runs that fixed-name task instead, whatever it happens to do in that project (e.g. the client's runs IIS Express directly with `<compilation debug>` flipped off, skipping the debugger and the build's debug overhead entirely — see [IIS Setup](../../optimizely/cfg/iis-setup.md)). If a project has no task with that name, Ctrl+F5 just shows a "task not found" notice — harmless.
 
 ## Source
 

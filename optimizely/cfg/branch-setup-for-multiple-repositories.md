@@ -2,22 +2,20 @@
 
 <-- [Back to CFG Setup](README.md)
 
-Wausau has two repositories for Configured Commerce source code. Listed beneath each are the branches involved in building/deploying the application.
+The client has two repositories for Configured Commerce source code. Listed beneath each are the branches involved in building/deploying the application.
 
 |Repository URL|Branch|Use|
 |-|-|-|
-|https://github.com/OptimizelyB2BES/wausausupply.git|origin/sandbox|Automated build and deploy to DEV (sandbox) environment|
-|https://github.com/OptimizelyB2BES/wausausupply.git|origin/production|Automated build ONLY for PRD environment|
-|https://github.com/OptimizelyB2BES/wausausupply2.git|origin/sandbox|Automated build and deploy to QA (sandbox2) environment|
-
-When the wausausupply2 repo was created, base code was pulled in first and then all modified code from wausausupply was brought in via copy and paste. This approach is not great; code and build artifacts get included that ought to be ignored, git history is lost, and it feels clunky and error prone.
+|https://github.com/OptimizelyB2BES/<clientRepoName>.git|origin/sandbox|Automated build and deploy to DEV (sandbox) environment|
+|https://github.com/OptimizelyB2BES/<clientRepoName>.git|origin/production|Automated build ONLY for PRD environment|
+|https://github.com/OptimizelyB2BES/<clientRepoName>2.git|origin/sandbox|Automated build and deploy to QA (sandbox2) environment|
 
 ## How to set up the new repo:
 
-1. Clone the original repo (wausausupply).
+1. Clone the original repo (<clientRepoName>).
     ```
-    git clone https://github.com/OptimizelyB2BES/wausausupply.git
-    cd wausau
+    git clone https://github.com/OptimizelyB2BES/<clientRepoName>.git
+    cd <clientRepoName>
     git fetch origin
     ``` 
 
@@ -27,14 +25,14 @@ When the wausausupply2 repo was created, base code was pulled in first and then 
     git branch --track origin <main/master>
     ```
 
-1. Remove the old remote (origin pointing to wausausupply).
+1. Remove the old remote (origin pointing to <clientRepoName>).
     ```
     git remote remove origin
     ```
 
-1. Add a new remote pointing to the new repo (wausausupply2).
+1. Add a new remote pointing to the new repo (<clientRepoName>2).
     ```
-    git remote add origin https://github.com/OptimizelyB2BES/wausausupply2.git
+    git remote add origin https://github.com/OptimizelyB2BES/<clientRepoName>2.git
     ```
 
 1. Push the code to the new repo.
@@ -47,8 +45,8 @@ When the wausausupply2 repo was created, base code was pulled in first and then 
 Set up the remote relationship from within the original sandbox repository. Add a remote named "ade" that points to the sandbox2 repository.
  
 ```
-cd wausausupply
-git remote add ade https://github.com/OptimizelyB2BES/wausausupply2.git
+cd <clientRepoName>
+git remote add ade https://github.com/OptimizelyB2BES/<clientRepoName>2.git
 git remote -v
 ```
  
@@ -73,12 +71,12 @@ git config --add remote.ade.push refs/heads/ade-sandbox:refs/heads/sandbox
 Branch roles:
 |Repo Name|Branch Name|Use|
 |-|-|-|
-|Wausausupply (DEV)|master|Not really used. In essence, sandbox is the master/main branch.|
-|Wausausupply (DEV)|sandbox|The DEV release branch. Acts as master/main branch. Auto builds and deploys to DEV environment. Also the integration branch for any bugs/features.|
-|Wausausupply (DEV)|production|The PROD release branch. Auto builds only. Support deploys build artifacts to PROD environment. Sometimes branches are created from production in the event of hotfixes while another effort is ongoing in sandbox.|
-|Wausausupply (DEV)|(All other)|Bug/feature branches.|
-|Wausausupply2 (ADE)|main|The integration branch between Wausausupply (DEV) and Wausausupply2 (ADE).|
-|Wausausupply2 (ADE)|sandbox|The ADE release branch. Auto builds and deploys to ADE environment.|
+|primaryRepo|master|Not really used. In essence, sandbox is the master/main branch.|
+|primaryRepo|sandbox|The DEV release branch. Acts as master/main branch. Auto builds and deploys to DEV environment. Also the integration branch for any bugs/features.|
+|primaryRepo|production|The PROD release branch. Auto builds only. Support deploys build artifacts to PROD environment. Sometimes branches are created from production in the event of hotfixes while another effort is ongoing in sandbox.|
+|primaryRepo|(All other)|Bug/feature branches.|
+|secondayRepo|main|The integration branch between the primary and secondary repo.|
+|secondayRepo|sandbox|The ADE release branch. Auto builds and deploys to ADE environment.|
 
 ## Moving between branches
 

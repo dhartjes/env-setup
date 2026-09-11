@@ -59,7 +59,7 @@ organization over controlled chaos, documentation, context, caching, reuse, and 
 
 ### Optimizely Configured Commerce (**OPTIONAL**: Work setup only)
 
-[Configured Commerce local dev setup](optimizely/cfg/README.md) — container stack, .NET projects, and branch structure for Wausau's CC repositories.
+[Configured Commerce local dev setup](optimizely/cfg/README.md) — container stack, .NET projects, and branch structure for the client's CFG repositories.
 
 ---
 

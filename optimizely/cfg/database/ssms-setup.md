@@ -22,7 +22,7 @@
 
 The SA password is in:
 ```
-C:\Users\Dominic.Hartjes\projects\wausausupply\src\InsiteCommerce.Web\config\connectionStrings.default.config
+repoRoot\src\InsiteCommerce.Web\config\connectionStrings.default.config
 ```
 
 ## Importing a Database Backup
@@ -38,7 +38,7 @@ dotnet tool install -g microsoft.sqlpackage
 Then import:
 
 ```pwsh
-SqlPackage /a:Import /tsn:"localhost" /tdn:"wausau.local.com" /tu:"sa" /tp:"<password-from-connectionStrings.default.config>" /sf:"C:\Users\<YourUserName>\Downloads\<database-export>.bacpac" /ttsc:True /p:DisableIndexesForDataPhase=False /p:PreserveIdentityLastValues=True
+SqlPackage /a:Import /tsn:"localhost" /tdn:"<clientUrl>.local.com" /tu:"sa" /tp:"<password-from-connectionStrings.default.config>" /sf:"C:\Users\<YourUserName>\Downloads\<database-export>.bacpac" /ttsc:True /p:DisableIndexesForDataPhase=False /p:PreserveIdentityLastValues=True
 ```
 
 ## Update the Website table DomainName field
@@ -47,7 +47,7 @@ After restoring the database from a live environment, it most likely needs an up
 
 ```sql
 UPDATE WebSite
-   SET DomainName = 'wausau.local.com,' + DomainName
+   SET DomainName = '<clientUrl>.local.com,' + DomainName
  WHERE Name = 'main'
 ```
 

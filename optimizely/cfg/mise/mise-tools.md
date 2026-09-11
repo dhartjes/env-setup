@@ -5,7 +5,7 @@
 Assumes `mise` itself is already installed — see [Install mise (Windows)](../../../windows/mise/mise-install.md) if not. This page covers only what's specific to Configured Commerce; general-purpose tools (Python, Neovim, GitHub CLI, etc.) are documented generically in [Mise Tools (Windows)](../../../windows/mise/mise-tools.md), not here.
 
 > [!IMPORTANT]
-> **wausausupply's `mise.toml` (repo root) is a custom addition, not an out-of-the-box Configured Commerce file.** Optimizely's own template ships no `mise.toml` at all. See [Local Edits](../local-edits.md) for the full reference — what it contains, why, and how to rebuild it if it's ever lost or damaged.
+> **Client's `mise.toml` (repo root) is a custom addition, not an out-of-the-box Configured Commerce file.** Optimizely's own template ships no `mise.toml` at all. See [Local Edits](../local-edits.md) for the full reference — what it contains, why, and how to rebuild it if it's ever lost or damaged.
 
 ## Node.js
 
