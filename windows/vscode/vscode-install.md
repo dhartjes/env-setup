@@ -41,4 +41,4 @@ Global remap in `keybindings.json`, so Ctrl+F5 instead runs a task by a fixed na
 - [StackOverflow](https://stackoverflow.com/questions/71103966/wsl-vscode-command-returning-error-not-found/73439567#73439567)
 
 <-- Prev: [Claude Code](../../wsl/claude-install.md)
---> Next: [VS Code Extensions](vscode-extensions.md)
+--> Next: [Pandoc and MiKTeX](../pandoc-install.md)

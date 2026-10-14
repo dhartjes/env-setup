@@ -12,3 +12,7 @@ Noticed `wsl/migrate-to-mise.md` and `wsl/mise-install.md` needed identical trea
 - `wsl/migrate-to-mise.md`'s old-version-manager removal steps were folded into `migrations/migrate-to-mise.md` alongside the equivalent Windows steps, so `migrations/` holds a single file covering both platforms instead of one per platform.
 
 Root `README.md` and `CLAUDE.md` were updated for the `wsl/mise-install.md` → `wsl/mise/mise-install.md` path change.
+
+## 2026-10-14 — `pandoc-install.md` added (Pandoc + Tectonic via mise)
+
+New `wsl/pandoc-install.md`. When VS Code is connected through Remote - WSL, the vscode-pandoc extension runs inside WSL (the extension doesn't declare an `extensionKind`), so the Windows Pandoc/MiKTeX install isn't used there. Pandoc comes from mise's registry. Tectonic comes through mise's `github:` backend because the registry doesn't list it. It was picked over TeX Live from `apt` because it's a single binary that fetches LaTeX packages on demand, much like MiKTeX's auto-install. The doc points the extension at Tectonic through a WSL remote setting (`pandoc.pdfOptString`) so Windows-side rendering stays on `pdflatex`. Tested 2026-10-14 with pandoc 3.12.1 and tectonic 0.17.0. In the sequence, it sits between `windows/pandoc-install.md` and `windows/vscode/vscode-extensions.md`.
