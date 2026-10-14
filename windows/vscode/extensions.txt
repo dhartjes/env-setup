@@ -1,5 +1,6 @@
 bierner.markdown-mermaid
 charliermarsh.ruff
+chrischinchilla.vscode-pandoc
 dbaeumer.vscode-eslint
 google.gemini-cli-vscode-ide-companion
 google.geminicodeassist
@@ -31,3 +32,4 @@ patbenatar.advanced-new-file
 visualstudiotoolsforunity.vstuc
 vscodevim.vim
 yzhang.markdown-all-in-one
+vscode-pdf

@@ -30,3 +30,7 @@ As part of a repo-wide pass removing session-narration-style commentary from mai
 - `windows/peripherals/mouse-setup.md` → gained a `mouse-setup-troubleshooting.md` sibling in place — no new folder needed, `peripherals/` already held `keyboard-setup.md` too.
 
 Root `README.md`, `windows/vscode/vscode-extensions.md`'s Next link, and `windows/ssms-install.md`'s Prev link were all updated for the Rancher Desktop path change.
+
+## 2026-10-14 — `pandoc-install.md` added; vscode-pandoc extension
+
+New `windows/pandoc-install.md` covers installing Pandoc (`JohnMacFarlane.Pandoc`) and MiKTeX (`MiKTeX.MiKTeX`) via WinGet, which the vscode-pandoc extension needs. It sits in the sequence between `vscode/vscode-install.md` and `vscode/vscode-extensions.md`, and both of those had their Next/Prev links updated. `vscode/vscode-extensions.md` gained a vscode-pandoc section, which notes that the extension runs on the workspace side and so uses the WSL `pandoc` when a folder is opened through Remote - WSL. `vscode/extensions.txt` gained `chrischinchilla.vscode-pandoc`.

@@ -46,6 +46,8 @@ organization over controlled chaos, documentation, context, caching, reuse, and 
 ### Editor and AI
 
 1. [VS Code Install](windows/vscode/vscode-install.md)
+1. [Pandoc and MiKTeX](windows/pandoc-install.md) — document conversion and LaTeX PDF engine; prerequisites for the vscode-pandoc extension
+1. [Pandoc and Tectonic (WSL)](wsl/pandoc-install.md) — same, for repos opened through Remote - WSL; via mise
 1. [VS Code Extensions](windows/vscode/vscode-extensions.md)
 1. [Google Antigravity](google-antigravity.md) — AI coding assistant in terminal (**RECOMMENDED**: Home only)
 1. [Claude Code](wsl/claude-install.md) — AI coding assistant in VS Code + WSL (**OPTIONAL**: Work only)

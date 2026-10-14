@@ -73,6 +73,8 @@ if (Get-Command wt -ErrorAction SilentlyContinue) {
 # Check VS Code
 Check-Package "VS Code (Visual Studio Code)" "code" "Microsoft.VisualStudioCode"
 Check-Package "Meld" "meld" "Meld.Meld"
+Check-Package "Pandoc" "pandoc" "--source winget --exact --id JohnMacFarlane.Pandoc"
+Check-Package "MiKTeX (pdflatex)" "pdflatex" "--source winget --id MiKTeX.MiKTeX"
 
 # Check WSL2
 if (Get-Command wsl -ErrorAction SilentlyContinue) {
