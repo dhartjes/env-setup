@@ -2,10 +2,10 @@
 
 <-- [Back to CFG README](README.md)
 
-Before opening this repo in VS Code for the first time, do one restore + build from a plain PowerShell terminal instead. Two reasons:
+Before launching this repo from VS Code (F5 / Ctrl+F5) for the first time, do one restore + build from a plain PowerShell terminal instead. Two reasons:
 
 1. **It's what actually creates the local config files.** `connectionStrings.default.config` / `appSettings.default.config` get copied to their non-`.default` names (`connectionStrings.config` / `AppSettings.config`) as part of the build. [Local Edits](local-edits.md), which comes next, edits those files — they have to exist first.
-2. **Keeps VS Code's first open clean.** [Spire Setup](spire/spire-setup.md) documents a task that auto-starts the Spire dev server the moment you open this folder in VS Code (`runOn: folderOpen`). That assumes the solution already builds and the local config already exists — do this from the terminal first so the very first VS Code open isn't the thing surfacing a build error or a missing-config crash.
+2. **Keeps the first F5 / Ctrl+F5 clean.** [Spire Setup](spire/spire-setup.md) documents that both launch paths also start the Spire dev server. That assumes the solution already builds and the local config already exists — do this from the terminal first so the very first launch isn't the thing surfacing a build error or a missing-config crash.
 
 ## Configure the NuGet source
 

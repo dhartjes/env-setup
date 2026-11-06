@@ -27,7 +27,7 @@ Use this path when cloning and running a customer's existing CC repo for the fir
 6. [Local Edits](local-edits.md) — fill in the local/gitignored config values (`connectionStrings.config`, `AppSettings.config`) that Initial Build just created but left at their defaults
 7. [Admin Console](admin-console/admin-console.md) — confirm the admin login now works
 8. [Mise Tools](mise/mise-tools.md) — install Node.js via mise (required for Spire; not needed for Admin Console)
-9. [Spire Setup](spire/spire-setup.md) — run `npm install`, configure the API URL, and start the frontend (the first VS Code open after this also auto-starts it — see that doc)
+9. [Spire Setup](spire/spire-setup.md) — run `npm install`, configure the API URL, and start the frontend (F5 and Ctrl+F5 in VS Code also start it — see that doc)
 
 ### New project from scratch
 
