@@ -21,6 +21,8 @@ Error SQL72014: ... An error occurred during Service Master Key decryption
 
 More recent fix (2025ish):
 
+> **Using `mise run db`?** It does this for you: when the import fails with this error it runs the patch below on a copy of the bacpac, drops any partial database, and retries once. Nothing to do by hand.
+
 Run the [RemoveMasterKey](RemoveMasterKey.ps1) script provided by Microsoft on the bacpac encoutnering the error.
 
 ```pwsh
