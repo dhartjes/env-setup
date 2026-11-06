@@ -70,6 +70,8 @@ The site itself needs:
 
 `physicalPath` must be an absolute path to your local clone of `src\InsiteCommerce.Web` — update it if you ever move or re-clone the repo.
 
+No `https` binding is needed: Optimizely's setup guide says `https` is not required, and the Spire front-end doesn't need it either — the plain `http` binding above is all this project uses.
+
 ## One-time elevated host setup (per machine, not per clone)
 
 Binding to `<clientUrl>.local.com:8080` instead of plain `localhost` needs two elevated steps, done once per machine/user profile — independent of where the repo lives on disk:
@@ -103,7 +105,7 @@ This produces two files in the same directory: `insiteidentity.pfx` and `InsiteI
 1. Copy `insiteidentity.pfx` to:
 
    ```
-   src\InsiteCommerce.Web\AppData\insiteidentity.pfx
+   src\InsiteCommerce.Web\App_Data\insiteidentity.pfx
    ```
 
 2. Open `InsiteIdentityPassword.txt` and copy the password.

@@ -33,7 +33,7 @@ Use this path when cloning and running a customer's existing CC repo for the fir
 
 Use this path only when Optimizely has provisioned a new environment and you are starting from the base `insite-commerce-cloud` repo. Steps 1–8 above are the same; the difference is in step 4 (use `StartingDatabase.sql` instead of a `.bacpac`).
 
-See [Optimizely: Environment Setup for Developers](https://docs.developers.optimizely.com/configured-commerce/docs/b2b-commerce-cloud-environment-setup-for-developers) for the new-project walkthrough.
+See [Optimizely: Environment Setup for Developers](https://docs.optimizely.com/configured-commerce/docs/b2b-commerce-cloud-environment-setup-for-developers) for the new-project walkthrough.
 
 ### .NET 8+ setup (future)
 
