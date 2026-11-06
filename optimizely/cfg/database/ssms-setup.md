@@ -41,6 +41,10 @@ Then import:
 SqlPackage /a:Import /tsn:"localhost" /tdn:"<clientUrl>.local.com" /tu:"sa" /tp:"<password-from-connectionStrings.default.config>" /sf:"C:\Users\<YourUserName>\Downloads\<database-export>.bacpac" /ttsc:True /p:DisableIndexesForDataPhase=False /p:PreserveIdentityLastValues=True
 ```
 
+### Or use `mise run db`
+
+From the repo root, `mise run db` does the same import without the manual typing: it starts the dev containers, reads the server, database name and credentials from `connectionStrings.config`, and imports the newest `.bacpac` in `database/bak/`. Pass a database name to switch the target first (`mise run db -- <clientUrl>.trn.com`), and/or a path to pick a specific file. If the import fails on the master key error described in [Troubleshooting](ssms-setup-troubleshooting.md), it patches a copy of the bacpac and retries on its own. The import fails if the database already exists — run `mise run db:down` first. See [Local Edits](../local-edits.md) for the full task reference.
+
 ## Update the Website table DomainName field
 
 After restoring the database from a live environment, it most likely needs an update to the main website in the Website table to align the DomainName field with the url being used in the local environment.
