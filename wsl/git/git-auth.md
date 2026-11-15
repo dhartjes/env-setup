@@ -30,6 +30,7 @@ gh auth login
 ```
 
 Choose these options during setup:
+
 1. **What account do you want to log into?** `GitHub.com`
 2. **What is your preferred protocol for Git operations?** `HTTPS`
 3. **How would you like to authenticate GitHub CLI?** `Login with a web browser` (this will automatically launch your default browser on Windows via `wslview` to complete the secure OAuth handshake).
@@ -43,6 +44,7 @@ gh auth setup-git
 ```
 
 Test with:
+
 ```bash
 git ls-remote https://github.com/dhartjes/env-setup.git
 ```
@@ -54,7 +56,7 @@ git ls-remote https://github.com/dhartjes/env-setup.git
 > [!IMPORTANT]
 > **OPTIONAL (Work Setup Only)**: This complex configuration is only required on your work machine to access corporate Azure DevOps repositories secured by Microsoft Entra ID (MSAL) single-sign-on. It is entirely unnecessary for your personal home workstation.
 >
-> *Note for Work Setup:* For any work-related repositories hosted on **GitHub**, you are welcome to use the lightweight **Option A (GitHub CLI)** instead to simplify your workspace, though GCM remains the required default for Azure DevOps.
+> _Note for Work Setup:_ For any work-related repositories hosted on **GitHub**, you are welcome to use the lightweight **Option A (GitHub CLI)** instead to simplify your workspace, though GCM remains the required default for Azure DevOps.
 
 ### Requirements
 
@@ -64,69 +66,74 @@ git ls-remote https://github.com/dhartjes/env-setup.git
 ### Steps
 
 1. Install GCM via dotnet tool or direct package download:
-   - **Method 1 (Preferred)**:
-     ```bash
-     dotnet tool install -g git-credential-manager
-     ```
-   - **Method 2 (Fallback .deb package)**:
-     ```bash
-     # Download official release
-     wget https://github.com/GitCredentialManager/git-credential-manager/releases/download/v2.0.935/gcm-linux_amd64.2.0.935.deb
+    - **Method 1 (Preferred)**:
+        ```bash
+        dotnet tool install -g git-credential-manager
+        ```
+    - **Method 2 (Fallback .deb package)**:
+        ```bash
+        # Download official release
+        wget https://github.com/GitCredentialManager/git-credential-manager/releases/download/v2.0.935/gcm-linux_amd64.2.0.935.deb
 
-     # Unpack and fix dependencies
-     sudo apt update && sudo apt upgrade
-     sudo apt --fix-broken install
-     ```
+        # Unpack and fix dependencies
+        sudo apt update && sudo apt upgrade
+        sudo apt --fix-broken install
+        ```
 
 2. Add the .NET tools directory to your path in `~/.bashrc`:
 
-   ```bash
-   cat << \EOF >> ~/.bashrc
-   # Add .NET Core SDK tools
-   export PATH="$PATH:$HOME/.dotnet/tools"
+    ```bash
+    cat << \EOF >> ~/.bashrc
+    # Add .NET Core SDK tools
+    export PATH="$PATH:$HOME/.dotnet/tools"
 
-   # Required for GPG passphrase prompting
-   export GPG_TTY=$(tty)
-   
-   # Required for browser-based auth prompts in WSL2
-   export BROWSER=wslview
-   EOF
-   source ~/.bashrc
-   ```
+    # Required for GPG passphrase prompting
+    export GPG_TTY=$(tty)
+
+    # Required for browser-based auth prompts in WSL2
+    export BROWSER=wslview
+    EOF
+    source ~/.bashrc
+    ```
 
 3. Install keyring and pass dependency packages:
-   ```bash
-   sudo apt update && sudo apt upgrade && sudo apt install -y gpg pass pinentry-curses libsecret-1-0 libsecret-tools gnome-keyring wslu
-   ```
+
+    ```bash
+    sudo apt update && sudo apt upgrade && sudo apt install -y gpg pass pinentry-curses libsecret-1-0 libsecret-tools gnome-keyring wslu
+    ```
 
 4. Create and initialize your GPG key:
-   ```bash
-   # Choose no passphrase when prompted
-   gpg --gen-key
-   
-   # Note the generated fingerprint shown under the "pub" line, e.g., E54EFA45...
-   # Initialize pass with your fingerprint:
-   pass init <your-gpg-key-fingerprint>
-   ```
+
+    ```bash
+    # Choose no passphrase when prompted
+    gpg --gen-key
+
+    # Note the generated fingerprint shown under the "pub" line, e.g., E54EFA45...
+    # Initialize pass with your fingerprint:
+    pass init <your-gpg-key-fingerprint>
+    ```
 
 5. Configure pinentry-curses for GPG prompting:
-   ```bash
-   echo "pinentry-program /usr/bin/pinentry-curses" >> ~/.gnupg/gpg-agent.conf
-   gpg-connect-agent reloadagent /bye
-   ```
+
+    ```bash
+    echo "pinentry-program /usr/bin/pinentry-curses" >> ~/.gnupg/gpg-agent.conf
+    gpg-connect-agent reloadagent /bye
+    ```
 
 6. Enable gnome-keyring-daemon via systemd to persist tokens securely:
-   ```bash
-   systemctl --user enable gnome-keyring-daemon.service
-   systemctl --user start gnome-keyring-daemon.service
-   ```
-   *Note: If prompted to enter a password for the new keyring, leave it blank so it unlocks automatically on non-interactive Git commands.*
+
+    ```bash
+    systemctl --user enable gnome-keyring-daemon.service
+    systemctl --user start gnome-keyring-daemon.service
+    ```
+
+    _Note: If prompted to enter a password for the new keyring, leave it blank so it unlocks automatically on non-interactive Git commands._
 
 7. Bind GCM to Git:
-   ```bash
-   git-credential-manager configure
-   git config --global credential.credentialstore gpg
-   ```
+    ```bash
+    git-credential-manager configure
+    git config --global credential.credentialstore gpg
+    ```
 
 ### Sources
 

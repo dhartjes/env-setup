@@ -18,6 +18,6 @@ Site appears to be missing CSS and Javascript or as if it is missing an Angular 
 <mimeMap fileExtension=".css" mimeType="text/css" />
 ```
 
-A `web.config` edit auto-recycles the app domain, so it takes effect on the next request — but your **browser** will have already cached the bad `application/octet-stream` responses (this same `<staticContent>` block sets a 30-day `max-age` with no revalidation), so do one hard refresh (Ctrl+Shift+R) or clear cached files for the site afterward.
+A `web.config` edit auto-recycles the app domain, so it takes effect on the next request — but your **browser** will have already cached the bad `application/octet-stream` responses (this same `<staticContent>` block sets a 30-day `max-age` with no revalidation), so do one hard refresh (`Ctrl+Shift+R`) or clear cached files for the site afterward.
 
 **Alternate cause — IIS anonymous auth identity.** If the CSS `Content-Type` looks correct but requests for static files under `_SystemResources` are failing outright (401/403, not 200), it's a permissions issue instead: in IIS, click the site, double-click Authentication, right-click Anonymous Authentication → Edit, and change from Specific user: `IUSR` to Application pool identity.

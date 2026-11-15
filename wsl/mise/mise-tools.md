@@ -4,6 +4,9 @@
 
 General-purpose tools installed and managed via `mise` on WSL. You can register and install all your global workstation tools using `mise`.
 
+> [!TIP]
+> If you have cloned [ubuntu-config](../git/git-clone-repos.md) and run `./setup.sh`, your global toolchain and automation tasks are already configured in `~/.config/mise/config.toml`. Simply run `mise install` to install all pinned tools at once!
+
 ## Node.js
 
 ```bash
@@ -69,6 +72,22 @@ For corporate work environments, install Claude Code via `mise`'s global npm man
 mise use --global npm:@anthropic-ai/claude-code
 claude --version
 ```
+
+## Global Automation Tasks
+
+Your global `~/.config/mise/config.toml` includes automation tasks defined under `[tasks]`:
+
+### Format Markdown Files (`format`)
+
+Format all Markdown files in a target directory (and its subdirectories) using the Neovim + Conform pipeline:
+
+```bash
+mise run format <path/to/folder>
+# or shorthand:
+mise r format <path/to/folder>
+```
+
+_(Omit the folder argument to format the current directory)._
 
 <-- Prev: [Install mise](mise-install.md)
 --> Next: [Tree-Sitter](../tree-sitter-install.md)

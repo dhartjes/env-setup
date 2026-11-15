@@ -177,7 +177,62 @@ fi
 
 echo ""
 
-# ── 2. SHELL PROFILE CONFIGURATION CHECK (~/.bashrc) ─────────────────────────
+# ── 2. WORKSTATION CONFIGURATION (ubuntu-config) ──────────────────────────
+echo -e "${BLUE}--- Checking Workstation Configuration (ubuntu-config) ---${NC}"
+CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}"
+UBUNTU_CONFIG_DIR="$HOME/projects/ubuntu-config"
+
+if [ -d "$UBUNTU_CONFIG_DIR" ]; then
+  echo -e "  [${GREEN}✅ OK${NC}] ubuntu-config repository found (~/projects/ubuntu-config)"
+else
+  echo -e "  [${RED}❌ MISSING${NC}] ubuntu-config repository not found at ~/projects/ubuntu-config"
+  echo -e "             -> Run: cd ~/projects && git clone https://github.com/dhartjes/ubuntu-config.git"
+  (( ERRORS++ )) || true
+fi
+
+# Check Neovim symlink
+if [ -L "$CONFIG_DIR/nvim" ]; then
+  NVIM_TARGET=$(readlink -f "$CONFIG_DIR/nvim" || true)
+  if [[ "$NVIM_TARGET" == *"/ubuntu-config/nvim"* ]]; then
+    echo -e "  [${GREEN}✅ OK${NC}] ~/.config/nvim is symlinked to ubuntu-config"
+  else
+    echo -e "  [${YELLOW}⚠️ WARN${NC}] ~/.config/nvim is a symlink, but points to $NVIM_TARGET instead of ubuntu-config"
+    echo -e "           -> Run: cd ~/projects/ubuntu-config && ./setup.sh"
+    (( WARNINGS++ )) || true
+  fi
+elif [ -d "$CONFIG_DIR/nvim" ]; then
+  echo -e "  [${RED}❌ MISSING${NC}] ~/.config/nvim is a physical directory, not symlinked to ubuntu-config!"
+  echo -e "             -> Run: cd ~/projects/ubuntu-config && ./setup.sh"
+  (( ERRORS++ )) || true
+else
+  echo -e "  [${RED}❌ MISSING${NC}] ~/.config/nvim does not exist!"
+  echo -e "             -> Run: cd ~/projects/ubuntu-config && ./setup.sh"
+  (( ERRORS++ )) || true
+fi
+
+# Check mise config symlink
+if [ -L "$CONFIG_DIR/mise/config.toml" ]; then
+  MISE_TARGET=$(readlink -f "$CONFIG_DIR/mise/config.toml" || true)
+  if [[ "$MISE_TARGET" == *"/ubuntu-config/mise/config.toml"* ]]; then
+    echo -e "  [${GREEN}✅ OK${NC}] ~/.config/mise/config.toml is symlinked to ubuntu-config"
+  else
+    echo -e "  [${YELLOW}⚠️ WARN${NC}] ~/.config/mise/config.toml is a symlink, but points to $MISE_TARGET instead of ubuntu-config"
+    echo -e "           -> Run: cd ~/projects/ubuntu-config && ./setup.sh"
+    (( WARNINGS++ )) || true
+  fi
+elif [ -f "$CONFIG_DIR/mise/config.toml" ]; then
+  echo -e "  [${RED}❌ MISSING${NC}] ~/.config/mise/config.toml is a physical file, not symlinked to ubuntu-config!"
+  echo -e "             -> Run: cd ~/projects/ubuntu-config && ./setup.sh"
+  (( ERRORS++ )) || true
+else
+  echo -e "  [${RED}❌ MISSING${NC}] ~/.config/mise/config.toml does not exist!"
+  echo -e "             -> Run: cd ~/projects/ubuntu-config && ./setup.sh"
+  (( ERRORS++ )) || true
+fi
+
+echo ""
+
+# ── 3. SHELL PROFILE CONFIGURATION CHECK (~/.bashrc) ─────────────────────────
 echo -e "${BLUE}--- Inspecting ~/.bashrc Environment Configuration ---${NC}"
 BASHRC="$HOME/.bashrc"
 if [ -f "$BASHRC" ]; then
@@ -226,7 +281,7 @@ fi
 
 echo ""
 
-# ── 3. RETIRED / DEPRECATED TOOLS ─────────────────────────────────────────────
+# ── 4. RETIRED / DEPRECATED TOOLS ─────────────────────────────────────────────
 echo -e "${BLUE}--- Checking for Retired / Deprecated Tools ---${NC}"
 
 check_retired_tool "Bob (Neovim Manager)" "bob" "Remove Neovim Bob manager: run 'rm -rf ~/.local/share/bob' and clear path bindings in ~/.bashrc"
@@ -255,7 +310,7 @@ fi
 
 echo ""
 
-# ── 4. WORK ENVIRONMENT ONLY CHECKS ───────────────────────────────────────────
+# ── 5. WORK ENVIRONMENT ONLY CHECKS ───────────────────────────────────────────
 if [ "$WORK_MODE" = true ]; then
   echo -e "${BLUE}--- Checking Work-Specific Toolstack (GCM & Azure DevOps) ---${NC}"
   

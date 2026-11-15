@@ -12,17 +12,19 @@
 - wslview so WSL2 can perform authentication using your windows browser. (covered in [Git Authentication](git/git-auth.md))
 
 ## Steps
-1. Install Claude Code CLI inside WSL: ```mise use --global npm:@anthropic-ai/claude-code```. This is the preferred approach with mise — avoids the permission issues caused by `sudo npm install -g`.
-1. Authenticate. Run ```claude``` in your WSL terminal. If wslview is set up, a browser will open to request authentication.
-1. Connect VS Code to WSL by either: 
-    - Navigating to your project folder in WSL terminal and typing ```code .``` or,
-    - Opening the command pallete in VS Code with Ctrl+Shift+P and typing "WSL: Open Folder in WSL"
-1. Launch the integrated terminal with Ctrl+` and type ```claude```
+
+1. Install Claude Code CLI inside WSL: `mise use --global npm:@anthropic-ai/claude-code`. This is the preferred approach with mise — avoids the permission issues caused by `sudo npm install -g`.
+1. Authenticate. Run `claude` in your WSL terminal. If wslview is set up, a browser will open to request authentication.
+1. Connect VS Code to WSL by either:
+    - Navigating to your project folder in WSL terminal and typing `code .` or,
+    - Opening the command pallete in VS Code with `Ctrl+Shift+P` and typing "WSL: Open Folder in WSL"
+1. Launch the integrated terminal with ``Ctrl+` `` and type `claude`
 1. Verify whether Claude Code for VS Code was automatically installed once claude was launched in the terminal.
 
 ## Configuration
+
 1. In the Side bar next to "Chat", click the ... and select Claude Code. This uses your secondary sidebar rather than a code window for your chat session.
-1. Open keyboard shortcuts with Ctrl+K, Ctrl+S and search for "Ctrl+Esc". This shows all the shortcuts related to claude code. However, Ctrl+Esc is used in Windows to open the start menu. Change these shortcuts in VS Code by replacing Ctrl with Win in each desired shortcut.
+1. Open keyboard shortcuts with `Ctrl+K`, `Ctrl+S` and search for `Ctrl+Esc`. This shows all the shortcuts related to claude code. However, `Ctrl+Esc` is used in Windows to open the start menu. Change these shortcuts in VS Code by replacing `Ctrl` with `Win` in each desired shortcut.
 
 <-- Prev: [mise / Node.js](mise-install.md)
 --> Next: [VS Code Install](../windows/vscode/vscode-install.md)

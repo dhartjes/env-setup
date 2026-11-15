@@ -11,6 +11,7 @@ sudo apt install git
 ```
 
 ### Source:
+
 - https://linuxvox.com/blog/update-git-ubuntu/#method-2-installing-from-the-git-core-ppa
 
 <-- Prev: [WSL Config](../../windows/wsl/wsl-config.md)

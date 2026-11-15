@@ -29,9 +29,14 @@ Windows uses aliases to recognize short commands like winget. If this is off, CM
 Sometimes WinGet is installed for the user but not registered for elevated sessions. You can force registration using PowerShell.
 
 Open PowerShell (Admin).
-- Note: it is not important that PowerShell 7 be installed yet.*
+
+_Note: it is not important that PowerShell 7 be installed yet._
+
 Run the following command to register the App Installer:
-```Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe```
+
+```pwsh
+Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe
+```
 
 ### 3. Manually Add to System PATH
 
@@ -48,12 +53,15 @@ If the Microsoft Store version is corrupted, you can download the .msixbundle di
 1. Under the Assets section of the latest release, download the file ending in .msixbundle (e.g., Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle).
 1. Double-click the downloaded .msixbundle file to launch the Windows app installer wizard and follow the on-screen prompts.
 
-*Note: Some systems may also require manual installation of dependencies like VCLibs or Microsoft UI Xaml if they are missing.*
+_Note: Some systems may also require manual installation of dependencies like VCLibs or Microsoft UI Xaml if they are missing._
 
 ### 5. Register the AppXManifest file
 
 In Windows PowerShell:
-```Add-AppxPackage -DisableDevelopmentMode -Register $(Resolve-Path "C:\Program Files\WindowsApps\Microsoft.Winget.Source_*\AppXManifest.xml") -Verbose```
+
+```pwsh
+Add-AppxPackage -DisableDevelopmentMode -Register $(Resolve-Path "C:\Program Files\WindowsApps\Microsoft.Winget.Source_*\AppXManifest.xml") -Verbose
+```
 
 ### 6. Run the PowerShell repair module
 
