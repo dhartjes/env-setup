@@ -39,4 +39,3 @@ If you add a custom pre/post-build step to any CC project and want it to behave 
 
 <-- Prev: [CFG Setup](README.md)
 --> Next: [Branch Setup](branch-setup-for-multiple-repositories.md)
-

@@ -13,14 +13,15 @@
 
 ## Connecting to the Rancher Desktop SQL Server
 
-| Field | Value |
-|---|---|
-| Server name | `localhost` |
-| Authentication | SQL Server Authentication |
-| Login | `sa` |
-| Password | See `connectionStrings.default.config` in the CC repo |
+| Field          | Value                                                 |
+| -------------- | ----------------------------------------------------- |
+| Server name    | `localhost`                                           |
+| Authentication | SQL Server Authentication                             |
+| Login          | `sa`                                                  |
+| Password       | See `connectionStrings.default.config` in the CC repo |
 
 The SA password is in:
+
 ```
 repoRoot\src\InsiteCommerce.Web\config\connectionStrings.default.config
 ```

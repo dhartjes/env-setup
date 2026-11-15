@@ -14,14 +14,15 @@ Google Antigravity provides an AI-first coding experience directly in your termi
 The `agy` command-line tool is pre-installed in your Antigravity environment. To verify and perform your initial setup:
 
 1. **Launch the CLI**:
-   ```bash
-   agy
-   ```
+
+    ```bash
+    agy
+    ```
 
 2. **Authenticate**:
    On your first launch, follow the secure on-screen prompts to log into your Google developer account and authorize the CLI.
 
-   Note: dhartjes.work@gmail.com is my personal gemini account.
+    Note: dhartjes.work@gmail.com is my personal gemini account.
 
 3. **Exit the session**:
    Press `Ctrl+D` twice or type `/exit` (or `/quit`) to close the chat TUI.

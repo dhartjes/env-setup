@@ -20,10 +20,10 @@ These links expire in 7 days.
     - Select True or False for Skip Logs. If set to true, the process excludes logs from the backup provided.
     - Select True or False for Debug Backup.
         - Choose False for a database backup to review data.
-          - This is a much faster process, but the database may have transactional inconsistency issues.
-          - Not intended for use with importing into a different environment.
+            - This is a much faster process, but the database may have transactional inconsistency issues.
+            - Not intended for use with importing into a different environment.
         - Choose True to import the database backup into other environments for debug/import purposes.
-          - This process takes significantly longer but provides a database with transactional consistency.
+            - This process takes significantly longer but provides a database with transactional consistency.
 1. Click Continue. If scheduled, the action runs at the specified time. Otherwise, the action runs immediately.
 1. Wait until the status is marked as Complete on the Action Request page.
     - The process sends the backup download link to the email address defined in the action.
@@ -31,7 +31,7 @@ These links expire in 7 days.
 
 If the action fails, submit a ticket with Optimizely Support with a link to the failed action request page.
 
-*Note:* Due to the resource-heavy nature of this action and the variable nature of the transferred data, the process could take a significant amount of time.
+_Note:_ Due to the resource-heavy nature of this action and the variable nature of the transferred data, the process could take a significant amount of time.
 
 ## Import a bacpac
 
@@ -58,7 +58,7 @@ You can also use SSMS to import a backup. Go to Sql Server Management Studio. Ri
 
 Import Data-tier Application.png
 
-*Note*: Importing with SSMS has known issues surrounding large table sizes and backups of more than 4GB. For workarounds, see the section below.
+_Note_: Importing with SSMS has known issues surrounding large table sizes and backups of more than 4GB. For workarounds, see the section below.
 
 ## Known issues
 

@@ -1,31 +1,34 @@
 # fixes for env-setup:
 
 ## mise out of order
+
 mise install is not a part of the setup instructions before we get to git authentication.
 
 ## tree-sitter --version failure
+
 node:events:505
-    throw er; // Unhandled 'error' event
-    ^
+throw er; // Unhandled 'error' event
+^
 
 Error: spawn /home/dhartjes/.local/share/mise/installs/npm-tree-sitter-cli/0.27.0/node_modules/.mise/tree-sitter-cli@0.27.0/node_modules/tree-sitter-cli/tree-sitter ENOENT
-    at ChildProcess._handle.onexit (node:internal/child_process:287:19)
-    at onErrorNT (node:internal/child_process:525:16)
-    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+at ChildProcess._handle.onexit (node:internal/child_process:287:19)
+at onErrorNT (node:internal/child_process:525:16)
+at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
 Emitted 'error' event on ChildProcess instance at:
-    at ChildProcess._handle.onexit (node:internal/child_process:293:12)
-    at onErrorNT (node:internal/child_process:525:16)
-    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
-  errno: -2,
-  code: 'ENOENT',
-  syscall: 'spawn /home/dhartjes/.local/share/mise/installs/npm-tree-sitter-cli/0.27.0/node_modules/.mise/tree-sitter-cli@0.27.0/node_modules/tree-sitter-cli/tree-sitter',
-  path: '/home/dhartjes/.local/share/mise/installs/npm-tree-sitter-cli/0.27.0/node_modules/.mise/tree-sitter-cli@0.27.0/node_modules/tree-sitter-cli/tree-sitter',
-  spawnargs: [ '--version' ]
+at ChildProcess._handle.onexit (node:internal/child_process:293:12)
+at onErrorNT (node:internal/child_process:525:16)
+at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+errno: -2,
+code: 'ENOENT',
+syscall: 'spawn /home/dhartjes/.local/share/mise/installs/npm-tree-sitter-cli/0.27.0/node_modules/.mise/tree-sitter-cli@0.27.0/node_modules/tree-sitter-cli/tree-sitter',
+path: '/home/dhartjes/.local/share/mise/installs/npm-tree-sitter-cli/0.27.0/node_modules/.mise/tree-sitter-cli@0.27.0/node_modules/tree-sitter-cli/tree-sitter',
+spawnargs: [ '--version' ]
 }
 
 Node.js v24.20.0
 
 ## claude --version failure
+
 Claude has a postinstall script. Since I install node globally with mise, the path to run the claude post install script is:
 
 ```
@@ -59,10 +62,10 @@ Add to troubleshooting: Error response from daemon: failed to connect to the bac
 
 indicates that hyper-v must be running. This is a windows feature. Windows features should be added to the main setup path and should occur before rancher desktop setup.
 
-
 ## SSMS Setup
 
 From ssms-setup.md, the following should be a step rather than a prerequisite:
+
 - Rancher Desktop running with `docker compose up -d` executed from the CC repo root
 
 ## Sequencing `cd src/Frontend && npm install` before opening vs code
@@ -83,7 +86,7 @@ Needs to go after winget and before wsl nvim. Or perhaps in wsl/nvim
 
 ### Troubleshooting step re: Elasticsearch
 
-Unhandled error when using any search related functionality. Paired with error code 500 from /api/v1/autocomplete or api/v1/search. 
+Unhandled error when using any search related functionality. Paired with error code 500 from /api/v1/autocomplete or api/v1/search.
 
 ```
   ElasticsearchV7: Failure in Running Product Search. Elasticsearch response error. Invalid NEST response built from a successful (404) low level call on POST: /<clientUrl>_local_com_product/_search?typed_keys=true

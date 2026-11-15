@@ -14,9 +14,9 @@ With IIS running and the database populated, navigate to:
 http://<clientname>.local.com:8080/admin
 ```
 
-| Field | Value |
-|---|---|
-| Username | `admin` |
+| Field    | Value      |
+| -------- | ---------- |
+| Username | `admin`    |
 | Password | `admin123` |
 
 > When working with an existing customer's `.bacpac` database rather than a fresh `StartingDatabase.sql` import, the admin credentials will be whatever the customer's database contains — `admin` / `admin123` may not work.

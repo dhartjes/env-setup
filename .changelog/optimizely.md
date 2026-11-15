@@ -46,70 +46,68 @@ This file was raw scratch notes (title was literally "# Prompt") — a pasted ch
 - The npm install / grunt / TypeScript build steps — superseded, see the `admin-console.md` entry above; none of that is actually needed.
 - The Windows Features / full-IIS checklist — superseded, this project uses IIS Express, not full IIS (see the `iis-setup.md` entry above). That specific checklist was also explicitly flagged by its own source note as possibly out of date and superseded by a newer, unrecorded setup meeting — historical reference only, never something to follow.
 
-Full original content, preserved verbatim:
+Full original content:
 
-> These notes may be missing from my env-setup description of configured commerce. This is from a Configured Commerce Project Setup Guide file that was shared with Lowes in 2024-2025. It may be out of date as well. Also, the latest setup meeting with configured commerce team (described in the notes repo) has another set of instructions relating to windows features that involved more items toggled on than is described here.
->
-> • Go to Turn Windows features on or off from control panel:
->
-> From Lowes Setup Doc
-> Tum Windows features on or off
->
-> - [-] Internet Information Services
->   ○ [ ] FTP Server
->   ○ [-] Web Management Tools
->   ○ [-] World Wide Web Services
->    § [-] Application Development Features
->     □ [ ] .NET Extensibility 3.5
->     □ [x] .NET Extensibility 4.8
->     □ [ ] Application Initialization
->     □ [ ] ASP
->     □ [ ] ASP .NET 3.5
->     □ [ ] ASP.NET 4.8
->     □ [ ] CGI
->     □ [x] ISAPI Extensions
->     □ [x] ISAPI Filters
->     □ [ ] Server-Side Includes
->     □ [ ] WebSocket Protocol
->    § [-] Common HTTP Features
->     □ [x] Default Document
->     □ [x] Directory Browsing
->     □ [x] HTTP Errors
->     □ [ ] HTTP Redirection
->     □ [x] Static Content
->     □ [ ] WebDAV Publishing
->    § [-] Health and Diagnostics
->     □ [ ] Custom Logging
->     □ [x] HTTP Logging
->     □ [ ] Logging Tools
->     □ [ ] Request Monitoring
->     □ [ ] Tracing
->    § [-] Performance Features
->     □ [ ] Dynamic Content Compression
->     □ [x] Static Content Compression
->    § [-] Security
->     □ [ ] Basic Authentication
->     □ [ ] IP Security
->     □ [x] Request Filtering
->     □ [ ] URL Authorization
-> - [ ] Internet Information Services Hostable Web Core
-> - [ ] Legacy Components
-> - [x] Media Features
->
-> • Check localhost:9201 or localhost:9200 to verify elastic search port. If not in 9201 you have to change the `<add key="Elasticsearch5ServerUrl" value="http://localhost:9200" />` in application's appsettings.config file.
-> • Open visual studio as administrator. Click open project or solution and open the solution.
-> • Set InsiteCommerce.Web as startup. Open file /config/connectionStrings.config and set the proper connectionString. Example: `<add name="InSite.Commerce" connectionString="Server=JUARAF020;User Id=sa;Password=<redacted>;Initial Catalog=fox_database-backup-bacpac-fox-mqsww;MultipleActiveResultSets=true;" providerName="System.Data.SqlClient" />`
-> • If the project is classic themed one find out the project folder inside \src\InsiteCommerce.Web\Themes\ folder. Open any typescript file from inside scripts folder. Put a space inside the ts file and save. This will trigger the scripts files build. (Skip this if Spire)
-> • Rebuild InsiteCommerce.Web project.
-> • For spire project open folder /src/frontend using visual studio code.
-> • Paste in the commerce link in /config/settings-base.js > apiUrl.
-> • In the terminal of vs code run command npm install.
-> • Once installed run command npm run start [BluePrintName]
-> • Open the link in browser and login into console lpscommerce.local.com/admin (lpscommerce.local.com:3000/admin for spire).
-> • Goto Marketing > Indexing and click rebuild index.
-> • Once the search index is built, we are ready for development.
->
-> OH, nothing to do with schema at all. Just the text that I pasted. That schema doc seems to be stuck in all of my new chat sessions.
+These notes may be missing from my env-setup description of configured commerce. This is from a Configured Commerce Project Setup Guide file that was shared with Lowes in 2024-2025. It may be out of date as well. Also, the latest setup meeting with configured commerce team (described in the notes repo) has another set of instructions relating to windows features that involved more items toggled on than is described here.
+
+#### Windows Features (from Lowes Setup Doc)
+
+- [-] **Internet Information Services**
+    - [ ] FTP Server
+    - [-] Web Management Tools
+    - [-] World Wide Web Services
+        - [-] Application Development Features
+            - [ ] .NET Extensibility 3.5
+            - [x] .NET Extensibility 4.8
+            - [ ] Application Initialization
+            - [ ] ASP
+            - [ ] ASP .NET 3.5
+            - [ ] ASP.NET 4.8
+            - [ ] CGI
+            - [x] ISAPI Extensions
+            - [x] ISAPI Filters
+            - [ ] Server-Side Includes
+            - [ ] WebSocket Protocol
+        - [-] Common HTTP Features
+            - [x] Default Document
+            - [x] Directory Browsing
+            - [x] HTTP Errors
+            - [ ] HTTP Redirection
+            - [x] Static Content
+            - [ ] WebDAV Publishing
+        - [-] Health and Diagnostics
+            - [ ] Custom Logging
+            - [x] HTTP Logging
+            - [ ] Logging Tools
+            - [ ] Request Monitoring
+            - [ ] Tracing
+        - [-] Performance Features
+            - [ ] Dynamic Content Compression
+            - [x] Static Content Compression
+        - [-] Security
+            - [ ] Basic Authentication
+            - [ ] IP Security
+            - [x] Request Filtering
+            - [ ] URL Authorization
+- [ ] Internet Information Services Hostable Web Core
+- [ ] Legacy Components
+- [x] Media Features
+
+#### Steps
+
+1. Check `localhost:9201` or `localhost:9200` to verify Elasticsearch port. If not `9201`, update `<add key="Elasticsearch5ServerUrl" value="http://localhost:9200" />` in the application's `appsettings.config` file.
+2. Open Visual Studio as administrator and open the solution.
+3. Set `InsiteCommerce.Web` as startup. Open `/config/connectionStrings.config` and set the proper connection string. Example: `<add name="InSite.Commerce" connectionString="Server=JUARAF020;User Id=sa;Password=<redacted>;Initial Catalog=fox_database-backup-bacpac-fox-mqsww;MultipleActiveResultSets=true;" providerName="System.Data.SqlClient" />`
+4. If the project is classic themed, find the project folder inside `\src\InsiteCommerce.Web\Themes\`. Open any TypeScript file from inside the `scripts` folder, put a space inside the `.ts` file, and save. This will trigger the scripts build (skip this if Spire).
+5. Rebuild `InsiteCommerce.Web` project.
+6. For Spire project, open `/src/frontend` using Visual Studio Code.
+7. Paste in the commerce link in `/config/settings-base.js` > `apiUrl`.
+8. In the terminal of VS Code, run `npm install`.
+9. Once installed, run `npm run start [BluePrintName]`.
+10. Open the link in browser and login into console `lpscommerce.local.com/admin` (`lpscommerce.local.com:3000/admin` for Spire).
+11. Go to **Marketing → Indexing** and click **Rebuild Index**. Once the search index is built, development is ready.
+
+_Note from session: "OH, nothing to do with schema at all. Just the text that I pasted. That schema doc seems to be stuck in all of my new chat sessions."_
 
 ## 2026-09-11 — Open question: `spire-setup.md`'s "Set TypeScript version to workspace version" section
 
@@ -143,7 +141,7 @@ The trigger was a genuinely missing step: `spire-setup-troubleshooting.md`'s exi
 
 Reclassified the same day: Dominic pointed out `local-edits.md` isn't just background reference — `connectionStrings.config` and `AppSettings.config` need to actually exist before the Admin Console's `dotnet build` step can work at all. Promoted it into the numbered setup path as step 5, between SSMS Setup and Admin Console (which shifted from 5/6/7 to 6/7/8). Updated the Prev/Next chain (`ssms-setup.md` → `local-edits.md` → `admin-console.md`) and the "New project from scratch" step-range note (1–6 → 1–7) to match.
 
-Corrected again the same day: the causality actually runs the other way — the local config files don't exist until an initial `dotnet restore`/`dotnet build` creates them (copied from their `.default.config` templates), so Local Edits has to come *after* a build, not before Admin Console's build section. Split that build step out into a new `optimizely/cfg/initial-build.md` (NuGet source config + `dotnet restore`/`dotnet build`, explicitly from a terminal rather than VS Code, so the first VS Code open is clean — see below) and trimmed `admin-console.md` down to just login verification. Final numbered sequence: `...SSMS Setup → Initial Build → Local Edits → Admin Console (verify login) → Mise Tools → Spire Setup`. Step-range note updated again (1–7 → 1–8).
+Corrected again the same day: the causality actually runs the other way — the local config files don't exist until an initial `dotnet restore`/`dotnet build` creates them (copied from their `.default.config` templates), so Local Edits has to come _after_ a build, not before Admin Console's build section. Split that build step out into a new `optimizely/cfg/initial-build.md` (NuGet source config + `dotnet restore`/`dotnet build`, explicitly from a terminal rather than VS Code, so the first VS Code open is clean — see below) and trimmed `admin-console.md` down to just login verification. Final numbered sequence: `...SSMS Setup → Initial Build → Local Edits → Admin Console (verify login) → Mise Tools → Spire Setup`. Step-range note updated again (1–7 → 1–8).
 
 Also documented, for the first time anywhere in this repo, that `.vscode/tasks.json`'s `Start Spire Dev Server` task has `"runOn": "folderOpen"` — opening this repo's folder in VS Code auto-runs `mise run fix-relay-fetch-start` (applies the Relay.ts patch, starts Spire, reverts the patch on stop) without anyone asking it to. Added to `spire-setup.md`'s "Start Spire" section, and referenced from `initial-build.md` as part of why the terminal-first build matters — that auto-start assumes the solution already builds and local config already exists. Also fixed a stray inaccuracy while in `spire-setup.md`: the doc said `mise run start-spire`, but the actual task in `mise.toml` is just `start` (alias `s`) — no task named `start-spire` exists.
 

@@ -25,6 +25,7 @@ Other setups (`wsl/python/`, `windows/docker.md`, `windows/ditto/`, etc.) are in
 ## Workspace Layout
 
 The VS Code workspace (`env-setup.code-workspace`) mounts two folders:
+
 - The repo root (`env-setup/`)
 - The Windows Terminal state directory (`LocalState/`) — so terminal settings can be edited and backed up as part of this repo
 
@@ -58,20 +59,36 @@ These two directories look similar but serve opposite purposes — don't mix the
 ## Editing Guidelines
 
 All content is Markdown (with the exception of validation/doctor scripts). When updating setup instructions:
+
 - Single-file topics belong directly in the parent directory, not inside their own subfolder. Only create a subdirectory when it contains multiple related files (e.g. `winget/` holds both `winget-install.md` and `winget-troubleshooting.md`).
 - Commands should be copy-pasteable as-is (no placeholders like `<your-value>` unless unavoidable).
 - Preserve the setup sequence rationale — note prerequisites explicitly.
 - Every time `sudo apt` or `sudo apt-get` is used in setup instructions, ensure that package updates are run first (e.g., `sudo apt update && sudo apt upgrade` or `sudo apt-get update` before installation).
 - The `.planning/` directory holds future planned sections (Dev Containers, Remote SSH) that are not yet implemented — do not treat these as current documentation. See "`.changelog/` vs `.planning/`" above for the full rule.
 
+## Markdown Best Practices & Formatting Rules
+
+To ensure clean documentation and prevent syntax corruption during automated formatting (`mise run format` / Prettier):
+
+- **4-Space List Indentation**: All nested lists (sub-bullets, numbers) and nested elements (code blocks, blockquotes) must use exactly **4 spaces** of indentation per level. Never use 2 or 3 spaces.
+- **Language Tags on Fenced Code Blocks**: Always specify a language identifier for fenced code blocks (e.g. `bash`, `pwsh`, `powershell`, `lua`, `json`, `yaml`, `text`). Never leave code fences bare (` ``` `).
+- **Code Blocks Inside Lists**: When placing a code block inside a numbered or bullet list item, insert a blank line before the code block and indent both the code fences and their contents by 4 spaces.
+- **No Non-Breaking Spaces or Word Glyphs**: Always use standard ASCII spaces. Never insert non-breaking spaces (`\u00a0`), and never use raw Word/OneNote bullet glyphs (`•`, `○`, `§`, `□`) — use standard Markdown lists (`-` or `1.`) or GFM task lists (`- [ ]`, `- [x]`).
+- **Keyboard Shortcuts Containing Backticks**: Never leave a literal backtick unescaped in text when writing shortcuts like `Ctrl+` `or`Alt+` ` (which breaks code spans). Use double backticks (`` `Ctrl+` ``), HTML keyboard tags (`<kbd>Ctrl</kbd>+<kbd>`</kbd>`), or an escaped backtick (`Ctrl+\``).
+- **GitHub Alerts**: Use standard GitHub alert callouts (`> [!NOTE]`, `> [!TIP]`, `> [!IMPORTANT]`, `> [!WARNING]`) or italicized `_Note:_` instead of raw unstyled `Note` text.
+- **Navigation Footers**: Footer navigation links (`<-- Prev: ...` / `--> Next: ...`) must always be unindented at root column 0, never indented inside list items.
+- **Verification**: After adding or modifying documentation, always verify formatting by running `mise run format -- <target_directory>`.
+
 ## Workstation Doctor Scripts
 
 This repository contains two terminal diagnostic scripts that analyze local machine alignment with the setup guides:
+
 - `doctor.sh` (Bash/WSL environment)
 - `doctor.ps1` (PowerShell/Windows environment)
 
 > [!IMPORTANT]
 > **Synchronization Rule**: Whenever you modify the tool stack (e.g., adding a new standard package, upgrading a tool version, or retiring an outdated package), **you must update both `doctor.sh` and `doctor.ps1`** to keep them in lockstep:
+>
 > - **Additions**: Add the tool to the core required/active toolstack check.
 > - **Retirements**: Add the tool to the retired tool list with a recommendation/command for its clean uninstallation.
 > - **Work/Corporate Tools**: Add/maintain these within the `--work` / `-Work` parameter blocks.

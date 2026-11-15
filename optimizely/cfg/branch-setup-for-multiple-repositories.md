@@ -4,58 +4,62 @@
 
 The client has two repositories for Configured Commerce source code. Listed beneath each are the branches involved in building/deploying the application.
 
-|Repository URL|Branch|Use|
-|-|-|-|
-|https://github.com/OptimizelyB2BES/<clientRepoName>.git|origin/sandbox|Automated build and deploy to DEV (sandbox) environment|
-|https://github.com/OptimizelyB2BES/<clientRepoName>.git|origin/production|Automated build ONLY for PRD environment|
-|https://github.com/OptimizelyB2BES/<clientRepoName>2.git|origin/sandbox|Automated build and deploy to QA (sandbox2) environment|
+| Repository URL                                           | Branch            | Use                                                     |
+| -------------------------------------------------------- | ----------------- | ------------------------------------------------------- |
+| https://github.com/OptimizelyB2BES/<clientRepoName>.git  | origin/sandbox    | Automated build and deploy to DEV (sandbox) environment |
+| https://github.com/OptimizelyB2BES/<clientRepoName>.git  | origin/production | Automated build ONLY for PRD environment                |
+| https://github.com/OptimizelyB2BES/<clientRepoName>2.git | origin/sandbox    | Automated build and deploy to QA (sandbox2) environment |
 
 ## How to set up the new repo:
 
 1. Clone the original repo (<clientRepoName>).
-    ```
+
+    ```bash
     git clone https://github.com/OptimizelyB2BES/<clientRepoName>.git
     cd <clientRepoName>
     git fetch origin
-    ``` 
+    ```
 
 1. Add tracking for desired branches
-    ```
+
+    ```bash
     git branch --track origin sandbox
     git branch --track origin <main/master>
     ```
 
 1. Remove the old remote (origin pointing to <clientRepoName>).
-    ```
+
+    ```bash
     git remote remove origin
     ```
 
 1. Add a new remote pointing to the new repo (<clientRepoName>2).
-    ```
+
+    ```bash
     git remote add origin https://github.com/OptimizelyB2BES/<clientRepoName>2.git
     ```
 
 1. Push the code to the new repo.
-    ```
+
+    ```bash
     git push --all origin
     ```
 
 ## How to merge across repos using git using remotes
- 
+
 Set up the remote relationship from within the original sandbox repository. Add a remote named "ade" that points to the sandbox2 repository.
- 
-```
+
+```bash
 cd <clientRepoName>
 git remote add ade https://github.com/OptimizelyB2BES/<clientRepoName>2.git
 git remote -v
 ```
- 
+
 ## Naming scheme for identification of remote/branch name
 
 Track the remote main branch using a different name locally.
- 
-```
 
+```bash
 git fetch ade main
 git checkout -b ade-main ade/main
 git config --add remote.ade.push refs/heads/ade-main:refs/heads/main
@@ -65,18 +69,18 @@ git checkout -b ade-sandbox ade/sandbox
 git config --add remote.ade.push refs/heads/ade-sandbox:refs/heads/sandbox
 ```
 
-
 ## Structure of git remotes and branches
- 
+
 Branch roles:
-|Repo Name|Branch Name|Use|
-|-|-|-|
-|primaryRepo|master|Not really used. In essence, sandbox is the master/main branch.|
-|primaryRepo|sandbox|The DEV release branch. Acts as master/main branch. Auto builds and deploys to DEV environment. Also the integration branch for any bugs/features.|
-|primaryRepo|production|The PROD release branch. Auto builds only. Support deploys build artifacts to PROD environment. Sometimes branches are created from production in the event of hotfixes while another effort is ongoing in sandbox.|
-|primaryRepo|(All other)|Bug/feature branches.|
-|secondayRepo|main|The integration branch between the primary and secondary repo.|
-|secondayRepo|sandbox|The ADE release branch. Auto builds and deploys to ADE environment.|
+
+| Repo Name    | Branch Name | Use                                                                                                                                                                                                                 |
+| ------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| primaryRepo  | master      | Not really used. In essence, sandbox is the master/main branch.                                                                                                                                                     |
+| primaryRepo  | sandbox     | The DEV release branch. Acts as master/main branch. Auto builds and deploys to DEV environment. Also the integration branch for any bugs/features.                                                                  |
+| primaryRepo  | production  | The PROD release branch. Auto builds only. Support deploys build artifacts to PROD environment. Sometimes branches are created from production in the event of hotfixes while another effort is ongoing in sandbox. |
+| primaryRepo  | (All other) | Bug/feature branches.                                                                                                                                                                                               |
+| secondayRepo | main        | The integration branch between the primary and secondary repo.                                                                                                                                                      |
+| secondayRepo | sandbox     | The ADE release branch. Auto builds and deploys to ADE environment.                                                                                                                                                 |
 
 ## Moving between branches
 
@@ -138,6 +142,6 @@ Important! Before moving to a higher target branch, ensure that branch is fully 
     - Checkout production and pull.
     - Merge ade-main into production.
     - Build extensions and push.
- 
+
 <-- Prev: [.NET Framework 4.8 Setup](dotnet-framework-setup.md)
 --> Next: [IIS Setup](iis-setup.md)

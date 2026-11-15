@@ -6,15 +6,15 @@
 
 ## How this differs from the .NET 4.8 path
 
-| Concern | .NET 4.8 path | .NET 8+ path |
-|---|---|---|
-| Web server | IIS (Windows) | nginx reverse proxy (Docker) |
-| Site entry point | `http://localhost:8080` | `http://localhost:30000` |
-| Admin Console | `http://localhost:8080/admin` | `http://localhost:30000/admin` |
-| Spire port | `3000` (standalone) | `30020` (proxied via 30000) |
-| Database | SQL Server via Rancher Desktop or local install | SQL Server container (`docker compose up -d`) |
-| APIs | Single IIS site | Three separate API projects (Admin: 30070, Storefront: 30040, Integration: 30080) |
-| Docker required | No | Yes — Docker Desktop in Linux containers mode |
+| Concern          | .NET 4.8 path                                   | .NET 8+ path                                                                      |
+| ---------------- | ----------------------------------------------- | --------------------------------------------------------------------------------- |
+| Web server       | IIS (Windows)                                   | nginx reverse proxy (Docker)                                                      |
+| Site entry point | `http://localhost:8080`                         | `http://localhost:30000`                                                          |
+| Admin Console    | `http://localhost:8080/admin`                   | `http://localhost:30000/admin`                                                    |
+| Spire port       | `3000` (standalone)                             | `30020` (proxied via 30000)                                                       |
+| Database         | SQL Server via Rancher Desktop or local install | SQL Server container (`docker compose up -d`)                                     |
+| APIs             | Single IIS site                                 | Three separate API projects (Admin: 30070, Storefront: 30040, Integration: 30080) |
+| Docker required  | No                                              | Yes — Docker Desktop in Linux containers mode                                     |
 
 ## Planned setup sequence
 

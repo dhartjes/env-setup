@@ -34,12 +34,12 @@ One sentence: what this tool is and why you're installing/configuring it here.
 
 (Steps, commands, config snippets…)
 
-## Source   ← omit if no meaningful external reference
+## Source ← omit if no meaningful external reference
 
 - [Link text](url)
 
-<-- Prev: [<Previous page title>](<relative-path-to-prev.md>)
---> Next: [<Next page title>](<relative-path-to-next.md>)
+<-- Prev: [<Previous page title>](relative-path-to-prev.md)
+--> Next: [<Next page title>](relative-path-to-next.md)
 ```
 
 ### Rules for the template
@@ -52,6 +52,12 @@ One sentence: what this tool is and why you're installing/configuring it here.
 - **No admin on Windows**: use `User` scope for environment variables (see above).
 - **Comments**: write none unless the reason is non-obvious. No multi-line comment blocks.
 - **Placeholders**: avoid `<your-value>` wherever possible; use the real values from the user's known config.
+- **4-space list indentation**: Indent all sub-lists and nested blocks by exactly 4 spaces (never 2 or 3).
+- **Code block language tags**: Always tag fenced code blocks with their language (e.g. `bash`, `pwsh`). Never leave bare ``` fences.
+- **Nested code blocks in lists**: Insert a blank line before the block and indent the block (and its contents) with 4 spaces.
+- **No non-breaking spaces or Word glyphs**: Use standard ASCII spaces only. Never include `\u00a0` or raw bullet symbols (`•`, `○`, `§`, `□`).
+- **Shortcut backticks**: When writing key combinations ending in a backtick (e.g. `Ctrl+` `), use double backticks (`` `Ctrl+` ``) or `<kbd>` tags to avoid breaking inline code spans.
+- **Formatting verification**: Run `mise run format -- <target_directory>` after creating or updating any doc.
 
 ---
 
@@ -107,14 +113,14 @@ Check-Package "Meld" "meld" "Meld.Meld"
 
 ### Which script to update
 
-| Change | doctor.sh | doctor.ps1 |
-|---|---|---|
-| New WSL-only tool | ✅ | — |
-| New Windows-only tool | — | ✅ |
-| New tool installed on both | ✅ | ✅ |
-| Tool retired on WSL | ✅ | — |
-| Tool retired on Windows | — | ✅ |
-| Tool retired on both | ✅ | ✅ |
+| Change                     | doctor.sh | doctor.ps1 |
+| -------------------------- | --------- | ---------- |
+| New WSL-only tool          | ✅        | —          |
+| New Windows-only tool      | —         | ✅         |
+| New tool installed on both | ✅        | ✅         |
+| Tool retired on WSL        | ✅        | —          |
+| Tool retired on Windows    | —         | ✅         |
+| Tool retired on both       | ✅        | ✅         |
 
 ---
 
