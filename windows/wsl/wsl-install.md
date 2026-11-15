@@ -22,7 +22,7 @@ The first time you launch a newly installed Linux distribution, a console window
 
 Note
 
-The above command only works if WSL is not installed at all. If you run `wsl --install` and see the WSL help text, please try running `wsl --list --online` to see a list of available distros and run `wsl --install -d <DistroName>` to install a distro. If the install process hangs at 0.0%, run `wsl --install --web-download -d <DistroName>` to first download the distribution prior to installing. 
+The above command only works if WSL is not installed at all. If you run `wsl --install` and see the WSL help text, please try running `wsl --list --online` to see a list of available distros and run `wsl --install -d <DistroName>` to install a distro. If the install process hangs at 0.0%, run `wsl --install --web-download -d <DistroName>` to first download the distribution prior to installing.
 
 ## Change the default Linux distribution installed
 
@@ -35,6 +35,7 @@ By default, the installed Linux distribution will be Ubuntu. This can be changed
     ```
 
     Replace `[Distro]` with the name of the distribution you would like to install.
+
 - To see a list of available Linux distributions available for download through the online store, enter:
 
     ```powershell

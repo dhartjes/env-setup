@@ -17,10 +17,12 @@ Prerequisites: WSL2 installed, virtualization enabled in BIOS.
 Rancher Desktop defaults to **containerd** with `nerdctl`. Switch to **dockerd (moby)** — CC's compose files and the `docker` CLI assume it, and VS/VS Code integrations talk directly to the Docker socket.
 
 **On first launch (setup wizard):**
+
 - Select **dockerd (moby)** as the container runtime
 - Uncheck **Enable Kubernetes** — CC doesn't need it locally, and disabling it saves significant RAM
 
 **If already installed:**
+
 - Go to **Preferences → Container Engine** and switch from `containerd` to `dockerd (moby)`
 - Go to **Preferences → Kubernetes** and uncheck **Enable Kubernetes**
 - Accept the restart prompt

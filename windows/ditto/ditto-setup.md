@@ -6,7 +6,8 @@ Copy and paste tool with multiple buffers and the ability to save commonly used 
 
 ## Steps
 
-1. Install in PS: 
+1. Install in PS:
+
 ```pwsh
 winget install Ditto.Ditto
 ```

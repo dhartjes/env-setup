@@ -45,12 +45,12 @@ These steps configure the Compass JDBC driver in DBeaver. Reference: Infor Xtrem
 1. Open DBeaver and select **Driver Manager**.
 2. Create a new driver with the name `Compass JDBC Driver` (or include the tenant name, e.g. `Compass JDBC Driver - TRN`).
 3. Add two library paths:
-   - Path to the `.jar` file, e.g.: `C:\InforDataLake\TRN\infor-compass-jdbc-12.0.41.1.jar`
-   - Path to the **folder** containing the `.ionapi` file, e.g.: `C:\InforDataLake\TRN`
+    - Path to the `.jar` file, e.g.: `C:\InforDataLake\TRN\infor-compass-jdbc-12.0.41.1.jar`
+    - Path to the **folder** containing the `.ionapi` file, e.g.: `C:\InforDataLake\TRN`
 4. Set the class name to: `com.infor.idl.jdbc.Driver`
 5. Set the URL to: `jdbc:infordatalake://TENANTNAME`
-   - Example: `jdbc:infordatalake://ABCTENANT_TST`
-   - Client's TRN: `jdbc:infordatalake://<CLIENTNAME>_TRN`
+    - Example: `jdbc:infordatalake://ABCTENANT_TST`
+    - Client's TRN: `jdbc:infordatalake://<CLIENTNAME>_TRN`
 6. Save the driver.
 7. Select **Database → New Database Connection**, choose the Compass JDBC driver, and connect.
 
@@ -71,8 +71,8 @@ DBeaver supports multiple workspaces, which allows connecting to multiple tenant
 1. Create a folder structure for drivers and `.ionapi` files, e.g. `C:\InforDataLake\`.
 2. Inside, create a subfolder per tenant (e.g., `C:\InforDataLake\TRN\`).
 3. In each tenant folder, place:
-   - A copy of `infor-compass-jdbc-*.jar`
-   - The tenant's `Infor Compass JDBC Driver.ionapi` file
+    - A copy of `infor-compass-jdbc-*.jar`
+    - The tenant's `Infor Compass JDBC Driver.ionapi` file
 
 ### Switch to a Tenant Workspace
 
@@ -90,9 +90,9 @@ Adds a quick "open in Excel" button to query results.
 
 1. **Menu Bar → Help → Install New Software**
 2. Paste into the **Work with** field and press Enter:
-   ```
-   https://dbeaver.io/update/office/latest/
-   ```
+    ```
+    https://dbeaver.io/update/office/latest/
+    ```
 3. Check the items to install, click **Next → Finish**, and restart DBeaver.
 
 <-- Prev: [SSMS](ssms-install.md)

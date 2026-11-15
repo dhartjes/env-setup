@@ -30,32 +30,32 @@ winget install ObinsKit.ObinsKit
 ## Desired settings
 
 - General
-  - Layout
+    - Layout
         - custom: true
     - Tap
-      - enabled: true
-      - sensitivity: 500ms
-      - tap key combinations: true
+        - enabled: true
+        - sensitivity: 500ms
+        - tap key combinations: true
     - Lighting
-      - low-power: true
+        - low-power: true
     - Macro
-      - enabled: false
+        - enabled: false
     - Magic FN
-      - fn1: true
+        - fn1: true
     - Autosleep
-      - enabled: true
-      - time: 3 minutes
+        - enabled: true
+        - time: 3 minutes
 - Layout
-  - Device: Anne Pro 2
-    - FN2
-      - o: volume up
-      - u: volume down
-    - Download
+    - Device: Anne Pro 2
+        - FN2
+            - o: volume up
+            - u: volume down
+        - Download
 - Lighting Profiles
-  - Default
-  - Download
+    - Default
+    - Download
 - Audio Visualization
-  - enabled: true
+    - enabled: true
 
 <https://manuals.plus/obins/obins-anne-pro-2-manual>
 

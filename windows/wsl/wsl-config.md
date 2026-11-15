@@ -87,22 +87,22 @@ networkingMode=mirrored
 ### Explanation of settings
 
 - memory=24GB
-  - On 64GB systems, allocate ~24GB to WSL2 for large projects, AI/ML, or heavy Docker workloads
-  - Reserve ~40GB for Windows
-  - This is more than the default 50% (32GB) but still leaves room for multitasking
+    - On 64GB systems, allocate ~24GB to WSL2 for large projects, AI/ML, or heavy Docker workloads
+    - Reserve ~40GB for Windows
+    - This is more than the default 50% (32GB) but still leaves room for multitasking
 - processors=8
-  - Use 4-8 virtual CPU cores for most use cases
-  - Use 12-16 virtual CPU cores for maximum Linux performance
-  - Reserve at least 4 cores for Windows to avoid lag when switching between WSL and Windows.
+    - Use 4-8 virtual CPU cores for most use cases
+    - Use 12-16 virtual CPU cores for maximum Linux performance
+    - Reserve at least 4 cores for Windows to avoid lag when switching between WSL and Windows.
 - swap=auto
-  - Small fixed swap space to handle occasional memory spikes
-  - avoid disabling if you run memory‑intensive workloads.
-  - auto is the default. 25% of RAM up to a max of 4 GB
+    - Small fixed swap space to handle occasional memory spikes
+    - avoid disabling if you run memory‑intensive workloads.
+    - auto is the default. 25% of RAM up to a max of 4 GB
 - vmIdleTimeout=600
-  - Reclaim unused memory after 10 minutes of inactivity to free it for Windows.
-  - -1 = never reclaim (default, best Linux performance)
+    - Reclaim unused memory after 10 minutes of inactivity to free it for Windows.
+    - -1 = never reclaim (default, best Linux performance)
 - networkingMode=mirrored
-  - Recommended on Windows 11 for automatic localhost connectivity and full IPv6 support
+    - Recommended on Windows 11 for automatic localhost connectivity and full IPv6 support
 
 ### How to apply
 
@@ -125,7 +125,6 @@ Verify from bash inside WSL to confirm the memory limit. `free -h`
 
 - [Master .wslconfig: Fine-Tune Memory, CPU, and Disk for WSL2](https://www.besthub.dev/articles/master-wslconfig-fine-tune-memory-cpu-and-disk-for-wsl2-d26415ab5c13)
 - [How to configure memory limits in WSL2 - Willem's Fizzy Logic](https://fizzylogic.nl/2023/01/05/how-to-configure-memory-limits-in-wsl2)
-
 
 <-- Prev: [WSL Setup](wsl-setup.md)
 --> Next: [Git Install](../../wsl/git/git-install.md)

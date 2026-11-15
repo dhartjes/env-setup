@@ -17,11 +17,11 @@ Oh My Posh relies on Nerd Fonts to render icons and glyphs correctly. Without a 
 
 Download from <https://www.nerdfonts.com/> and install them using "More Options > Install for all Users."
 
-| App / Shell | Install Name | Font Name | Additional Appearance Settings |
-| :--- | :--- | :--- | :--- |
-| **VS Code** | `FiraCode Nerd Font` | FiraCode Nerd Font | All FiraCodeNerdFont-* options, Ligatures enabled, Ligatures in Terminal enabled |
-| **Ubuntu (WSL)** | `UbuntuSans Nerd Font` | UbuntuSansMono Nerd Font Mono | Size 12, All UbuntuSansMonoNerdFontMono-* options |
-| **PowerShell** | `CaskaydiaMono Nerd Font` | CaskaydiaMono Nerd Font Mono | All CaskaydiaMonoNerdFontMono-* options |
+| App / Shell      | Install Name              | Font Name                     | Additional Appearance Settings                                                   |
+| :--------------- | :------------------------ | :---------------------------- | :------------------------------------------------------------------------------- |
+| **VS Code**      | `FiraCode Nerd Font`      | FiraCode Nerd Font            | All FiraCodeNerdFont-* options, Ligatures enabled, Ligatures in Terminal enabled |
+| **Ubuntu (WSL)** | `UbuntuSans Nerd Font`    | UbuntuSansMono Nerd Font Mono | Size 12, All UbuntuSansMonoNerdFontMono-* options                                |
+| **PowerShell**   | `CaskaydiaMono Nerd Font` | CaskaydiaMono Nerd Font Mono  | All CaskaydiaMonoNerdFontMono-* options                                          |
 
 ---
 
@@ -30,19 +30,19 @@ Download from <https://www.nerdfonts.com/> and install them using "More Options 
 To install and set up Oh My Posh locally on Windows:
 
 1. Install Oh My Posh via WinGet:
-   ```powershell
-   winget install JanDeDobbeleer.OhMyPosh -s winget
-   ```
+    ```powershell
+    winget install JanDeDobbeleer.OhMyPosh -s winget
+    ```
 2. Open your PowerShell profile in a text editor (e.g., `notepad $PROFILE` or `code $PROFILE`).
 3. Add the initialization command using the local cached themes directory path. This avoids having to fetch the configuration from a remote URL on every shell startup:
-   ```powershell
-   # Initialize Oh My Posh with a local cached theme
-   oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\blue-owl.omp.json" | Invoke-Expression
-   ```
+    ```powershell
+    # Initialize Oh My Posh with a local cached theme
+    oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\blue-owl.omp.json" | Invoke-Expression
+    ```
 4. Reload your profile:
-   ```powershell
-   . $PROFILE
-   ```
+    ```powershell
+    . $PROFILE
+    ```
 
 ---
 
@@ -51,26 +51,27 @@ To install and set up Oh My Posh locally on Windows:
 To install and set up Oh My Posh inside WSL:
 
 1. Install prerequisite tools (curl, unzip) for the installation script:
-   ```bash
-   sudo apt update && sudo apt install -y curl unzip
-   ```
+    ```bash
+    sudo apt update && sudo apt install -y curl unzip
+    ```
 2. Install Oh My Posh for Linux:
-   ```bash
-   curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
-   ```
+    ```bash
+    curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/.local/bin
+    ```
 3. Add Oh My Posh to your path and initialize it inside `~/.bashrc` using the local cached theme directory:
-   ```bash
-   cat << \EOF >> ~/.bashrc
 
-   # Add oh-my-posh to path
-   export PATH="$PATH:$HOME/.local/bin"
+    ```bash
+    cat << \EOF >> ~/.bashrc
 
-   # Invoke oh-my-posh with the local cached theme
-   eval "$(oh-my-posh init bash --config ~/.cache/oh-my-posh/themes/blue-owl.omp.json)"
-   EOF
-   source ~/.bashrc
-   ```
+    # Add oh-my-posh to path
+    export PATH="$PATH:$HOME/.local/bin"
 
-   > [!TIP]
-   > The local cached themes are automatically downloaded by the installer and placed under `~/.cache/oh-my-posh/themes/`. 
-   > You can browse alternative local themes in that directory or view them online at [Oh My Posh Themes](https://ohmyposh.dev/docs/themes).
+    # Invoke oh-my-posh with the local cached theme
+    eval "$(oh-my-posh init bash --config ~/.cache/oh-my-posh/themes/blue-owl.omp.json)"
+    EOF
+    source ~/.bashrc
+    ```
+
+    > [!TIP]
+    > The local cached themes are automatically downloaded by the installer and placed under `~/.cache/oh-my-posh/themes/`.
+    > You can browse alternative local themes in that directory or view them online at [Oh My Posh Themes](https://ohmyposh.dev/docs/themes).
