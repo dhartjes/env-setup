@@ -67,50 +67,50 @@ organization over controlled chaos, documentation, context, caching, reuse, and 
 
 ## Backup and Restore
 
-| Tool | Guide |
-| --- | --- |
-| WSL instance backup/restore | [backup-and-restore/wsl.md](backup-and-restore/wsl.md) |
-| GnuPG backup/restore | [backup-and-restore/gnupg.md](backup-and-restore/gnupg.md) |
-| pass backup/restore | [backup-and-restore/pass-transfer.md](backup-and-restore/pass-transfer.md) |
-| Neovim backup/restore | [backup-and-restore/neovim.md](backup-and-restore/neovim.md) |
+| Tool                            | Guide                                                                            |
+| ------------------------------- | -------------------------------------------------------------------------------- |
+| WSL instance backup/restore     | [backup-and-restore/wsl.md](backup-and-restore/wsl.md)                           |
+| GnuPG backup/restore            | [backup-and-restore/gnupg.md](backup-and-restore/gnupg.md)                       |
+| pass backup/restore             | [backup-and-restore/pass-transfer.md](backup-and-restore/pass-transfer.md)       |
+| Neovim backup/restore           | [backup-and-restore/neovim.md](backup-and-restore/neovim.md)                     |
 | Windows Terminal backup/restore | [backup-and-restore/windows-terminal.md](backup-and-restore/windows-terminal.md) |
 
 ---
 
 ## Optional setup
 
-| Tool | Guide |
-| --- | --- |
-| Python | [wsl/python/python-setup.md](wsl/python/python-setup.md) |
-| Windows settings | [windows/windows-settings.md](windows/windows-settings.md) |
-| Ditto clipboard manager | [windows/ditto/ditto-setup.md](windows/ditto/ditto-setup.md) |
-| Keyboard (Anne Pro 2) | [windows/peripherals/keyboard-setup.md](windows/peripherals/keyboard-setup.md) |
-| Mouse (Magic Trackpad 2) | [windows/peripherals/mouse-setup.md](windows/peripherals/mouse-setup.md) |
-| Microsoft Edge | [windows/edge-setup.md](windows/edge-setup.md) |
-| Default text editor | [windows/text-editor.md](windows/text-editor.md) |
-| Google Antigravity (personal PC) | [google-antigravity.md](google-antigravity.md) |
+| Tool                             | Guide                                                                          |
+| -------------------------------- | ------------------------------------------------------------------------------ |
+| Python                           | [wsl/python/python-setup.md](wsl/python/python-setup.md)                       |
+| Windows settings                 | [windows/windows-settings.md](windows/windows-settings.md)                     |
+| Ditto clipboard manager          | [windows/ditto/ditto-setup.md](windows/ditto/ditto-setup.md)                   |
+| Keyboard (Anne Pro 2)            | [windows/peripherals/keyboard-setup.md](windows/peripherals/keyboard-setup.md) |
+| Mouse (Magic Trackpad 2)         | [windows/peripherals/mouse-setup.md](windows/peripherals/mouse-setup.md)       |
+| Microsoft Edge                   | [windows/edge-setup.md](windows/edge-setup.md)                                 |
+| Default text editor              | [windows/text-editor.md](windows/text-editor.md)                               |
+| Google Antigravity (personal PC) | [google-antigravity.md](google-antigravity.md)                                 |
 
 ## Setup Doctor
 
 This repo contains a `doctor.ps1` and a `doctor.sh` script for checking your completed environment for alignment with these setup instructions.
 
-• Active Tool Alignment: Checks for the existence and activation of mise, node, python, nvim, gh, tree-sitter-cli, and claude. If installed but not managed by mise, it suggests migrating them to mise.
-• Retired Tool Detection: Scans the environment for conflicting or deprecated tools and provides exact commands to remove them. This includes checking for:
-    • bob (Neovim manager)
-    • pyenv (Python manager)
-    • volta & fnm (Node managers)
-    • nvm & asdf
-    • Homebrew (on WSL)
-• Authentication Check: Verifies that your Git global configuration is set to use the modern GitHub CLI (gh) as your
-credential helper.
+- Active Tool Alignment: Checks for the existence and activation of mise, node, python, nvim, gh, tree-sitter-cli, and claude. If installed but not managed by mise, it suggests migrating them to mise.
+- Retired Tool Detection: Scans the environment for conflicting or deprecated tools and provides exact commands to remove them. This includes checking for:
+    - bob (Neovim manager)
+    - pyenv (Python manager)
+    - volta & fnm (Node managers)
+    - nvm & asdf
+    - Homebrew (on WSL)
+- Authentication Check: Verifies that your Git global configuration is set to use the modern GitHub CLI (gh) as your
+  credential helper.
 
 ### Optional Work-Specific Inspection (--work / -Work)
 
 If passed, the scripts inspect requirements specific to your corporate setup:
 
-• Linux/WSL: Checks for the .NET SDK 8.0, Git Credential Manager (GCM), gpg, pass, GNOME Keyring daemon status, and GCM's credential store bindings.
-• Windows: Checks for IIS (Internet Information Services Windows Feature), .NET Framework 4.8 registry presence, Rancher Desktop (or active Docker daemon), SSMS (SQL Server Management Studio), and DBeaver.
-• If the work flag is omitted, all enterprise database, IIS, and GCM/.NET checks are gracefully bypassed.
+- Linux/WSL: Checks for the .NET SDK 8.0, Git Credential Manager (GCM), gpg, pass, GNOME Keyring daemon status, and GCM's credential store bindings.
+- Windows: Checks for IIS (Internet Information Services Windows Feature), .NET Framework 4.8 registry presence, Rancher Desktop (or active Docker daemon), SSMS (SQL Server Management Studio), and DBeaver.
+- If the work flag is omitted, all enterprise database, IIS, and GCM/.NET checks are gracefully bypassed.
 
 ### 💻 How to Run the Scripts
 

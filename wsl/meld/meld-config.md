@@ -16,17 +16,17 @@ Add the following:
 
 ```ini
 [diff]
-        tool = meld
+    tool = meld
 [difftool]
-        prompt = false
+    prompt = false
 [difftool "meld"]
-        cmd = meld "$LOCAL" "$REMOTE"
+    cmd = meld "$LOCAL" "$REMOTE"
 [merge]
-        tool = meld
-        conflictstyle = diff3
+    tool = meld
+    conflictstyle = diff3
 [mergetool "meld"]
-        cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
-        # cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+    # cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
 ```
 
 ## Usage

@@ -60,7 +60,8 @@ Run `:LazyExtras` inside Neovim for an interactive list of available extras.
 |editor.snacks_explorer|Open a directory in nvim or launch nvim with a directory argument|Snacks File Explorer|LazyVim default|https://github.com/folke/snacks.nvim/blob/main/doc/snacks.nvim-explorer.txt|
 |editor.snacks_picker|Anytime a filepicker is shown. space-ff|Fast and modern file picker|LazyVim default|https://github.com/folke/snacks.nvim/blob/main/doc/snacks.nvim-picker.txt|
 |editor.dial|<c-a> to increment <c-x> to decrement|Add or minus one to the number/word under cursor|Testing|https://www.lazyvim.org/extras/editor/dial|
-|
+|jghauser/follow-md-links.nvim|<cr> to follow link, <bs> to go back|Follow markdown links (local files & URLs)|Active|https://github.com/jghauser/follow-md-links.nvim|
+|formatting.prettier|<leader>cf or format on save|Prettier formatter for Markdown, JSON, YAML (configured for 4 spaces)|Active|https://www.lazyvim.org/extras/formatting/prettier|
 
 <-- Prev: [Nvim Installation](nvim-install.md)
 --> Next: [mise / Node.js](../mise-install.md)
