@@ -33,7 +33,7 @@ Choose these options during setup:
 
 1. **What account do you want to log into?** `GitHub.com`
 2. **What is your preferred protocol for Git operations?** `HTTPS`
-3. **How would you like to authenticate GitHub CLI?** `Login with a web browser` (this will automatically launch your default browser on Windows via `wslview` to complete the secure OAuth handshake).
+3. **How would you like to authenticate GitHub CLI?** `Login with a web browser` (this will provide a one-time code and launch your default browser or display a URL to open in Windows).
 
 ### 3. Register `gh` as your Git Credential Helper
 
@@ -86,54 +86,18 @@ git ls-remote https://github.com/dhartjes/env-setup.git
     cat << \EOF >> ~/.bashrc
     # Add .NET Core SDK tools
     export PATH="$PATH:$HOME/.dotnet/tools"
-
-    # Required for GPG passphrase prompting
-    export GPG_TTY=$(tty)
-
-    # Required for browser-based auth prompts in WSL2
-    export BROWSER=wslview
     EOF
     source ~/.bashrc
     ```
 
-3. Install keyring and pass dependency packages:
+3. Bind GCM to Git:
 
-    ```bash
-    sudo apt update && sudo apt upgrade && sudo apt install -y gpg pass pinentry-curses libsecret-1-0 libsecret-tools gnome-keyring wslu
-    ```
-
-4. Create and initialize your GPG key:
-
-    ```bash
-    # Choose no passphrase when prompted
-    gpg --gen-key
-
-    # Note the generated fingerprint shown under the "pub" line, e.g., E54EFA45...
-    # Initialize pass with your fingerprint:
-    pass init <your-gpg-key-fingerprint>
-    ```
-
-5. Configure pinentry-curses for GPG prompting:
-
-    ```bash
-    echo "pinentry-program /usr/bin/pinentry-curses" >> ~/.gnupg/gpg-agent.conf
-    gpg-connect-agent reloadagent /bye
-    ```
-
-6. Enable gnome-keyring-daemon via systemd to persist tokens securely:
-
-    ```bash
-    systemctl --user enable gnome-keyring-daemon.service
-    systemctl --user start gnome-keyring-daemon.service
-    ```
-
-    _Note: If prompted to enter a password for the new keyring, leave it blank so it unlocks automatically on non-interactive Git commands._
-
-7. Bind GCM to Git:
     ```bash
     git-credential-manager configure
-    git config --global credential.credentialstore gpg
     ```
+
+    > [!NOTE]
+    > Earlier versions of this guide configured GCM with a local GnuPG/pass password store (`credentialstore = gpg`), which required `pass`, `gnome-keyring`, `GPG_TTY`, and `wslu` (`wslview`). These dependencies are unmaintained or unnecessary for modern workflows; `git-credential-manager configure` registers GCM directly.
 
 ### Sources
 

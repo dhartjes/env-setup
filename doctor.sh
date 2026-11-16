@@ -245,26 +245,8 @@ if [ -f "$BASHRC" ]; then
     (( ERRORS++ )) || true
   fi
 
-  # Check wslview / BROWSER integration (extremely important for browser authentication on WSL)
-  if grep -q "export BROWSER=wslview" "$BASHRC" || grep -q "export BROWSER=\"wslview\"" "$BASHRC"; then
-    echo -e "  [${GREEN}✅ OK${NC}] BROWSER=wslview is declared in ~/.bashrc"
-  else
-    echo -e "  [${YELLOW}⚠️ WARN${NC}] BROWSER=wslview is missing from ~/.bashrc (authenticating via gh/GCM might fail to open your Windows browser)"
-    echo -e "           -> Recommendation: Run 'echo '\''export BROWSER=wslview'\'' >> ~/.bashrc'"
-    (( WARNINGS++ )) || true
-  fi
-
   # GCM & Work specific bashrc variables
   if [ "$WORK_MODE" = true ]; then
-    # GPG_TTY export for sign-ins
-    if grep -q "export GPG_TTY=" "$BASHRC" || grep -q "GPG_TTY=\$(tty)" "$BASHRC"; then
-      echo -e "  [${GREEN}✅ OK${NC}] export GPG_TTY=\$(tty) found in ~/.bashrc"
-    else
-      echo -e "  [${YELLOW}⚠️ WARN${NC}] GPG_TTY is not exported. GPG passphrase prompts might fail in this shell."
-      echo -e "           -> Recommendation: Run 'echo '\''export GPG_TTY=\$(tty)'\'' >> ~/.bashrc'"
-      (( WARNINGS++ )) || true
-    fi
-
     # Dotnet tools in PATH
     if grep -q "\.dotnet/tools" "$BASHRC" || [[ "$PATH" == *".dotnet/tools"* ]]; then
       echo -e "  [${GREEN}✅ OK${NC}] .dotnet/tools path configuration found"
@@ -290,6 +272,7 @@ check_retired_tool "Volta (Node Manager)" "volta" "Remove Volta: run 'rm -rf ~/.
 check_retired_tool "NVM (Node Version Manager)" "$HOME/.nvm" "Remove NVM: run 'rm -rf ~/.nvm' and remove NVM lines from ~/.bashrc"
 check_retired_tool "ASDF Version Manager" "$HOME/.asdf" "Remove ASDF: run 'rm -rf ~/.asdf' and remove ASDF lines from ~/.bashrc"
 check_retired_tool "Homebrew (WSL)" "brew" "Remove Homebrew if not needed for work/home: run '/bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)\"'"
+check_retired_tool "wslview / wslu (WSL Utilities)" "wslview" "wslu is unmaintained and deprecated on recent Ubuntu releases: run 'sudo apt purge wslu' and remove 'export BROWSER=wslview' from ~/.bashrc"
 
 # Check SSH Keys (deprecated/removed in favor of gh CLI and HTTPS)
 SSH_KEYS=$(find "$HOME/.ssh" -type f \( -name "id_rsa" -o -name "id_ed25519" -o -name "id_git-*" \) 2>/dev/null || true)
@@ -336,28 +319,6 @@ if [ "$WORK_MODE" = true ]; then
     echo -e "  [${RED}❌ MISSING${NC}] Git Credential Manager (GCM)"
     echo -e "             -> Run: dotnet tool install -g git-credential-manager"
     (( ERRORS++ )) || true
-  fi
-
-  # Check GPG, Pass, GNOME Keyring
-  check_required_tool "GnuPG (GPG)" "gpg" "sudo apt install gpg"
-  check_required_tool "Pass (Password Store)" "pass" "sudo apt install pass"
-  
-  # Check if gnome-keyring systemd daemon is active
-  if systemctl --user is-active gnome-keyring-daemon.service >/dev/null 2>&1; then
-    echo -e "  [${GREEN}✅ OK${NC}] GNOME Keyring systemd daemon is active"
-  else
-    echo -e "  [${YELLOW}⚠️ WARN${NC}] GNOME Keyring systemd daemon is NOT active!"
-    echo -e "           -> Run: systemctl --user enable gnome-keyring-daemon.service && systemctl --user start gnome-keyring-daemon.service"
-    (( WARNINGS++ )) || true
-  fi
-
-  # Check credential helper store configuration
-  if git config --global credential.credentialstore | grep -q "gpg" >/dev/null 2>&1; then
-    echo -e "  [${GREEN}✅ OK${NC}] GCM credential store set to 'gpg'"
-  else
-    echo -e "  [${YELLOW}⚠️ WARN${NC}] Git credential.credentialstore is NOT set to 'gpg'"
-    echo -e "           -> Run: git config --global credential.credentialstore gpg"
-    (( WARNINGS++ )) || true
   fi
 else
   # If not work mode, output a passive status

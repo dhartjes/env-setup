@@ -17,3 +17,11 @@ Added a `README.md` setup-sequence entry for `windows/pandoc-install.md` and two
 ## 2026-10-14 — Pandoc and Tectonic (WSL)
 
 Added a `README.md` entry for `wsl/pandoc-install.md` and two new `doctor.sh` `check_required_tool` checks, one for `pandoc` and one for `tectonic`, both managed by mise.
+
+## 2026-11-16 — `doctor.sh`: retire wslview, decouple GPG_TTY, and remove pass/gnome-keyring checks
+
+In `doctor.sh`:
+- Added `wslview` to the retired tools check (`check_retired_tool`) since `wslu` is unmaintained/deprecated on recent Ubuntu releases.
+- Removed the `BROWSER=wslview` requirement and warning from the `~/.bashrc` check.
+- Removed the `GPG_TTY` export check from the work `~/.bashrc` check.
+- Removed the `pass`, `gnome-keyring-daemon.service`, and `credential.credentialstore gpg` checks from the `--work` validation block.

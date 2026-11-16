@@ -16,3 +16,8 @@ Root `README.md` and `CLAUDE.md` were updated for the `wsl/mise-install.md` → 
 ## 2026-10-14 — `pandoc-install.md` added (Pandoc + Tectonic via mise)
 
 New `wsl/pandoc-install.md`. When VS Code is connected through Remote - WSL, the vscode-pandoc extension runs inside WSL (the extension doesn't declare an `extensionKind`), so the Windows Pandoc/MiKTeX install isn't used there. Pandoc comes from mise's registry. Tectonic comes through mise's `github:` backend because the registry doesn't list it. It was picked over TeX Live from `apt` because it's a single binary that fetches LaTeX packages on demand, much like MiKTeX's auto-install. The doc points the extension at Tectonic through a WSL remote setting (`pandoc.pdfOptString`) so Windows-side rendering stays on `pdflatex`. Tested 2026-10-14 with pandoc 3.12.1 and tectonic 0.17.0. In the sequence, it sits between `windows/pandoc-install.md` and `windows/vscode/vscode-extensions.md`.
+
+## 2026-11-16 — Deprecated wslview, pass, gnome-keyring, and GPG_TTY in Git auth and Claude Code setup
+
+- `wsl/git/git-auth.md`: Removed `wslu`/`wslview`, `pass`, `gnome-keyring`, and `GPG_TTY` dependencies from Option B (GCM). Modern setups configure GCM directly via `git-credential-manager configure`. Updated GitHub CLI OAuth description to mention browser or URL device-code prompts instead of `wslview`.
+- `wsl/claude-install.md`: Removed `wslview` as a prerequisite; Claude Code displays URL and browser prompts natively. Fixed broken link pointing to `mise/mise-install.md`.
