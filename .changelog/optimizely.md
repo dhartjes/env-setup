@@ -174,3 +174,7 @@ The "env-setup note" callouts added to the reference copy earlier the same day w
 ## 2026-11-06 — `local-edits.md`: `setup-hooks` row removed
 
 The repo's git hooks (`.githooks/`, enabled by the `setup-hooks` mise task, which blocked committing/pushing base-code changes to `sandbox`) were removed entirely after causing recurring problems. Confirmed no hooks remain: `core.hooksPath` is unset and `.git/hooks/` holds only Git's `.sample` files. The task's row was dropped from the `mise.toml` reference table; the `setup-hooks` task itself was deleted from the client repo's `mise.toml`.
+
+## 2026-11-09 — `db:down` renamed `db-down`
+
+The drop-database mise task was committed in the client repo as `db-down` (matching its other hyphenated task names), not the `db:down` used in the entries above. `local-edits.md` and `database/ssms-setup.md` now use `db-down`; the earlier entries are left as written.

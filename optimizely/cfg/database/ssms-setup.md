@@ -44,11 +44,15 @@ SqlPackage /a:Import /tsn:"localhost" /tdn:"<clientUrl>.local.com" /tu:"sa" /tp:
 
 ### Or use `mise run db`
 
-From the repo root, `mise run db` does the same import without the manual typing: it starts the dev containers, reads the server, database name and credentials from `connectionStrings.config`, and imports the newest `.bacpac` in `database/bak/`. Pass a database name to switch the target first (`mise run db -- <clientUrl>.trn.com`), and/or a path to pick a specific file. If the import fails on the master key error described in [Troubleshooting](ssms-setup-troubleshooting.md), it patches a copy of the bacpac and retries on its own. The import fails if the database already exists — run `mise run db:down` first. See [Local Edits](../local-edits.md) for the full task reference.
+From the repo root, `mise run db` does the same import without the manual typing: it starts the dev containers, reads the server, database name and credentials from `connectionStrings.config`, and imports the newest `.bacpac` in `database/bak/`. Pass a database name to switch the target first (`mise run db -- <clientUrl>.trn.com`), and/or a path to pick a specific file. If the import fails on the master key error described in [Troubleshooting](ssms-setup-troubleshooting.md), it patches a copy of the bacpac and retries on its own. The import fails if the database already exists — run `mise run db-down` first. See [Local Edits](../local-edits.md) for the full task reference.
 
 ## Update the Website table DomainName field
 
-After restoring the database from a live environment, it most likely needs an update to the main website in the Website table to align the DomainName field with the url being used in the local environment.
+After restoring the database from a live environment, it needs an update to the main website in the Website table to align the DomainName field with the url being used in the local environment. Without it, `http://<clientUrl>.local.com:8080/admin` fails with `WebSite for Domain <clientUrl>.local.com was not found`.
+
+> **Using `mise run db`?** It does this for you after a successful import. It puts the database name from `connectionStrings.config` first in the main website's `DomainName` (the environment's own domains stay after it), and it's safe to re-run. To repeat it on its own, for example after a manual import: `pwsh tools/setWebsiteDomain.ps1`. It fails, changing nothing, if there isn't exactly one top-level website named `main`.
+
+By hand:
 
 ```sql
 UPDATE WebSite
