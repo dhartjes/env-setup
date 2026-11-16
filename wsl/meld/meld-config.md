@@ -29,6 +29,20 @@ Add the following:
     # cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
 ```
 
+## Editor Preferences (GSettings)
+
+> [!TIP]
+> If you have cloned [ubuntu-config](../git/git-clone-repos.md) and run `./setup.sh`, these editor preferences are automatically applied.
+
+Meld stores its GUI editing preferences in GNOME's GSettings database (`~/.config/dconf/user`). You can configure Meld to use 4-space indentation, insert spaces instead of tabs, show line numbers, and disable line wrapping:
+
+```bash
+gsettings set org.gnome.meld indent-width 4
+gsettings set org.gnome.meld insert-spaces-instead-of-tabs true
+gsettings set org.gnome.meld show-line-numbers true
+gsettings set org.gnome.meld wrap-mode 'none'
+```
+
 ## Usage
 
 ```bash
